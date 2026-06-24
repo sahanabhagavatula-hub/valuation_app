@@ -12,20 +12,11 @@ html, body, [class*="css"] {
 .stApp {
     background-color: #16140f;
     color: #ffffff;
-    position: relative;
 }
 
 /* Full-page faint background image, sits behind all content. Used on pages
-   that want the arrow-chart motif visible behind everything below the hero.
-   Fixed positioning + 0 size on the trigger div means it doesn't take up
-   layout space, but the ::after pseudo-element still paints across the
-   whole viewport. */
+   that want the arrow-chart motif visible behind everything below the hero. */
 .valufin-page-bg {
-    position: relative;
-    height: 0;
-}
-.valufin-page-bg::after {
-    content: "";
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
     background-image: url('data:image/png;base64,__ARROW_IMAGE_B64__');
@@ -33,7 +24,7 @@ html, body, [class*="css"] {
     background-repeat: no-repeat;
     background-position: center 60%;
     opacity: 0.05;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
 }
 
@@ -43,8 +34,6 @@ html, body, [class*="css"] {
     max-width: 900px;
     margin: 0 auto;
     padding-top: 2rem;
-    position: relative;
-    z-index: 1;
 }
 
 .valufin-topbar {
