@@ -35,54 +35,54 @@ CARDS = [
     {
         "icon": "chart-bar",
         "term": "Revenue",
-        "definition": "Total sales before anything is subtracted &mdash; the top line of the income statement.",
-        "example": "100 cups at $2 each = $200 in revenue.",
+        "definition": "The total amount of money a company brought in from selling its products or services, before subtracting any costs at all. It's the very first line of the income statement, which is why it's often called the \"top line.\" Every other profit metric &mdash; EBITDA, net income, and so on &mdash; is just revenue with progressively more costs subtracted from it.",
+        "example": "A lemonade stand selling 100 cups at $2 each has $200 in revenue, even before paying for lemons, sugar, or cups.",
     },
     {
         "icon": "percentage",
         "term": "EBITDA margin",
-        "definition": "EBITDA divided by revenue &mdash; operating profit per dollar of sales.",
-        "example": "$1B revenue, $300M EBITDA &rarr; 30% margin.",
+        "definition": "EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) divided by revenue. It tells you what percentage of every dollar of sales the company keeps as core operating profit, before financing decisions (debt) or accounting treatments get involved. A higher margin generally means a more efficient, more profitable core business.",
+        "example": "A company with $1B in revenue and $300M in EBITDA has a 30% EBITDA margin &mdash; meaning 30 cents of every revenue dollar becomes operating profit.",
     },
     {
         "icon": "trending-up",
         "term": "Net income",
-        "definition": "True bottom-line profit after interest, taxes, and all expenses.",
-        "example": "What's left for shareholders &mdash; the \"earnings\" in P/E.",
+        "definition": "The company's true bottom-line profit, after every expense has been subtracted: cost of goods, operating costs, interest paid on debt, and taxes owed. This is what's actually left over for shareholders, and it's the \"earnings\" referenced in metrics like the P/E ratio.",
+        "example": "A company can have strong revenue and EBITDA but still post negative net income if it carries heavy debt or paid a one-time tax charge that year.",
     },
     {
         "icon": "cash",
         "term": "Free cash flow",
-        "definition": "Real spendable cash left after running and growing the business.",
-        "example": "High profit plus heavy equipment spending can still mean low FCF.",
+        "definition": "The real, spendable cash a business generates after running its operations and paying for the equipment or infrastructure it needs to keep growing. Unlike net income, FCF strips out non-cash accounting items, which makes it a more literal measure of cash that could actually be paid out to investors.",
+        "example": "A company can report strong net income on paper but have weak free cash flow if it's spending heavily on new factories or equipment that year.",
     },
     {
         "icon": "chart-line",
         "term": "DCF",
-        "definition": "Values a company as its future cash flow, discounted back to today's dollars.",
-        "example": "$100 received next year is worth less than $100 today.",
+        "definition": "Short for Discounted Cash Flow. A DCF values a company by forecasting its free cash flow for the next several years (usually 5), estimating everything beyond that as a \"terminal value,\" and then discounting all of it back to today's dollars using a discount rate. Add it all up, and that's the company's estimated value today.",
+        "example": "$100 of cash flow expected next year is worth less than $100 in your hand today, because money has time value and the future is uncertain &mdash; discounting accounts for both.",
     },
     {
         "icon": "percentage-50",
         "term": "WACC",
-        "definition": "The discount rate &mdash; the return investors require given the company's risk.",
-        "example": "A stable company might use ~8%; a risky one might use ~15%.",
+        "definition": "Weighted Average Cost of Capital &mdash; the discount rate used in a DCF. It represents the blended return that a company's debt holders and shareholders require for the risk of investing in that specific business. Riskier or more volatile companies need a higher WACC, which shrinks future cash flow more heavily and lowers the resulting valuation.",
+        "example": "A large, stable company like a utility might use a WACC around 7-8%, while an early-stage tech startup might warrant 12-15% or more.",
     },
     {
         "icon": "scale",
         "term": "Comps",
-        "definition": "Valuing a company using the pricing multiples of similar public companies.",
-        "example": "Peers trade at 20x earnings &rarr; apply 20x to your company's earnings.",
+        "definition": "Short for comparable company analysis. Instead of forecasting anything, comps value a company by looking at what similar, publicly traded companies currently trade for, expressed as a multiple (like price-to-earnings or EV/EBITDA), and applying that same multiple to the company being valued.",
+        "example": "If comparable companies trade at 20 times earnings, and your company earns $5 per share, comps would suggest a price around $100 per share.",
     },
     {
         "icon": "arrows-exchange",
         "term": "Enterprise vs equity value",
-        "definition": "Equity value = enterprise value minus debt, plus cash.",
-        "example": "Buying a company means paying off its debt but keeping its cash.",
+        "definition": "Enterprise value is the value of the entire business and its operations, regardless of how it's financed. Equity value is specifically what's left for shareholders after debt is accounted for. The bridge: equity value equals enterprise value, minus total debt, plus cash on hand.",
+        "example": "If you bought a whole company, you'd have to pay off its debt (subtract it) but you'd immediately get to keep its cash (add it back) &mdash; that's exactly how the math works.",
     },
 ]
 
-flashcard_grid(CARDS, height=420)
+flashcard_grid(CARDS, height=620)
 
 # ---------------------------------------------------------------------------
 # Arrow chart divider image
@@ -104,11 +104,16 @@ except FileNotFoundError:
     st.markdown("<div style='height: 24px'></div>", unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
-# DCF flow diagram (SVG)
+# DCF flow diagram (SVG) — rendered via components.html, since st.markdown
+# unreliably renders raw <svg> tags (it can print them as literal text
+# instead of drawing the graphic)
 # ---------------------------------------------------------------------------
+import streamlit.components.v1 as components
+
 st.markdown('<p class="valufin-section-label">How a DCF works, visually</p>', unsafe_allow_html=True)
 
-dcf_diagram_svg = """
+dcf_diagram_html = """
+<div style="background: transparent; padding: 0;">
 <svg viewBox="0 0 800 180" style="width:100%; max-width:800px; display:block; margin: 0 auto;">
     <text x="0" y="20" fill="#8e8675" font-size="11" font-family="Urbanist, sans-serif">Year 1</text>
     <text x="120" y="20" fill="#8e8675" font-size="11" font-family="Urbanist, sans-serif">Year 2</text>
@@ -142,8 +147,9 @@ dcf_diagram_svg = """
     <text x="400" y="155" fill="#ffffff" font-size="13" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600">Company value today</text>
     <text x="400" y="172" fill="#8e8675" font-size="10.5" text-anchor="middle" font-family="Urbanist, sans-serif">Discounted and added together</text>
 </svg>
+</div>
 """
-st.markdown(dcf_diagram_svg, unsafe_allow_html=True)
+components.html(dcf_diagram_html, height=200, scrolling=False)
 
 st.caption(
     "Each year's free cash flow (FCF), plus the terminal value representing everything "

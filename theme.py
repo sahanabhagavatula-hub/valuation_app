@@ -523,11 +523,11 @@ def flashcard_grid(cards, height=480):
         }}
         .card-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 16px;
             padding: 4px;
         }}
-        .flip-card {{ perspective: 1000px; height: 190px; cursor: pointer; }}
+        .flip-card {{ perspective: 1000px; height: 280px; cursor: pointer; }}
         .flip-card-inner {{
             position: relative; width: 100%; height: 100%;
             transition: transform 0.5s; transform-style: preserve-3d;
@@ -538,28 +538,28 @@ def flashcard_grid(cards, height=480):
             backface-visibility: hidden;
             border-radius: 14px;
             display: flex; flex-direction: column;
-            padding: 16px; text-align: left;
+            padding: 18px; text-align: left;
         }}
         .flip-front {{
             background: #1f1b15; border: 1px solid #322c23;
             align-items: center; justify-content: center; text-align: center;
         }}
         .flip-front .icon {{
-            width: 42px; height: 42px; background: rgba(61,107,102,0.2); color: #6b9b94;
+            width: 46px; height: 46px; background: rgba(61,107,102,0.2); color: #6b9b94;
             border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            font-size: 20px; margin-bottom: 10px;
+            font-size: 22px; margin-bottom: 12px;
         }}
-        .flip-front .term {{ font-size: 15px; font-weight: 600; color: #ffffff; margin: 0; }}
-        .flip-front .tap-hint {{ font-size: 10.5px; color: #6b9b94; margin-top: 8px; }}
+        .flip-front .term {{ font-size: 16px; font-weight: 600; color: #ffffff; margin: 0; }}
+        .flip-front .tap-hint {{ font-size: 11px; color: #6b9b94; margin-top: 10px; }}
         .flip-back {{
             background: #243a36; border: 1px solid #3d6b66;
             transform: rotateY(180deg);
             overflow-y: auto; justify-content: flex-start;
         }}
-        .flip-back .def-label {{ font-size: 9.5px; color: #8fc4bf; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 5px; }}
-        .flip-back .def-text {{ font-size: 11.5px; color: #d6e6e3; line-height: 1.45; font-weight: 300; margin: 0 0 8px; }}
-        .flip-back .ex-label {{ font-size: 9.5px; color: #c9a875; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 4px; }}
-        .flip-back .ex-text {{ font-size: 11px; color: #b8a888; line-height: 1.45; font-weight: 300; font-style: italic; margin: 0; }}
+        .flip-back .def-label {{ font-size: 10px; color: #8fc4bf; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 6px; }}
+        .flip-back .def-text {{ font-size: 12.5px; color: #d6e6e3; line-height: 1.55; font-weight: 300; margin: 0 0 12px; }}
+        .flip-back .ex-label {{ font-size: 10px; color: #c9a875; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 5px; }}
+        .flip-back .ex-text {{ font-size: 12px; color: #b8a888; line-height: 1.55; font-weight: 300; font-style: italic; margin: 0; }}
     </style>
     <div class="card-grid">
         {card_html}
