@@ -226,6 +226,7 @@ hr { border-color: #322c23 !important; }
     max-width: 540px;
     margin: 0 auto;
 }
+.valufin-hero-content h1,
 .valufin-hero h1 {
     font-size: 42px !important;
     font-weight: 700 !important;
@@ -317,14 +318,14 @@ hr { border-color: #322c23 !important; }
 }
 .valufin-subhero-bg-trading {
     position: absolute;
-    top: 0; right: 0; width: 55%; height: 100%;
+    top: 0; right: 0; width: 60%; height: 100%;
     background-image: url('data:image/png;base64,__TRADING_IMAGE_B64__');
     background-size: cover;
     background-position: center;
-    filter: grayscale(40%) contrast(1.05);
-    opacity: 0.22;
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
-    mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
+    filter: grayscale(0%) contrast(1.15) brightness(1.1);
+    opacity: 0.5;
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0) 100%);
     z-index: 0;
 }
 .valufin-subhero-fade {
@@ -337,6 +338,7 @@ hr { border-color: #322c23 !important; }
     position: relative;
     z-index: 2;
 }
+.valufin-subhero-content h1,
 .valufin-subhero h1 {
     font-size: 34px !important;
     font-weight: 700 !important;
