@@ -301,6 +301,18 @@ hr { border-color: #322c23 !important; }
     mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 100%);
     z-index: 0;
 }
+.valufin-subhero-bg-trading {
+    position: absolute;
+    top: 0; right: 0; width: 55%; height: 100%;
+    background-image: url('data:image/png;base64,__TRADING_IMAGE_B64__');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(40%) contrast(1.05);
+    opacity: 0.22;
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
+    z-index: 0;
+}
 .valufin-subhero-fade {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -388,6 +400,7 @@ def inject_theme(st):
     for placeholder, filename in [
         ("__HERO_IMAGE_B64__", "hero_skyscrapers.png"),
         ("__TICKER_IMAGE_B64__", "ticker_board.png"),
+        ("__TRADING_IMAGE_B64__", "trading_screen.png"),
     ]:
         img_path = os.path.join(base_dir, "assets", filename)
         try:
@@ -412,12 +425,14 @@ def topbar(st):
     )
 
 
-def subhero(st, title, subtitle):
-    """The ticker-board-backed mini hero used on the tool and basics pages."""
+def subhero(st, title, subtitle, background="ticker"):
+    """The photo-backed mini hero used on the tool and basics pages.
+    background: 'ticker' (ticker board photo) or 'trading' (trading screen photo)."""
+    bg_class = "valufin-subhero-bg-trading" if background == "trading" else "valufin-subhero-bg"
     st.markdown(
         f"""
         <div class="valufin-subhero">
-            <div class="valufin-subhero-bg"></div>
+            <div class="{bg_class}"></div>
             <div class="valufin-subhero-fade"></div>
             <div class="valufin-subhero-content">
                 <h1>{title}</h1>
@@ -464,3 +479,97 @@ def icon_field_card(st, icon, label, value, bar_pct=None, bar_color="#3d6b66", b
         """,
         unsafe_allow_html=True,
     )
+
+
+def flashcard_grid(cards, height=480):
+    """
+    Renders an interactive grid of flip cards as an embedded HTML component.
+    Needs a real component (not st.markdown) because the click-to-flip
+    animation requires JS that Streamlit's markdown sandbox won't run.
+
+    cards: list of dicts, each with keys: icon, term, definition, example
+    """
+    import streamlit.components.v1 as components
+
+    card_html = ""
+    for c in cards:
+        card_html += f"""
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-face flip-front">
+                    <div class="icon"><i class="ti ti-{c['icon']}"></i></div>
+                    <p class="term">{c['term']}</p>
+                    <p class="tap-hint">Tap to flip</p>
+                </div>
+                <div class="flip-face flip-back">
+                    <p class="def-label">Definition</p>
+                    <p class="def-text">{c['definition']}</p>
+                    <p class="ex-label">Example</p>
+                    <p class="ex-text">{c['example']}</p>
+                </div>
+            </div>
+        </div>
+        """
+
+    full_html = f"""
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
+    <style>
+        * {{ box-sizing: border-box; }}
+        body {{
+            font-family: 'Urbanist', -apple-system, sans-serif;
+            margin: 0;
+            background: transparent;
+        }}
+        .card-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            padding: 4px;
+        }}
+        .flip-card {{ perspective: 1000px; height: 190px; cursor: pointer; }}
+        .flip-card-inner {{
+            position: relative; width: 100%; height: 100%;
+            transition: transform 0.5s; transform-style: preserve-3d;
+        }}
+        .flip-card.flipped .flip-card-inner {{ transform: rotateY(180deg); }}
+        .flip-face {{
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden;
+            border-radius: 14px;
+            display: flex; flex-direction: column;
+            padding: 16px; text-align: left;
+        }}
+        .flip-front {{
+            background: #1f1b15; border: 1px solid #322c23;
+            align-items: center; justify-content: center; text-align: center;
+        }}
+        .flip-front .icon {{
+            width: 42px; height: 42px; background: rgba(61,107,102,0.2); color: #6b9b94;
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            font-size: 20px; margin-bottom: 10px;
+        }}
+        .flip-front .term {{ font-size: 15px; font-weight: 600; color: #ffffff; margin: 0; }}
+        .flip-front .tap-hint {{ font-size: 10.5px; color: #6b9b94; margin-top: 8px; }}
+        .flip-back {{
+            background: #243a36; border: 1px solid #3d6b66;
+            transform: rotateY(180deg);
+            overflow-y: auto; justify-content: flex-start;
+        }}
+        .flip-back .def-label {{ font-size: 9.5px; color: #8fc4bf; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 5px; }}
+        .flip-back .def-text {{ font-size: 11.5px; color: #d6e6e3; line-height: 1.45; font-weight: 300; margin: 0 0 8px; }}
+        .flip-back .ex-label {{ font-size: 9.5px; color: #c9a875; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 4px; }}
+        .flip-back .ex-text {{ font-size: 11px; color: #b8a888; line-height: 1.45; font-weight: 300; font-style: italic; margin: 0; }}
+    </style>
+    <div class="card-grid">
+        {card_html}
+    </div>
+    <script>
+        document.querySelectorAll('.flip-card').forEach(function(card) {{
+            card.addEventListener('click', function() {{
+                card.classList.toggle('flipped');
+            }});
+        }});
+    </script>
+    """
+    components.html(full_html, height=height, scrolling=False)
