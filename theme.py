@@ -12,6 +12,29 @@ html, body, [class*="css"] {
 .stApp {
     background-color: #16140f;
     color: #ffffff;
+    position: relative;
+}
+
+/* Full-page faint background image, sits behind all content. Used on pages
+   that want the arrow-chart motif visible behind everything below the hero.
+   Fixed positioning + 0 size on the trigger div means it doesn't take up
+   layout space, but the ::after pseudo-element still paints across the
+   whole viewport. */
+.valufin-page-bg {
+    position: relative;
+    height: 0;
+}
+.valufin-page-bg::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url('data:image/png;base64,__ARROW_IMAGE_B64__');
+    background-size: 700px 700px;
+    background-repeat: no-repeat;
+    background-position: center 60%;
+    opacity: 0.05;
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* Wide layout still gets a max-width content column so lines of text and
@@ -20,6 +43,8 @@ html, body, [class*="css"] {
     max-width: 900px;
     margin: 0 auto;
     padding-top: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .valufin-topbar {
@@ -401,6 +426,7 @@ def inject_theme(st):
         ("__HERO_IMAGE_B64__", "hero_skyscrapers.png"),
         ("__TICKER_IMAGE_B64__", "ticker_board.png"),
         ("__TRADING_IMAGE_B64__", "trading_screen.png"),
+        ("__ARROW_IMAGE_B64__", "arrow_chart.png"),
     ]:
         img_path = os.path.join(base_dir, "assets", filename)
         try:
@@ -421,6 +447,15 @@ def topbar(st):
             <div class="valufin-logo-text">VALUFIN</div>
         </div>
         """,
+        unsafe_allow_html=True,
+    )
+
+
+def enable_arrow_background(st):
+    """Turns on a faint, fixed arrow-chart watermark behind the whole page,
+    from wherever this is called down to the bottom of the page."""
+    st.markdown(
+        '<div class="valufin-page-bg"></div>',
         unsafe_allow_html=True,
     )
 

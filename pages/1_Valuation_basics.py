@@ -7,10 +7,9 @@ tool. Tap any card to flip it and see the definition and a real example.
 import streamlit as st
 import sys
 import os
-import base64
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from theme import inject_theme, topbar, subhero, flashcard_grid
+from theme import inject_theme, topbar, subhero, flashcard_grid, enable_arrow_background
 
 st.set_page_config(page_title="Valuation basics — ValuFin", page_icon="📊", layout="wide")
 inject_theme(st)
@@ -27,6 +26,10 @@ if st.button("←  Back to the valuation tool", use_container_width=True):
     st.switch_page("pages/2_Valuation_tool.py")
 
 st.markdown("---")
+
+# Faint arrow-chart watermark, fixed in place, visible behind everything
+# from this point down to the bottom of the page.
+enable_arrow_background(st)
 
 # ---------------------------------------------------------------------------
 # Flashcard grid — 8 core concepts
@@ -84,24 +87,7 @@ CARDS = [
 
 flashcard_grid(CARDS, height=620)
 
-# ---------------------------------------------------------------------------
-# Arrow chart divider image
-# ---------------------------------------------------------------------------
-_assets_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets")
-_arrow_path = os.path.join(_assets_dir, "arrow_chart.png")
-try:
-    with open(_arrow_path, "rb") as f:
-        _arrow_b64 = base64.b64encode(f.read()).decode("utf-8")
-    st.markdown(
-        f"""
-        <div style="display:flex; justify-content:center; margin: 24px 0;">
-            <img src="data:image/png;base64,{_arrow_b64}" style="width:60px; height:60px; opacity:0.7;" />
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-except FileNotFoundError:
-    st.markdown("<div style='height: 24px'></div>", unsafe_allow_html=True)
+st.markdown("<div style='height: 16px'></div>", unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
 # DCF flow diagram (SVG) — rendered via components.html, since st.markdown
