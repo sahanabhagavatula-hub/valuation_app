@@ -9,21 +9,20 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from theme import inject_theme, topbar
+from theme import inject_theme, topbar, subhero
 
-st.set_page_config(page_title="Valuation basics — ValuFin", page_icon="📊", layout="centered")
+st.set_page_config(page_title="Valuation basics — ValuFin", page_icon="📊", layout="wide")
 inject_theme(st)
 topbar(st)
-
-st.markdown('<span class="valufin-eyebrow">Start here</span>', unsafe_allow_html=True)
-st.title("Valuation basics.")
-st.caption(
+subhero(
+    st,
+    "Valuation basics.",
     "Everything used in the valuation tool, explained from scratch. No prior finance "
-    "knowledge assumed — read top to bottom, or jump to whatever you need."
+    "knowledge assumed — read top to bottom, or jump to whatever you need.",
 )
 
 if st.button("←  Back to the valuation tool", use_container_width=True):
-    st.switch_page("app.py")
+    st.switch_page("pages/2_Valuation_tool.py")
 
 st.markdown("---")
 
@@ -232,4 +231,4 @@ st.markdown(
 
 st.markdown("---")
 if st.button("←  Back to the valuation tool", use_container_width=True, key="back_button_bottom"):
-    st.switch_page("app.py")
+    st.switch_page("pages/2_Valuation_tool.py")
