@@ -321,21 +321,72 @@ ni_bar_pct = 60 if net_income_val >= 0 else 15
 c1, c2 = st.columns(2)
 with c1:
     icon_field_card(st, "currency-dollar", "Revenue, latest FY ($M)", f"${data.get('revenue', 0):,.0f}")
+    with st.expander("Why this matters for the valuation"):
+        st.caption(
+            "Revenue is the starting point for the whole DCF (Discounted Cash Flow) "
+            "calculation. The model takes this number and grows it a little bigger each year "
+            "for 5 years, using your growth assumption — then uses that to estimate how much "
+            "cash the company will make. Revenue is also used in one of the comps (comparable "
+            "companies) calculations, especially useful when a company doesn't have positive "
+            "earnings yet."
+        )
+
     icon_field_card(
         st, "percentage", "EBITDA margin (%)", f"{ebitda_margin_val:.1f}%",
         bar_pct=margin_pct_of_typical, bar_color=margin_color,
         bar_caption=margin_caption, bar_caption_color=margin_caption_color,
     )
+    with st.expander("Why this matters for the valuation"):
+        st.caption(
+            "EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) margin "
+            "tells the model how much of each revenue dollar turns into profit. A higher "
+            "margin means the company is better at turning sales into cash, which makes both "
+            "the DCF value and the comps value go up. This single number has a big effect on "
+            "the final price estimate."
+        )
+
     icon_field_card(
         st, "trending-up" if net_income_val >= 0 else "trending-down",
         "Net income ($M)", f"${net_income_val:,.0f}",
         bar_pct=ni_bar_pct, bar_color=ni_color,
         bar_caption=ni_caption, bar_caption_color=ni_caption_color,
     )
+    with st.expander("Why this matters for the valuation"):
+        st.caption(
+            "Net income is the company's actual profit after every expense is paid. This tool "
+            "only uses net income for the comps (comparable companies) calculation — "
+            "multiplying it by a typical P/E (Price-to-Earnings) ratio. It is not used in the "
+            "DCF at all. That's why a company can have negative net income (a loss) but still "
+            "get a positive DCF value, if its cash flow is healthy."
+        )
 with c2:
     icon_field_card(st, "chart-pie", "Diluted shares outstanding (M)", f"{data.get('shares', 0):,.0f}")
+    with st.expander("Why this matters for the valuation"):
+        st.caption(
+            "Both the DCF and comps methods first calculate one big total dollar value for "
+            "the whole company. To turn that into a price for one share, the model divides "
+            "that total by this number. More shares means the same total value gets split "
+            "into more, smaller pieces — so the price per share comes out lower."
+        )
+
     icon_field_card(st, "credit-card", "Total debt ($M)", f"${data.get('debt', 0):,.0f}")
+    with st.expander("Why this matters for the valuation"):
+        st.caption(
+            "Both methods start by estimating the value of the entire company. Debt (money "
+            "the company has borrowed) gets subtracted from that, because lenders have first "
+            "claim on the company's value before shareholders do. A company with a lot of "
+            "debt needs to be worth a lot more overall just to leave the same amount for "
+            "shareholders."
+        )
+
     icon_field_card(st, "wallet", "Cash & equivalents ($M)", f"${data.get('cash', 0):,.0f}")
+    with st.expander("Why this matters for the valuation"):
+        st.caption(
+            "Cash on hand gets added back in, right after debt is subtracted, because that "
+            "cash effectively belongs to shareholders already. A company sitting on a lot of "
+            "cash gets a direct boost to its estimated share price under both the DCF and "
+            "comps methods."
+        )
 
 with st.expander("Edit the raw numbers manually"):
     revenue = st.number_input("Revenue ($M)", value=float(data.get("revenue", 0)), step=100.0, key=f"revenue_{key_suffix}")
@@ -385,9 +436,14 @@ The formula:
 `WACC = (E/V × Cost of Equity) + (D/V × Cost of Debt × (1 - Tax Rate))`
 
 Where:
-- E = market value of equity, D = market value of debt, V = E + D
-- Cost of equity = usually estimated using CAPM (Risk-free rate + Beta × Equity Risk Premium)
-- Cost of debt = the interest rate the company pays on its debt
+- E = the market value of the company's equity (its stock), D = the market value of its
+  debt (what it has borrowed), V = E + D added together
+- Cost of equity = how much return shareholders expect, usually estimated with a formula
+  called CAPM (Capital Asset Pricing Model): the risk-free rate (what you'd earn from a
+  safe government bond) plus Beta (a measure of how much a stock swings compared to the
+  overall market) multiplied by the extra return investors expect for taking on stock
+  market risk
+- Cost of debt = the interest rate the company pays on its loans
 
 In practice, here's the intuition without doing the full formula:
         """
