@@ -242,4 +242,194 @@ with st.container():
             """,
             unsafe_allow_html=True,
         )
-        
+
+# ---------------------------------------------------------------------------
+# Full real-company example: Apple (AAPL)
+# ---------------------------------------------------------------------------
+st.markdown('<p class="valufin-section-label">A full example, with a real company</p>', unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <div class="valufin-intro-card">
+        <p>The fictional example above is useful for learning each step in isolation. Here's
+        the same 5-step framework filled in start to finish with a real, recognizable company
+        — Apple (AAPL) — using real, recent financial data. This is roughly what a complete
+        pitch sounds like when you put all five pieces together.</p>
+        <p style="color:#9ed8f0; font-size:13px;">
+        Numbers below reflect Apple's trailing twelve-month financials and market data as of
+        mid-2026. Like any real pitch, the conclusion here is just one reasonable take —
+        a different analyst could build an equally defensible case on the other side.</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ---------------------------------------------------------------------------
+# Full real-company example: Apple (AAPL), framed as an interview Q&A
+# ---------------------------------------------------------------------------
+st.markdown('<p class="valufin-section-label">A full example, with a real company</p>', unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <div class="valufin-intro-card">
+        <p>The fictional example above is useful for learning each step in isolation. Here's
+        the same 5-step framework, but framed exactly how it would actually come up in an
+        interview — as a real question, answered the way you'd actually say it out loud,
+        using a real, recognizable company: Apple (AAPL).</p>
+        <p style="color:#9ed8f0; font-size:13px;">
+        Numbers below reflect Apple's trailing twelve-month financials and market data as of
+        mid-2026. Like any real pitch, the conclusion here is just one reasonable take —
+        a different analyst could build an equally defensible case on the other side.</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <div class="valufin-interview-card">
+        <div class="valufin-interview-q">
+            <div class="valufin-interview-q-icon">Q</div>
+            <div>
+                <p class="valufin-interview-q-label">Interviewer asks</p>
+                <p class="valufin-interview-q-text">"Walk me through a stock you'd pitch right now."</p>
+            </div>
+        </div>
+        <div class="valufin-interview-a-header">
+            <div class="valufin-interview-a-icon">A</div>
+            <span class="valufin-interview-a-label">Your answer, step by step</span>
+        </div>
+
+        <div class="valufin-interview-step">
+            <span class="valufin-interview-step-num">1</span><span class="valufin-interview-step-title">Recommendation</span>
+            <p class="valufin-interview-step-body">"I'd go <strong>long Apple</strong>, ticker AAPL. It's trading around <strong>$293</strong> right now, and I think there's modest upside from here."</p>
+        </div>
+
+        <div class="valufin-interview-step">
+            <span class="valufin-interview-step-num">2</span><span class="valufin-interview-step-title">Thesis</span>
+            <p class="valufin-interview-step-body">"Everyone still thinks of Apple as an iPhone company, but the part that's actually growing fast is <strong>services</strong> — App Store, iCloud, Apple Music, that kind of thing. That's high-margin, recurring revenue, and I don't think the market's fully given Apple credit for it yet. On top of that, Apple just announced a chip partnership with Intel, which takes a real risk off the table — they've been way too dependent on overseas chip manufacturing."</p>
+        </div>
+
+        <div class="valufin-interview-step">
+            <span class="valufin-interview-step-num">3</span><span class="valufin-interview-step-title">Valuation</span>
+            <p class="valufin-interview-step-body">"Right now Apple trades at about <strong>35.6 times trailing earnings</strong> and roughly <strong>27 times EBITDA</strong> — that's rich, but it's actually pretty normal for Apple given the brand and how loyal its customers are. Revenue's around <strong>$451 billion</strong> trailing twelve months, with an EBITDA margin near <strong>35%</strong>, so the cash flow is huge and really stable. Street's average price target is about <strong>$314</strong>, which is roughly 7% above where it's trading — so I'm not calling this a huge mispricing, just a real, modest gap."</p>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+if st.button("See how I'd build this in the valuation tool →", key="aapl_tool_link"):
+    st.switch_page("pages/2_Valuation_tool.py")
+
+st.markdown(
+    """
+    <div class="valufin-interview-card" style="margin-top:-8px;">
+        <div class="valufin-interview-step" style="margin-top:16px;">
+            <span class="valufin-interview-step-num">4</span><span class="valufin-interview-step-title">Catalyst</span>
+            <p class="valufin-interview-step-body">"Two things, really. First, that Intel chip partnership — as more details come out about timelines, I think that starts shifting sentiment. Second, Apple's planning to raise prices because of memory chip costs going up. If they pull that off without losing customers, that's a real margin story over the next couple of earnings reports."</p>
+        </div>
+        <div class="valufin-interview-step">
+            <span class="valufin-interview-step-num">5</span><span class="valufin-interview-step-title">Risk</span>
+            <p class="valufin-interview-step-body">"Honestly, the biggest risk is that those price increases backfire and people just buy fewer iPhones. I'm not super worried about it, though — Apple's raised prices before and their customers are pretty locked in. But I'd want to watch the next two earnings reports closely before getting more confident."</p>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.caption(
+    "Apple financial data referenced above (trailing P/E, EV/EBITDA, revenue, margins, "
+    "analyst price target) reflects publicly reported figures as of mid-2026 and will "
+    "change over time — always check current numbers before using them in a real pitch."
+)
+
+# ---------------------------------------------------------------------------
+# Follow-up questions, with simple-terms jargon explainers
+# ---------------------------------------------------------------------------
+st.markdown('<p class="valufin-section-label">Follow-up questions you should expect</p>', unsafe_allow_html=True)
+
+FOLLOWUPS = [
+    {
+        "question": "Your price target is only 7% above today's price. Why is this pitch worth my time?",
+        "answer": (
+            "\"Fair pushback. I'd say two things — first, that 7% is the <strong>average</strong> "
+            "analyst target, and I think the services growth story is underappreciated enough "
+            "that my own number could reasonably be higher than the Street's. Second, even a "
+            "modest, high-conviction pick is a legitimate pitch — not every good idea has to be "
+            "a 50% mispricing. If you want, I can walk through a more bullish case where "
+            "services growth alone gets you to a meaningfully higher number.\""
+        ),
+        "why_asked": (
+            "Why they ask this: testing whether you understand that pitches don't need to be "
+            "extreme to be valid — and whether you can defend a modest thesis under pressure."
+        ),
+        "simple_terms": [
+            ("\"The Street\"", "Wall Street analysts as a group — the people whose job is to study companies and give price predictions. \"The Street's number\" just means \"what most analysts predict.\""),
+            ("\"High-conviction\"", "Means you feel really confident about something, even if it's a small or quiet change rather than a big dramatic one."),
+            ("\"Mispricing\"", "When the stock market's price for something doesn't match what it's actually worth — like a $20 item accidentally priced at $15."),
+        ],
+    },
+    {
+        "question": "What's your biggest assumption in this pitch, and what happens if you're wrong?",
+        "answer": (
+            "\"Probably that the market keeps undervaluing services growth relative to "
+            "hardware. If I'm wrong — if the market already fully prices that in — then most "
+            "of my edge disappears and this becomes closer to a hold than a buy. I'd also say "
+            "my WACC and growth assumptions in the DCF are estimates, not certainties, so I'd "
+            "want to stress-test the valuation across a range, not just one scenario.\""
+        ),
+        "why_asked": (
+            "Why they ask this: every interviewer wants to know if you understand your own "
+            "thesis is a bet, not a fact — and whether you've actually stress-tested it."
+        ),
+        "simple_terms": [
+            ("\"My edge\"", "The advantage or special insight that makes your pick better than just guessing — if that insight turns out to be wrong, you lose that advantage."),
+            ("\"Hold\" vs \"Buy\"", "A \"buy\" means you think the stock will go up, so you should purchase it. A \"hold\" means you don't think it'll move much either way, so there's no strong reason to buy or sell."),
+            ("WACC (say \"wack\")", "Stands for Weighted Average Cost of Capital. It's just a number representing how much return investors expect, used to figure out what future cash is worth in today's dollars."),
+            ("DCF", "Stands for Discounted Cash Flow. It's a method for estimating what a company is worth, based on how much cash it's expected to make in the future."),
+            ("\"Stress-test\"", "Trying out your numbers under different, less favorable conditions to see if your conclusion still holds up — like checking if a bridge stays standing under extra weight."),
+        ],
+    },
+    {
+        "question": "Why Apple and not just a basket of big tech? What's company-specific here?",
+        "answer": (
+            "\"Good question — a lot of my thesis could apply loosely to other tech names too. "
+            "But the Intel chip partnership is genuinely Apple-specific, and so is the scale of "
+            "their services ecosystem — nobody else has that combination of hardware lock-in "
+            "plus a high-margin services business riding on top of it. That's the part of the "
+            "pitch that's about Apple specifically, not just 'big tech is good.'\""
+        ),
+        "why_asked": (
+            "Why they ask this: checking that your pitch isn't just a generic sector view "
+            "dressed up as stock-specific research."
+        ),
+        "simple_terms": [
+            ("\"A basket of\"", "A group of several similar things treated as one unit — \"a basket of tech stocks\" just means several tech stocks bundled together."),
+            ("\"Hardware lock-in\"", "When owning one product makes you likely to keep buying related products — like owning an iPhone makes you more likely to buy AirPods that work well with it."),
+            ("\"High-margin\"", "A business where the company keeps a large chunk of each sale as profit, instead of most of it going toward costs."),
+        ],
+    },
+]
+
+for fu in FOLLOWUPS:
+    st.markdown(
+        f"""
+        <div class="valufin-followup-q">
+            <div class="valufin-followup-q-icon">Q</div>
+            <p class="valufin-followup-q-text">"{fu['question']}"</p>
+        </div>
+        <div class="valufin-followup-a">
+            <div class="valufin-followup-a-icon">A</div>
+            <p class="valufin-followup-a-text">{fu['answer']}</p>
+        </div>
+        <div class="valufin-why-asked">{fu['why_asked']}</div>
+        """,
+        unsafe_allow_html=True,
+    )
+    with st.expander("💬 In simple terms — what do these words mean?"):
+        for term, definition in fu["simple_terms"]:
+            st.markdown(
+                f'<div class="valufin-simple-terms-row"><strong>{term}:</strong> {definition}</div>',
+                unsafe_allow_html=True,
+            )
+    st.markdown("<div style='height: 8px'></div>", unsafe_allow_html=True)       

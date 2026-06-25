@@ -525,6 +525,84 @@ hr { border-color: #322c23 !important; }
 .valufin-example-title { font-size: 11px; color: #d6ab7b; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 8px; }
 .valufin-example-text { font-size: 13px; color: #e0d4c2; font-weight: 300; line-height: 1.6; margin: 0; }
 .valufin-example-text strong { color: #ffffff; }
+
+/* Interview Q&A card (used for the full worked-example pitch) */
+.valufin-interview-card {
+    background: linear-gradient(135deg, #1f1b15, #1a1712);
+    border: 1px solid #3d6b66;
+    border-radius: 14px;
+    padding: 0;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+.valufin-interview-q {
+    padding: 18px 24px;
+    border-bottom: 1px solid #2a2620;
+    display: flex; align-items: flex-start; gap: 12px;
+}
+.valufin-interview-q-icon {
+    width: 34px; height: 34px; background: #3a322c; color: #b8a888;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; flex-shrink: 0;
+}
+.valufin-interview-q-text { font-size: 14.5px; color: #e0d4c2; font-style: italic; line-height: 1.6; padding-top: 6px; }
+.valufin-interview-q-label { font-size: 10px; color: #b8a888; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin: 0 0 4px; }
+.valufin-interview-a-header {
+    padding: 14px 24px 0; display: flex; align-items: center; gap: 12px;
+}
+.valufin-interview-a-icon {
+    width: 34px; height: 34px; background: #3d6b66; color: #e8e3d8;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; flex-shrink: 0;
+}
+.valufin-interview-a-label { font-size: 10px; color: #6b9b94; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+.valufin-interview-step {
+    margin: 12px 24px 16px 70px;
+    border-left: 2px solid #2a2620;
+    padding-left: 16px;
+}
+.valufin-interview-step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 20px; height: 20px; background: #3d6b66; color: #e8e3d8;
+    border-radius: 50%; font-size: 10px; font-weight: 700; margin-right: 8px;
+}
+.valufin-interview-step-title { font-size: 13.5px; font-weight: 600; color: #ffffff; }
+.valufin-interview-step-body { font-size: 13.5px; color: #c7c0b0; line-height: 1.75; font-weight: 300; margin: 8px 0 0; font-style: italic; }
+.valufin-interview-step-body strong { color: #ffffff; font-weight: 500; font-style: normal; }
+
+/* Follow-up question cards */
+.valufin-followup-q {
+    padding: 16px 20px; display: flex; align-items: flex-start; gap: 12px;
+    border-bottom: 1px solid #2a2620;
+}
+.valufin-followup-q-icon {
+    width: 28px; height: 28px; background: #3a322c; color: #b8a888;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+.valufin-followup-q-text { font-size: 14px; color: #e0d4c2; font-style: italic; line-height: 1.5; padding-top: 3px; }
+.valufin-followup-a {
+    padding: 16px 20px 8px; display: flex; align-items: flex-start; gap: 12px;
+}
+.valufin-followup-a-icon {
+    width: 28px; height: 28px; background: #3d6b66; color: #e8e3d8;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+.valufin-followup-a-text { font-size: 13.5px; color: #c7c0b0; font-weight: 300; line-height: 1.65; font-style: italic; padding-top: 3px; }
+.valufin-followup-a-text strong { color: #ffffff; font-weight: 500; font-style: normal; }
+.valufin-why-asked {
+    margin: 0 0 14px 40px;
+    background: #243a36; border-left: 2px solid #3d6b66;
+    padding: 8px 12px; border-radius: 0 6px 6px 0;
+    font-size: 11.5px; color: #8fc4bf; font-weight: 400;
+}
+
+/* "In simple terms" jargon-translation box */
+.valufin-simple-terms-row {
+    margin-bottom: 8px; font-size: 12.5px; color: #c7c0b0; font-weight: 300; line-height: 1.6;
+}
+.valufin-simple-terms-row strong { color: #ffffff; font-weight: 600; }
 </style>
 """
 
