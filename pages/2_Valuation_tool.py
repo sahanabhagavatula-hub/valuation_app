@@ -367,6 +367,62 @@ sector = data.get("sector", "")
 step_pill(st, 3, "Assumptions")
 st.caption("These two drive the DCF and are usually what an interviewer will ask you to defend.")
 
+with st.expander("How do you know what WACC and terminal growth rate to use?"):
+    st.markdown(
+        """
+Even professionals don't have one single "correct" answer for these — here's how each
+one actually gets chosen.
+
+#### How to pick WACC (discount rate)
+
+WACC stands for Weighted Average Cost of Capital — it blends the cost of a company's
+debt and equity. The formula looks intimidating, but the intuition is simple:
+
+> **WACC = how much return investors demand for the risk of investing in this company**
+
+The formula:
+
+`WACC = (E/V × Cost of Equity) + (D/V × Cost of Debt × (1 - Tax Rate))`
+
+Where:
+- E = market value of equity, D = market value of debt, V = E + D
+- Cost of equity = usually estimated using CAPM (Risk-free rate + Beta × Equity Risk Premium)
+- Cost of debt = the interest rate the company pays on its debt
+
+In practice, here's the intuition without doing the full formula:
+        """
+    )
+    st.dataframe(
+        [
+            {"Company type": "Stable, large-cap (Apple, Coca-Cola)", "Typical WACC range": "7-9%", "Why": "Low risk, predictable cash flow, strong balance sheet"},
+            {"Company type": "Mid-cap, moderate risk", "Typical WACC range": "9-12%", "Why": "More uncertainty in cash flows"},
+            {"Company type": "Early-stage, high-growth, or high-debt (SpaceX, biotech)", "Typical WACC range": "12-15%+", "Why": "High risk, unproven cash flow, more debt/equity risk"},
+        ],
+        hide_index=True,
+        use_container_width=True,
+    )
+    st.markdown(
+        """
+#### How to pick terminal growth rate
+
+This represents how fast you think the company grows forever, after your projection
+period ends (year 5, 6, etc).
+
+**The golden rule:** terminal growth should never exceed the long-term growth rate of
+the overall economy (GDP growth), because no company can outgrow the entire economy
+forever.
+        """
+    )
+    st.dataframe(
+        [
+            {"Benchmark": "US long-term GDP growth", "Typical range": "~2-2.5%"},
+            {"Benchmark": "Most terminal growth assumptions", "Typical range": "2-3%"},
+            {"Benchmark": "Red flag if terminal growth is", "Typical range": "4%+ (basically saying this company outgrows the world forever)"},
+        ],
+        hide_index=True,
+        use_container_width=True,
+    )
+
 a1, a2 = st.columns(2)
 with a1:
     wacc = st.slider(
@@ -538,3 +594,4 @@ selected peer group's current multiples rather than a sector-average assumption.
             """,
             unsafe_allow_html=True,
         )
+        
