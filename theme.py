@@ -402,6 +402,83 @@ hr { border-color: #322c23 !important; }
 .valufin-bar-track { height: 4px; background: #322c23; border-radius: 2px; margin-top: 8px; overflow: hidden; }
 .valufin-bar-fill { height: 100%; border-radius: 2px; }
 .valufin-bar-caption { font-size: 10.5px; margin-top: 4px; }
+
+/* Category cards on the homepage */
+.valufin-category-card {
+    background: #1f1b15;
+    border: 1px solid #322c23;
+    border-radius: 14px;
+    padding: 24px 22px;
+    height: 100%;
+    text-align: left;
+}
+.valufin-category-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.valufin-category-icon {
+    width: 38px; height: 38px;
+    background: rgba(61,107,102,0.2);
+    color: #6b9b94;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+.valufin-category-title { font-size: 17px; font-weight: 600; color: #ffffff; margin: 0; }
+.valufin-category-desc { font-size: 13px; color: #8e8675; font-weight: 300; line-height: 1.55; margin: 0 0 4px; }
+
+/* Category page header */
+.valufin-category-header {
+    display: flex; align-items: center; gap: 12px;
+    border-bottom: 1px solid #322c23;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+.valufin-category-header-icon {
+    width: 36px; height: 36px;
+    background: rgba(61,107,102,0.2);
+    color: #6b9b94;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+}
+.valufin-category-header-title { font-size: 22px; font-weight: 600; color: #ffffff; margin: 0; }
+.valufin-category-header-pill {
+    display: inline-block;
+    background: #243a36;
+    border: 1px solid #3d6b66;
+    color: #9ed8f0;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-left: 8px;
+}
+
+/* Topic cards on category pages */
+.valufin-topic-card {
+    background: #1f1b15;
+    border: 1px solid #322c23;
+    border-radius: 12px;
+    padding: 20px 20px 16px;
+    height: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+.valufin-tag-pill {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+    width: fit-content;
+}
+.valufin-tag-must-know { background: rgba(163, 77, 61, 0.18); color: #d68b7b; border: 1px solid rgba(163, 77, 61, 0.4); }
+.valufin-tag-high-value { background: rgba(163, 115, 61, 0.18); color: #d6ab7b; border: 1px solid rgba(163, 115, 61, 0.4); }
+.valufin-tag-good-to-have { background: rgba(61, 107, 102, 0.18); color: #8fc4bf; border: 1px solid rgba(61, 107, 102, 0.4); }
+.valufin-topic-title { font-size: 16px; font-weight: 600; color: #ffffff; margin: 0 0 8px; }
+.valufin-topic-desc { font-size: 13px; color: #8e8675; font-weight: 300; line-height: 1.55; margin: 0 0 14px; flex-grow: 1; }
 </style>
 """
 
@@ -435,7 +512,7 @@ def topbar(st):
         """
         <div class="valufin-topbar">
             <div class="valufin-logo-mark">$</div>
-            <div class="valufin-logo-text">VALUFIN</div>
+            <div class="valufin-logo-text">Valu<span style="color:#6b9b94;">ED</span></div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -599,4 +676,61 @@ def flashcard_grid(cards, height=480):
     </script>
     """
     components.html(full_html, height=height, scrolling=False)
-    
+
+
+def category_card(st, icon, title, description):
+    """A clickable-looking category card for the homepage grid."""
+    st.markdown(
+        f"""
+        <div class="valufin-category-card">
+            <div class="valufin-category-card-top">
+                <div class="valufin-category-icon"><i class="ti ti-{icon}"></i></div>
+                <p class="valufin-category-title">{title}</p>
+            </div>
+            <p class="valufin-category-desc">{description}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def category_header(st, icon, title, pill_label):
+    """The header bar at the top of a category page (icon + title + role pill)."""
+    st.markdown(
+        f"""
+        <div class="valufin-category-header">
+            <div class="valufin-category-header-icon"><i class="ti ti-{icon}"></i></div>
+            <p class="valufin-category-header-title">{title}</p>
+            <span class="valufin-category-header-pill">{pill_label}</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def topic_card(st, tag, title, description, button_label="Learn this", button_key=None):
+    """
+    A single topic card on a category page, with a priority tag
+    (must-know / high-value / good-to-have), a title, description, and a
+    button. Returns True if the button was clicked, so the caller can
+    decide what to do (navigate to a real tool, or show a 'coming soon'
+    message).
+    """
+    tag_class_map = {
+        "must know": "valufin-tag-must-know",
+        "high value": "valufin-tag-high-value",
+        "good to have": "valufin-tag-good-to-have",
+    }
+    tag_class = tag_class_map.get(tag.lower(), "valufin-tag-good-to-have")
+
+    st.markdown(
+        f"""
+        <div class="valufin-topic-card">
+            <span class="valufin-tag-pill {tag_class}">{tag}</span>
+            <p class="valufin-topic-title">{title}</p>
+            <p class="valufin-topic-desc">{description}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    return st.button(button_label, key=button_key, use_container_width=True)
