@@ -31,7 +31,7 @@ TOPICS = [
         "tag": "must know",
         "title": "Stock pitch",
         "description": "A buy/sell recommendation with thesis, valuation, catalysts, and risks.",
-        "action": "soon",
+        "action": "stock_pitch",
     },
     {
         "tag": "must know",
@@ -72,6 +72,8 @@ for i, topic in enumerate(TOPICS):
         if clicked:
             if topic["action"] == "tool":
                 st.switch_page("pages/2_Valuation_tool.py")
+            elif topic["action"] == "stock_pitch":
+                st.switch_page("pages/9_Stock_Pitch.py")
             else:
                 st.session_state.coming_soon_topic_pe = topic["title"]
         st.markdown("<div style='height: 12px'></div>", unsafe_allow_html=True)
