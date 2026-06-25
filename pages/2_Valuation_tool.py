@@ -594,4 +594,3 @@ selected peer group's current multiples rather than a sector-average assumption.
             """,
             unsafe_allow_html=True,
         )
-        
