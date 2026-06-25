@@ -32,6 +32,60 @@ st.markdown("---")
 enable_arrow_background(st)
 
 # ---------------------------------------------------------------------------
+# What is valuation, who uses it, and why it matters for recruiting
+# ---------------------------------------------------------------------------
+st.markdown('<p class="valufin-section-label">What is valuation, and why does it matter</p>', unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <div class="valufin-concept-card">
+        <p class="valufin-concept-heading">What is valuation?</p>
+        <div class="valufin-concept-body">
+        Valuation is the process of estimating what a company is actually worth,
+        based on its business fundamentals &mdash; its revenue, profit, growth, and
+        risk &mdash; rather than just accepting whatever price the stock market
+        happens to be charging for it today. Every method in this tool (DCF, comps)
+        is just a different way of arriving at that estimate, and then comparing it
+        against the real market price to judge whether a stock looks cheap, expensive,
+        or about right.
+        </div>
+    </div>
+
+    <div class="valufin-concept-card">
+        <p class="valufin-concept-heading">Who actually uses valuation?</p>
+        <div class="valufin-concept-body">
+        Investment bankers use it to advise companies on mergers, acquisitions, and
+        IPOs &mdash; helping a client understand what their business, or a target
+        they want to acquire, is really worth. Private equity and hedge fund
+        investors use it to decide whether to buy, sell, or hold an investment.
+        Equity research analysts use it to publish buy/sell recommendations on
+        public stocks. Corporate finance teams use it internally to evaluate new
+        projects or potential acquisitions. It's one of the most universally used
+        skill sets across all of finance.
+        </div>
+    </div>
+
+    <div class="valufin-concept-card">
+        <p class="valufin-concept-heading">Why this matters for recruiting</p>
+        <div class="valufin-concept-body">
+        If you're recruiting for investment banking, private equity, hedge funds,
+        or equity research, valuation is one of the first technical skills
+        interviewers will test &mdash; often directly, by asking you to walk
+        through a DCF or comps analysis on the spot, or indirectly, by asking you
+        to pitch a stock and defend your valuation logic. Being able to explain
+        <em>why</em> a number is what it is, not just plug inputs into a formula,
+        is exactly what separates a strong candidate from one who memorized a
+        process without understanding it. That's the whole point of this page:
+        understanding the logic well enough to defend it under questioning.
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown('<p class="valufin-section-label">Key terms — tap to flip each card</p>', unsafe_allow_html=True)
+
+# ---------------------------------------------------------------------------
 # Flashcard grid — 8 core concepts
 # ---------------------------------------------------------------------------
 CARDS = [

@@ -599,3 +599,4 @@ def flashcard_grid(cards, height=480):
     </script>
     """
     components.html(full_html, height=height, scrolling=False)
+    
