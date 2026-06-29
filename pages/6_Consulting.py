@@ -37,7 +37,7 @@ TOPICS = [
         "tag": "must know",
         "title": "Frameworks",
         "description": "MECE thinking, issue trees, profitability framework, Porter's 5 Forces.",
-        "action": "soon",
+        "action": "frameworks",
     },
     {
         "tag": "must know",
@@ -74,6 +74,8 @@ for i, topic in enumerate(TOPICS):
                 st.switch_page("pages/12_Market_Sizing.py")
             elif topic["action"] == "mental_math":
                 st.switch_page("pages/11_Mental_Math.py")
+            elif topic["action"] == "frameworks":
+                st.switch_page("pages/13_Frameworks.py")
             else:
                 st.session_state.coming_soon_topic_consulting = topic["title"]
         st.markdown("<div style='height: 12px'></div>", unsafe_allow_html=True)
