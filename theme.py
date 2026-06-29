@@ -603,6 +603,40 @@ hr { border-color: #322c23 !important; }
     margin-bottom: 8px; font-size: 12.5px; color: #c7c0b0; font-weight: 300; line-height: 1.6;
 }
 .valufin-simple-terms-row strong { color: #ffffff; font-weight: 600; }
+
+/* Stock pitch practice tool */
+.valufin-progress-row { display: flex; gap: 6px; margin-bottom: 8px; }
+.valufin-progress-step { flex: 1; height: 4px; border-radius: 2px; background: #322c23; }
+.valufin-progress-step.done { background: #3d6b66; }
+.valufin-progress-step.active { background: #6b9b94; }
+
+.valufin-chat-ai {
+    background: #1f1b15; border: 1px solid #322c23; border-radius: 14px 14px 14px 4px;
+    padding: 16px 18px; margin-bottom: 16px; max-width: 90%;
+}
+.valufin-chat-ai .valufin-chat-label { font-size: 10px; color: #6b9b94; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
+.valufin-chat-ai .valufin-chat-text { font-size: 14px; color: #e0d4c2; line-height: 1.6; }
+
+.valufin-chat-user {
+    background: #243a36; border: 1px solid #3d6b66; border-radius: 14px 14px 4px 14px;
+    padding: 14px 18px; margin: 0 0 16px auto; max-width: 85%;
+}
+.valufin-chat-user .valufin-chat-label { font-size: 10px; color: #8fc4bf; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
+.valufin-chat-user .valufin-chat-text { font-size: 14px; color: #ffffff; line-height: 1.6; font-style: italic; }
+
+.valufin-feedback-box {
+    background: #2a2014; border: 1px solid #4a3a24; border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 16px;
+}
+.valufin-feedback-label { font-size: 10px; color: #d6ab7b; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
+.valufin-feedback-text { font-size: 13px; color: #e0d4c2; line-height: 1.6; font-weight: 300; }
+
+.valufin-summary-card {
+    background: #1f1b15; border: 1px solid #3d6b66; border-radius: 12px;
+    padding: 20px; margin-top: 20px;
+}
+.valufin-summary-label { font-size: 12px; color: #8e8675; text-transform: uppercase; letter-spacing: 0.06em; }
+.valufin-summary-score { font-size: 22px; font-weight: 700; color: #6b9b94; margin: 4px 0 12px; }
 </style>
 """
 
