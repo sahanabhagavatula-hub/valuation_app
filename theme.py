@@ -637,6 +637,36 @@ hr { border-color: #322c23 !important; }
 }
 .valufin-summary-label { font-size: 12px; color: #8e8675; text-transform: uppercase; letter-spacing: 0.06em; }
 .valufin-summary-score { font-size: 22px; font-weight: 700; color: #6b9b94; margin: 4px 0 12px; }
+
+/* Mental math tip cards */
+.valufin-tip-card {
+    background: #1f1b15; border: 1px solid #322c23; border-radius: 10px;
+    padding: 16px 18px; margin-bottom: 10px;
+}
+.valufin-tip-title { font-size: 14px; font-weight: 600; color: #6b9b94; margin: 0 0 6px; }
+.valufin-tip-body { font-size: 13px; color: #c7c0b0; font-weight: 300; line-height: 1.6; margin: 0; }
+.valufin-tip-example {
+    background: #243a36; border-radius: 6px; padding: 8px 12px; margin-top: 8px;
+    font-size: 12.5px; color: #9ed8f0; font-family: monospace;
+}
+
+/* Quiz / drill card */
+.valufin-quiz-card {
+    background: #1f1b15; border: 1px solid #322c23; border-radius: 12px;
+    padding: 24px; text-align: center;
+}
+.valufin-quiz-question { font-size: 30px; font-weight: 700; color: #ffffff; margin: 0 0 4px; }
+.valufin-quiz-stats { display: flex; justify-content: center; gap: 28px; margin-top: 16px; }
+.valufin-quiz-stat-value { font-size: 18px; font-weight: 700; color: #6b9b94; display: block; }
+.valufin-quiz-stat-label { font-size: 11px; color: #8e8675; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Reference number cards for market sizing */
+.valufin-refnum-card {
+    background: #1f1b15; border: 1px solid #322c23; border-radius: 10px;
+    padding: 14px 16px; text-align: left;
+}
+.valufin-refnum-value { font-size: 18px; font-weight: 700; color: #6b9b94; margin: 0 0 2px; }
+.valufin-refnum-label { font-size: 12px; color: #8e8675; font-weight: 400; margin: 0; }
 </style>
 """
 
