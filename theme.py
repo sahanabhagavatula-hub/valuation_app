@@ -724,6 +724,55 @@ hr { border-color: #322c23 !important; }
 .valufin-porter-force { background: #243a36; border: 1px solid #3d6b66; border-radius: 10px; padding: 14px 16px; height: 100%; }
 .valufin-porter-force-title { font-size: 13px; font-weight: 700; color: #8fc4bf; margin: 0 0 6px; }
 .valufin-porter-force-body { font-size: 12px; color: #d6e6e3; font-weight: 300; line-height: 1.5; margin: 0; }
+
+/* M&A page */
+.valufin-deal-type-card {
+    background: #1f1b15; border: 1px solid #322c23; border-radius: 12px;
+    padding: 20px 18px; height: 100%;
+}
+.valufin-deal-type-tag {
+    display: inline-block; background: rgba(61,107,102,0.2); color: #8fc4bf;
+    border: 1px solid rgba(61,107,102,0.4); border-radius: 20px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 3px 10px; margin-bottom: 10px;
+}
+.valufin-deal-type-title { font-size: 16px; font-weight: 700; color: #ffffff; margin: 0 0 8px; }
+.valufin-deal-type-def { font-size: 13px; color: #c7c0b0; font-weight: 300; line-height: 1.6; margin: 0 0 10px; }
+
+.valufin-structure-card {
+    background: #1a2420; border: 1px solid #3d6b66; border-radius: 12px;
+    padding: 20px 18px; height: 100%;
+}
+.valufin-structure-tag {
+    display: inline-block; background: #3d6b66; color: #e8e3d8; border-radius: 20px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 3px 10px; margin-bottom: 10px;
+}
+.valufin-structure-title { font-size: 16px; font-weight: 700; color: #ffffff; margin: 0 0 8px; }
+.valufin-structure-def { font-size: 13px; color: #d6e6e3; font-weight: 300; line-height: 1.6; margin: 0 0 10px; }
+.valufin-structure-pros { font-size: 12px; color: #8fc4bf; margin: 0 0 4px; font-weight: 500; }
+.valufin-structure-cons { font-size: 12px; color: #d68b7b; margin: 0; font-weight: 500; }
+
+.valufin-process-step { display: flex; gap: 16px; margin-bottom: 14px; align-items: flex-start; }
+.valufin-process-num {
+    width: 32px; height: 32px; background: #3d6b66; color: #e8e3d8; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.valufin-process-content { background: #1f1b15; border: 1px solid #322c23; border-radius: 10px; padding: 14px 18px; flex: 1; }
+.valufin-process-title { font-size: 14px; font-weight: 600; color: #ffffff; margin: 0 0 4px; }
+.valufin-process-body { font-size: 13px; color: #c7c0b0; font-weight: 300; line-height: 1.6; margin: 0; }
+
+.valufin-tech-card { background: #243a36; border: 1px solid #3d6b66; border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; }
+.valufin-tech-title { font-size: 16px; font-weight: 700; color: #8fc4bf; margin: 0 0 8px; }
+.valufin-tech-body { font-size: 13.5px; color: #d6e6e3; font-weight: 300; line-height: 1.7; margin: 0; }
+.valufin-tech-body strong { color: #ffffff; }
+.valufin-formula { background: #16140f; border: 1px solid #3d6b66; border-radius: 8px; padding: 10px 16px; font-family: monospace; font-size: 13px; color: #9ed8f0; margin: 10px 0; }
+
+.valufin-practice-teaser {
+    background: linear-gradient(135deg, #1f1b15, #1a2420);
+    border: 2px solid #3d6b66; border-radius: 14px; padding: 24px; text-align: center; margin-top: 32px;
+}
 </style>
 """
 
