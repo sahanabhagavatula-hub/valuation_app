@@ -1,5 +1,7 @@
 # AI Valuation Tool — local app
 
+LINK: https://sahanabhagavatula-hub.github.io/valuation_app
+
 Type a ticker, pull real financials, and get a DCF + comps valuation with
 an optional AI-written analyst summary. Runs entirely on your own laptop.
 
