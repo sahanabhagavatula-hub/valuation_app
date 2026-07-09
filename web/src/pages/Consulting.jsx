@@ -1,4 +1,7 @@
 import CategoryPage from './CategoryPage';
+import { getCategoryByPath } from '../data/categories';
+
+const cat = getCategoryByPath('/consulting');
 
 const TOPICS = [
   { tag: 'must know', title: 'Case interviews', description: 'Structured problem solving — profitability, market entry, M&A cases.' },
@@ -12,13 +15,15 @@ const TOPICS = [
 export default function Consulting() {
   return (
     <CategoryPage
-      icon="bulb"
       title="Consulting"
       pillLabel="Consulting"
       caption="Structured problem solving is the whole game in consulting recruiting. Tap any topic to start learning."
       topics={TOPICS}
       backLabel="←  Back to home"
       backPath="/"
+      heroImage={cat.image}
+      heroTint={cat.tint}
+      heroAccent={cat.accent}
     />
   );
 }

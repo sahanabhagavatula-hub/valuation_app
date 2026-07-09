@@ -1,4 +1,7 @@
 import CategoryPage from './CategoryPage';
+import { getCategoryByPath } from '../data/categories';
+
+const cat = getCategoryByPath('/universal');
 
 const TOPICS = [
   { tag: 'must know', title: 'Behaviorals (STAR)', description: 'Situation, Task, Action, Result — tell compelling stories about your experience.' },
@@ -10,13 +13,15 @@ const TOPICS = [
 export default function Universal() {
   return (
     <CategoryPage
-      icon="users"
       title="Universal — every interview"
       pillLabel="All roles"
       caption="These show up no matter which path you're recruiting for. Tap any topic to start learning."
       topics={TOPICS}
       backLabel="←  Back to home"
       backPath="/"
+      heroImage={cat.image}
+      heroTint={cat.tint}
+      heroAccent={cat.accent}
     />
   );
 }

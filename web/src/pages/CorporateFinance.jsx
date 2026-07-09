@@ -1,4 +1,7 @@
 import CategoryPage from './CategoryPage';
+import { getCategoryByPath } from '../data/categories';
+
+const cat = getCategoryByPath('/corp-finance');
 
 const TOPICS = [
   { tag: 'must know', title: 'Financial statements', description: 'Read and interpret the income statement, balance sheet, and cash flow statement.' },
@@ -12,7 +15,6 @@ const TOPICS = [
 export default function CorporateFinance() {
   return (
     <CategoryPage
-      icon="building-skyscraper"
       title="General Business / Corporate Finance"
       pillLabel="Corp Finance"
       caption="The foundational skills that show up everywhere in finance, regardless of which specific path you're recruiting for. Tap any topic to start learning."
@@ -20,6 +22,9 @@ export default function CorporateFinance() {
       backLabel="←  Back to home"
       backPath="/"
       comingSoonMentionsTool
+      heroImage={cat.image}
+      heroTint={cat.tint}
+      heroAccent={cat.accent}
     />
   );
 }

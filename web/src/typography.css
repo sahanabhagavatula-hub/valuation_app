@@ -1,0 +1,43 @@
+/* ============================================================
+   ValuED — typography helpers
+   Import after tokens.css. Load the fonts first (see README).
+   ============================================================ */
+
+/* Outlined display treatment — the primary "hero" look.
+   It is Poppins with a transparent fill + colored stroke.
+   Use on large type only (>= 40px); below that, use .display solid. */
+.text-outline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: transparent;
+  -webkit-text-stroke: 2.5px var(--stroke-color, var(--text));
+  text-stroke: 2.5px var(--stroke-color, var(--text)); /* progressive */
+  paint-order: stroke fill;
+}
+/* accent-colored outline (e.g. second hero line) */
+.text-outline--accent { --stroke-color: var(--accent); }
+
+/* Solid display / headings */
+.display { font-family: var(--font-display); font-weight: 600; font-size: var(--text-display); line-height: 1.02; letter-spacing: -0.02em; }
+.h1 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-h1); line-height: 1.05; letter-spacing: -0.02em; }
+.h2 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-h2); line-height: 1.1;  letter-spacing: -0.01em; }
+.h3 { font-family: var(--font-body);    font-weight: 600; font-size: var(--text-h3); line-height: 1.2; }
+
+/* Body + UI */
+.body { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body); line-height: 1.6; }
+.body-lg { font-size: var(--text-body-lg); line-height: 1.6; }
+.small   { font-size: var(--text-sm); }
+
+/* Eyebrow / caption — uppercase taupe label */
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-caption);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+/* Editorial serif italic — pull quotes */
+.quote { font-family: var(--font-serif); font-style: italic; font-weight: 400; }

@@ -1,87 +1,89 @@
+import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import gsap from 'gsap';
 import Topbar from '../components/Topbar';
-import { CategoryCard } from '../components/Curriculum';
-import { Button } from '../components/Widgets';
+import { useScrollReveal } from '../lib/useScrollReveal';
+import { CATEGORIES } from '../data/categories';
 import heroSkyscrapers from '../assets/hero_skyscrapers.png';
 
-const CATEGORIES = [
-  {
-    icon: 'building-bank',
-    title: 'Investment Banking',
-    description: 'M&A process, pitch books, live deal modeling, DCF, and comps.',
-    path: '/ib',
-  },
-  {
-    icon: 'chart-candle',
-    title: 'Private Equity / Hedge Funds',
-    description: 'Stock pitches, LBO modeling, comps analysis, and buy-side thinking.',
-    path: '/pe-hf',
-  },
-  {
-    icon: 'briefcase',
-    title: 'Wealth & Asset Management',
-    description: 'Portfolio construction, client communication, and investment philosophy.',
-    path: '/wam',
-  },
-  {
-    icon: 'bulb',
-    title: 'Consulting',
-    description: 'Case interviews, frameworks, market sizing, and slide storytelling.',
-    path: '/consulting',
-  },
-  {
-    icon: 'building-skyscraper',
-    title: 'General Business / Corporate Finance',
-    description: 'Financial statements, key metrics, Excel modeling, and capital structure.',
-    path: '/corp-finance',
-  },
-  {
-    icon: 'users',
-    title: 'Universal — every interview',
-    description: 'Behavioral stories, "why this firm," current events, and networking.',
-    path: '/universal',
-  },
-];
+function CategoryScene({ index, cat, navigate }) {
+  const number = String(index + 1).padStart(3, '0');
+  return (
+    <div
+      className="valufin-scene"
+      style={{
+        '--scene-image': `url("${cat.image}")`,
+        '--scene-tint': cat.tint,
+        '--scene-accent': cat.accent,
+      }}
+      onClick={() => navigate(cat.path)}
+      role="button"
+      tabIndex={0}
+    >
+      <div className="valufin-scene-bg scroll-bg" />
+      <div className="valufin-scene-overlay" />
+      <div className="valufin-scene-scanlines" />
+      <div className="valufin-scene-content scroll-element">
+        <p className="valufin-scene-number">
+          [ {number} / {cat.code.toUpperCase()} ]
+        </p>
+        <h2 className="valufin-scene-title">{cat.title}</h2>
+        <p className="valufin-scene-desc">{cat.description}</p>
+        <p className="valufin-scene-enter">ENTER →</p>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const navigate = useNavigate();
+  const heroContentRef = useRef(null);
+  useScrollReveal();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        heroContentRef.current,
+        { y: 80, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out', delay: 0.15 }
+      );
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
     <div className="valufin-container">
-      <Topbar />
-
       <div className="valufin-hero">
-        <div className="valufin-hero-bg" style={{ '--hero-bg-image': `url(${heroSkyscrapers})` }} />
+        <div className="valufin-hero-bg" style={{ '--hero-bg-image': `url("${heroSkyscrapers}")` }} />
         <div className="valufin-hero-overlay" />
-        <div className="valufin-hero-content">
-          <span className="valufin-eyebrow">Recruiting prep, explained from scratch</span>
+        <div className="valufin-hero-topbar">
+          <div className="valufin-hero-topbar-inner">
+            <Topbar />
+          </div>
+        </div>
+        <div className="valufin-hero-content" ref={heroContentRef}>
+          <p className="valufin-hero-brand">
+            Valu<span className="valufin-hero-brand-accent">ED</span>
+          </p>
           <h1>
             Learn finance.
             <br />
             <span className="accent">Get the offer.</span>
           </h1>
-          <p className="valufin-hero-sub">
-            ValuED teaches the skills real finance and consulting recruiting actually
-            tests — valuation, modeling, case interviews, and more — with hands-on AI
-            tools built in as you go.
-          </p>
+          <span className="valufin-eyebrow">Recruiting prep, explained from scratch</span>
+        </div>
+        <div className="valufin-hero-scroll-hint">
+          <span>Pick a path — scroll</span>
+          <i className="ti ti-arrow-down" />
         </div>
       </div>
 
-      <div style={{ height: 12 }} />
+      {CATEGORIES.map((cat, i) => (
+        <CategoryScene key={cat.title} index={i} cat={cat} navigate={navigate} />
+      ))}
 
-      <p className="valufin-section-label">Pick a path</p>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-        {CATEGORIES.map((cat) => (
-          <div key={cat.title} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <CategoryCard icon={cat.icon} title={cat.title} description={cat.description} />
-            <Button onClick={() => navigate(cat.path)}>Explore →</Button>
-          </div>
-        ))}
-      </div>
-
-      <div style={{ height: 16 }} />
-      <p className="valufin-caption">
+      <div style={{ height: 8 }} />
+      <p className="valufin-caption scroll-element">
         Each topic will eventually have its own hands-on AI tool — DCF valuation is built
         and ready now. Everything else is being built one topic at a time.
       </p>

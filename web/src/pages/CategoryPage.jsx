@@ -1,12 +1,29 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Topbar from '../components/Topbar';
-import { CategoryHeader, TopicCard, Banner } from '../components/Curriculum';
-import { Button } from '../components/Widgets';
+import { TopicCard, Banner } from '../components/Curriculum';
+import SyllabusIndex from '../components/SyllabusIndex';
+import { useScrollReveal } from '../lib/useScrollReveal';
 
-export default function CategoryPage({ icon, title, pillLabel, caption, topics, backLabel, backPath, comingSoonMentionsTool = false }) {
+export default function CategoryPage({
+  title,
+  pillLabel,
+  caption,
+  topics,
+  backLabel,
+  backPath,
+  comingSoonMentionsTool = false,
+  heroImage,
+  heroTint,
+  heroAccent,
+  beforeTopics,
+  topicsLayout = 'grid',
+  syllabusHeadline,
+  children,
+}) {
   const navigate = useNavigate();
   const [comingSoonTopic, setComingSoonTopic] = useState(null);
+  useScrollReveal();
 
   function handleClick(topic) {
     if (topic.path) {
@@ -16,25 +33,82 @@ export default function CategoryPage({ icon, title, pillLabel, caption, topics, 
     }
   }
 
+  const heroStyle = { '--scene-image': `url("${heroImage}")`, '--scene-tint': heroTint };
+
   return (
     <div className="valufin-container">
-      <Topbar />
-      <Button variant="secondary" onClick={() => navigate(backPath)}>{backLabel}</Button>
+      {beforeTopics ? (
+        <div className="valufin-category-hero-wrap" style={heroStyle}>
+          <div className="valufin-scene-bg" />
+          <div className="valufin-scene-overlay valufin-scene-overlay-extended" />
+          <div className="valufin-scene-scanlines" />
 
-      <CategoryHeader icon={icon} title={title} pillLabel={pillLabel} />
-      <p className="valufin-caption">{caption}</p>
+          <div className="valufin-category-hero-inner">
+            <div className="valufin-hero-topbar">
+              <div className="valufin-hero-topbar-inner">
+                <Topbar />
+                <button className="valufin-category-back" onClick={() => navigate(backPath)}>{backLabel}</button>
+              </div>
+            </div>
+            <div className="valufin-category-hero-content scroll-element">
+              <p className="valufin-category-hero-pill" style={{ color: heroAccent }}>[ {pillLabel.toUpperCase()} ]</p>
+              <h1 className="valufin-category-hero-title">{title}</h1>
+              <p className="valufin-hero-sub">{caption}</p>
+            </div>
+            <div className="valufin-hero-scroll-hint">
+              <span>Scroll for topics</span>
+              <i className="ti ti-arrow-down" />
+            </div>
+          </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 16 }}>
-        {topics.map((topic) => (
-          <TopicCard
-            key={topic.title}
-            tag={topic.tag}
-            title={topic.title}
-            description={topic.description}
-            onClick={() => handleClick(topic)}
-          />
-        ))}
-      </div>
+          <div className="valufin-category-hero-extra">
+            {beforeTopics}
+          </div>
+        </div>
+      ) : (
+        <div className="valufin-category-hero" style={heroStyle}>
+          <div className="valufin-scene-bg" />
+          <div className="valufin-scene-overlay" />
+          <div className="valufin-scene-scanlines" />
+          <div className="valufin-hero-topbar">
+            <div className="valufin-hero-topbar-inner">
+              <Topbar />
+              <button className="valufin-category-back" onClick={() => navigate(backPath)}>{backLabel}</button>
+            </div>
+          </div>
+          <div className="valufin-category-hero-content scroll-element">
+            <p className="valufin-category-hero-pill" style={{ color: heroAccent }}>[ {pillLabel.toUpperCase()} ]</p>
+            <h1 className="valufin-category-hero-title">{title}</h1>
+            <p className="valufin-hero-sub">{caption}</p>
+          </div>
+          <div className="valufin-hero-scroll-hint">
+            <span>Scroll for topics</span>
+            <i className="ti ti-arrow-down" />
+          </div>
+        </div>
+      )}
+
+      {topicsLayout === 'syllabus' ? (
+        <div className="scroll-element">
+          <SyllabusIndex headline={syllabusHeadline} topics={topics} onTopicClick={handleClick} />
+        </div>
+      ) : (
+        <>
+          <p className="valufin-section-label">Topics — tap any to start learning</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+            {topics.map((topic) => (
+              <div className="scroll-element" key={topic.title}>
+                <TopicCard
+                  tag={topic.tag}
+                  title={topic.title}
+                  description={topic.description}
+                  onClick={() => handleClick(topic)}
+                />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
       {comingSoonTopic && (
         <Banner type="info">
@@ -42,6 +116,8 @@ export default function CategoryPage({ icon, title, pillLabel, caption, topics, 
           built yet.{comingSoonMentionsTool ? ' DCF valuation is ready to try now.' : ''}
         </Banner>
       )}
+
+      {children}
     </div>
   );
 }

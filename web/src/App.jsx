@@ -11,6 +11,7 @@ import Universal from './pages/Universal';
 import MentalMath from './pages/MentalMath';
 import MarketSizing from './pages/MarketSizing';
 import Frameworks from './pages/Frameworks';
+import FrameworkDetail from './pages/FrameworkDetail';
 import MAProcess from './pages/MAProcess';
 import StockPitch from './pages/StockPitch';
 import './theme.css';
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/mental-math" element={<MentalMath />} />
         <Route path="/market-sizing" element={<MarketSizing />} />
         <Route path="/frameworks" element={<Frameworks />} />
+        <Route path="/frameworks/:slug" element={<FrameworkDetail />} />
         <Route path="/ma-process" element={<MAProcess />} />
         <Route path="/stock-pitch" element={<StockPitch />} />
       </Routes>

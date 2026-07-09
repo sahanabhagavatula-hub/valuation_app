@@ -1,19 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz@1,6..72&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.44.0/tabler-icons.min.css');
+@import './tokens.css';
+@import './typography.css';
 
 * {
     box-sizing: border-box;
 }
 
 html, body, #root {
-    font-family: 'Urbanist', -apple-system, sans-serif;
+    font-family: 'Sora', -apple-system, sans-serif;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #16140f;
-    color: #ffffff;
+    background-color: #211F1C;
+    color: #EDEBE4;
     overflow-x: hidden;
 }
 
@@ -21,9 +23,9 @@ a { color: inherit; }
 
 /* Content column — mirrors Streamlit's wide-layout block-container */
 .valufin-container {
-    max-width: 900px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 2rem 1rem 3rem;
+    padding: 2rem 2.5rem 3rem;
 }
 
 .valufin-topbar {
@@ -31,7 +33,7 @@ a { color: inherit; }
     align-items: center;
     gap: 10px;
     padding: 4px 0 20px;
-    border-bottom: 1px solid #2a2620;
+    border-bottom: 1px solid #3A362F;
     margin-bottom: 24px;
 }
 .valufin-logo-mark {
@@ -40,17 +42,21 @@ a { color: inherit; }
     border-radius: 6px;
 }
 .valufin-logo-text {
-    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-size: 18px;
     letter-spacing: 0.02em;
     color: transparent;
-    -webkit-text-stroke: 0.8px #ffffff;
+    -webkit-text-stroke: 0.8px #EDEBE4;
+}
+.valufin-logo-text-accent {
+    -webkit-text-stroke: 0.8px #7FA896;
 }
 
 .valufin-eyebrow {
     display: inline-block;
-    border: 1px solid #4a4438;
-    color: #b8a888;
+    border: 1px solid #3A362F;
+    color: #C4B79A;
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -61,7 +67,7 @@ a { color: inherit; }
 }
 
 .valufin-section-label {
-    color: #6b9b94;
+    color: #7FA896;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -72,79 +78,79 @@ a { color: inherit; }
     gap: 8px;
 }
 
-h1, h2, h3 { color: #ffffff; font-weight: 400; margin: 0; }
-p, span, label { color: #ffffff; }
-.valufin-caption { color: #8e8675; font-size: 13px; }
+h1, h2, h3 { font-family: 'Poppins', sans-serif; color: #EDEBE4; font-weight: 600; margin: 0; }
+p, span, label { color: #EDEBE4; }
+.valufin-caption { color: #8F887A; font-size: 13px; }
 
 /* Expander (Streamlit's stExpander equivalent) */
 .valufin-expander {
-    background-color: #1f1b15;
-    border: 1px solid #322c23;
+    background-color: #2A2722;
+    border: 1px solid #3A362F;
     border-radius: 10px;
     margin-bottom: 10px;
     padding: 0 14px;
 }
 .valufin-expander summary {
-    color: #8e8675;
+    color: #8F887A;
     font-size: 13px;
     cursor: pointer;
     padding: 10px 0;
     list-style: none;
 }
 .valufin-expander summary::-webkit-details-marker { display: none; }
-.valufin-expander summary:hover { color: #6b9b94; }
-.valufin-expander[open] summary { color: #6b9b94; }
+.valufin-expander summary:hover { color: #7FA896; }
+.valufin-expander[open] summary { color: #7FA896; }
 .valufin-expander-body { padding: 0 0 14px; }
 
 /* Text / number inputs */
 .valufin-field { margin-bottom: 14px; }
 .valufin-field-label-text {
     font-size: 13px;
-    color: #ffffff;
+    color: #EDEBE4;
     margin-bottom: 6px;
     display: block;
 }
 .valufin-input, .valufin-input-number {
     width: 100%;
-    background-color: #16140f;
-    border: 1px solid #3a322c;
-    color: #ffffff;
+    background-color: #211F1C;
+    border: 1px solid #3A362F;
+    color: #EDEBE4;
     border-radius: 7px;
     padding: 9px 12px;
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Sora', sans-serif;
     font-size: 14px;
 }
 .valufin-input:focus, .valufin-input-number:focus {
     outline: none;
-    border-color: #3d6b66;
+    border-color: #5E8F80;
 }
 
 /* Sliders */
 .valufin-slider-wrap { margin-bottom: 14px; }
 .valufin-slider {
     width: 100%;
-    accent-color: #3d6b66;
+    accent-color: #5E8F80;
 }
-.valufin-slider-value { font-size: 13px; color: #8e8675; margin-top: 4px; }
+.valufin-slider-value { font-size: 13px; color: #8F887A; margin-top: 4px; }
 
 /* Metrics */
 .valufin-metric {
-    background-color: #1f1b15;
-    border: 1px solid #322c23;
+    background-color: #2A2722;
+    border: 1px solid #3A362F;
     border-radius: 10px;
     padding: 14px;
 }
-.valufin-metric-label { color: #8e8675; font-size: 13px; }
-.valufin-metric-value { color: #ffffff; font-size: 26px; font-weight: 600; margin-top: 4px; }
+.valufin-metric-label { color: #8F887A; font-size: 13px; }
+.valufin-metric-value { color: #EDEBE4; font-size: 26px; font-weight: 600; margin-top: 4px; }
 
 /* Buttons */
 .valufin-btn {
-    background-color: #3d6b66;
-    color: #e8e3d8;
+    background-color: #5E8F80;
+    color: #EDEBE4;
     border: none;
     border-radius: 8px;
     font-weight: 600;
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Sora', sans-serif;
     font-size: 15px;
     padding: 10px 18px;
     cursor: pointer;
@@ -152,9 +158,9 @@ p, span, label { color: #ffffff; }
 }
 .valufin-btn:hover { background-color: #4d8079; }
 .valufin-btn-secondary {
-    background-color: #1f1b15;
-    color: #ffffff;
-    border: 1px solid #322c23;
+    background-color: #2A2722;
+    color: #EDEBE4;
+    border: 1px solid #3A362F;
 }
 .valufin-btn-secondary:hover { background-color: #26211a; }
 
@@ -163,17 +169,17 @@ p, span, label { color: #ffffff; }
 .valufin-sidebar-fixed {
     width: 280px;
     flex-shrink: 0;
-    background-color: #1f1b15;
-    border-right: 1px solid #322c23;
+    background-color: #2A2722;
+    border-right: 1px solid #3A362F;
     padding: 20px;
     min-height: 100vh;
 }
 .valufin-main { flex: 1; min-width: 0; }
-.valufin-sidebar-fixed h2 { font-size: 15px; margin-bottom: 12px; color: #ffffff; }
+.valufin-sidebar-fixed h2 { font-size: 15px; margin-bottom: 12px; color: #EDEBE4; }
 
 .valufin-verdict-card {
-    background: #1f1b15;
-    border: 1px solid #4a4438;
+    background: #2A2722;
+    border: 1px solid #3A362F;
     border-radius: 12px;
     padding: 20px 20px 20px 24px;
     margin: 16px 0;
@@ -183,35 +189,35 @@ p, span, label { color: #ffffff; }
 .valufin-verdict-card::before {
     content: "";
     position: absolute; top: 0; left: 0; bottom: 0; width: 4px;
-    background: #3d6b66;
+    background: #5E8F80;
 }
 .valufin-verdict-label {
-    font-size: 11px; color: #6b9b94; text-transform: uppercase;
+    font-size: 11px; color: #7FA896; text-transform: uppercase;
     letter-spacing: 0.1em; margin: 0 0 6px; font-weight: 500;
 }
-.valufin-verdict-value { font-size: 26px; font-weight: 400; color: #ffffff; margin: 0; }
-.valufin-verdict-sub { font-size: 13px; color: #8e8675; margin: 8px 0 0; font-weight: 300; }
+.valufin-verdict-value { font-size: 26px; font-weight: 400; color: #EDEBE4; margin: 0; }
+.valufin-verdict-sub { font-size: 13px; color: #8F887A; margin: 8px 0 0; font-weight: 300; }
 
 .valufin-links-box {
-    background: #1f1b15;
-    border-left: 3px solid #3d6b66;
+    background: #2A2722;
+    border-left: 3px solid #5E8F80;
     border-radius: 0 10px 10px 0;
     padding: 14px 18px;
     margin: 16px 0;
 }
 .valufin-links-title {
-    font-size: 12px; font-weight: 600; color: #ffffff; margin: 0 0 8px;
+    font-size: 12px; font-weight: 600; color: #EDEBE4; margin: 0 0 8px;
     text-transform: uppercase; letter-spacing: 0.06em;
 }
 .valufin-links-box a {
-    display: block; color: #8e8675; font-size: 14px; text-decoration: none;
+    display: block; color: #8F887A; font-size: 14px; text-decoration: none;
     margin: 6px 0; font-weight: 400;
 }
-.valufin-links-box a:hover { color: #6b9b94; }
+.valufin-links-box a:hover { color: #7FA896; }
 
 .valufin-concept-card {
-    background: #1f1b15;
-    border: 1px solid #322c23;
+    background: #2A2722;
+    border: 1px solid #3A362F;
     border-radius: 12px;
     padding: 24px 26px;
     margin: 0 0 18px;
@@ -219,29 +225,29 @@ p, span, label { color: #ffffff; }
 .valufin-concept-heading {
     font-size: 19px;
     font-weight: 500;
-    color: #6b9b94;
+    color: #7FA896;
     margin: 0 0 12px;
 }
 .valufin-concept-body {
     font-size: 15px;
-    color: #c7c0b0;
+    color: #B4AEA2;
     line-height: 1.75;
     font-weight: 300;
 }
-.valufin-concept-body strong { color: #ffffff; font-weight: 500; }
+.valufin-concept-body strong { color: #EDEBE4; font-weight: 500; }
 
-.valufin-table-wrap { background-color: #1f1b15; border-radius: 10px; overflow: hidden; }
+.valufin-table-wrap { background-color: #2A2722; border-radius: 10px; overflow: hidden; }
 .valufin-table { width: 100%; border-collapse: collapse; }
 .valufin-table th, .valufin-table td {
     padding: 8px 12px;
     text-align: center;
     font-size: 13px;
-    border-bottom: 1px solid #322c23;
+    border-bottom: 1px solid #3A362F;
 }
-.valufin-table th { color: #8e8675; font-weight: 500; }
-.valufin-table td { color: #ffffff; }
+.valufin-table th { color: #8F887A; font-weight: 500; }
+.valufin-table td { color: #EDEBE4; }
 
-hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
+hr, .valufin-hr { border: none; border-top: 1px solid #3A362F; margin: 20px 0; }
 
 /* Landing page hero (skyscraper photo) */
 .valufin-hero {
@@ -251,11 +257,36 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    padding: 56px 24px 32px;
+    margin-top: -2rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
     text-align: center;
     border-radius: 0;
     overflow: hidden;
     margin-bottom: 8px;
+}
+.valufin-hero-scroll-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: #8F887A;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    animation: valufin-scroll-bounce 2s ease-in-out infinite;
+}
+@keyframes valufin-scroll-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
 }
 .valufin-hero-bg {
     position: absolute;
@@ -263,47 +294,279 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
     background-image: var(--hero-bg-image);
     background-size: cover;
     background-position: center 65%;
-    filter: grayscale(100%) contrast(1.1);
-    opacity: 0.3;
+    filter: grayscale(55%) contrast(1.15);
+    opacity: 0.62;
     z-index: 0;
 }
 .valufin-hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(180deg, rgba(22,20,15,0.5) 0%, rgba(22,20,15,0.88) 75%, #16140f 100%);
+    background: linear-gradient(180deg, rgba(22,20,15,0.2) 0%, rgba(22,20,15,0.6) 55%, #211F1C 100%);
     z-index: 1;
 }
+.valufin-hero-topbar {
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    z-index: 3;
+    padding: 20px 0 0;
+}
+.valufin-hero-topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+.valufin-category-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(27,25,22,0.55);
+    border: 1px solid #3A362F;
+    color: #EDEBE4;
+    font-family: 'Sora', sans-serif;
+    font-size: 12.5px; font-weight: 600;
+    padding: 7px 16px; border-radius: 20px;
+    cursor: pointer; white-space: nowrap;
+    transition: background 0.15s, border-color 0.15s;
+    backdrop-filter: blur(6px);
+}
+.valufin-category-back:hover { background: rgba(27,25,22,0.8); border-color: #5E8F80; }
+.valufin-hero-topbar .valufin-topbar {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 4px 0;
+}
+.valufin-hero-topbar .valufin-logo-mark { width: 40px; height: 40px; }
+.valufin-hero-topbar .valufin-logo-text { font-size: 30px; }
 .valufin-hero-content {
     position: relative;
     z-index: 2;
-    max-width: 540px;
+    max-width: 780px;
     margin: 0 auto;
+    opacity: 0;
+}
+.valufin-hero-brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(64px, 12vw, 160px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    color: transparent;
+    -webkit-text-stroke: 2.5px #EDEBE4;
+}
+.valufin-hero-brand-accent {
+    -webkit-text-stroke: 2.5px #7FA896;
+}
+.valufin-hero-content .valufin-eyebrow {
+    margin-top: 8px;
+    margin-bottom: 0;
 }
 .valufin-hero h1 {
-    font-size: 42px;
+    font-size: clamp(52px, 8vw, 104px);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.08;
     letter-spacing: -0.01em;
-    margin: 0 0 16px;
+    margin: 0 0 20px;
     color: transparent;
-    -webkit-text-stroke: 1.5px #ffffff;
+    -webkit-text-stroke: 2px #EDEBE4;
 }
 .valufin-hero h1 .accent {
     color: transparent;
-    -webkit-text-stroke: 1.5px #6b9b94;
+    -webkit-text-stroke: 2px #7FA896;
 }
 .valufin-hero-sub {
-    font-size: 16px;
-    color: #c7c0b0;
+    font-size: 17px;
+    color: #B4AEA2;
     font-weight: 300;
-    max-width: 460px;
+    max-width: 560px;
     margin: 0 auto 8px;
     line-height: 1.6;
 }
 
+/* Category page hero (Investment Banking, PE/HF, etc.) */
+.valufin-category-hero {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    margin-top: -2rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.valufin-category-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    padding: 0 clamp(24px, 6vw, 64px);
+    text-align: center;
+}
+.valufin-category-hero-pill {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 18px;
+}
+.valufin-category-hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+    color: transparent;
+    -webkit-text-stroke: 2px #EDEBE4;
+}
+
+/* Category hero variant that extends its photo down behind intro content (used when beforeTopics is set) */
+.valufin-category-hero-wrap {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    margin-top: -2rem;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.valufin-category-hero-inner {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.valufin-category-hero-extra {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2.5rem 8px;
+}
+.valufin-scene-overlay-extended {
+    background: linear-gradient(
+        180deg,
+        #211F1C 0%,
+        var(--scene-tint) 30%,
+        var(--scene-tint) 46%,
+        rgba(33,31,28,0.88) 66%,
+        #211F1C 86%,
+        #211F1C 100%
+    );
+}
+
+/* Cinematic category scenes on the homepage */
+.valufin-scene {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+.valufin-scene-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: var(--scene-image);
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(35%) contrast(1.15);
+    transform-origin: center center;
+    z-index: 0;
+}
+.valufin-scene-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(
+        180deg,
+        #211F1C 0%,
+        var(--scene-tint) 38%,
+        var(--scene-tint) 55%,
+        #211F1C 100%
+    );
+    z-index: 1;
+}
+.valufin-scene-scanlines {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.035) 0px,
+        rgba(255,255,255,0.035) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    mix-blend-mode: overlay;
+}
+.valufin-scene-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    padding: 0 clamp(24px, 6vw, 64px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.valufin-scene-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--scene-accent);
+    text-shadow: 0 0 16px var(--scene-accent);
+    margin: 0 0 22px;
+}
+.valufin-scene-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(40px, 6vw, 76px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+    color: transparent;
+    -webkit-text-stroke: 1.75px #EDEBE4;
+    text-shadow: 0 0 30px rgba(255,255,255,0.12);
+}
+.valufin-scene-desc {
+    font-size: 16.5px;
+    color: #d8d2c4;
+    font-weight: 300;
+    line-height: 1.65;
+    max-width: 460px;
+    margin: 0 0 26px;
+}
+.valufin-scene-enter {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--scene-accent);
+    margin: 0;
+    animation: valufin-enter-pulse 2s ease-in-out infinite;
+}
+@keyframes valufin-enter-pulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+}
+
 .valufin-feature-card {
-    background: #1f1b15;
-    border: 1px solid #322c23;
+    background: #2A2722;
+    border: 1px solid #3A362F;
     border-radius: 12px;
     padding: 20px 18px;
     text-align: center;
@@ -311,8 +574,8 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
 }
 .valufin-feature-number {
     width: 28px; height: 28px;
-    background: #3d6b66;
-    color: #e8e3d8;
+    background: #5E8F80;
+    color: #EDEBE4;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 13px; font-weight: 700;
@@ -321,27 +584,27 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
 .valufin-feature-title {
     font-size: 15px;
     font-weight: 500;
-    color: #ffffff;
+    color: #EDEBE4;
     margin: 0 0 8px;
 }
 .valufin-feature-body {
     font-size: 13px;
-    color: #8e8675;
+    color: #8F887A;
     font-weight: 300;
     line-height: 1.6;
     margin: 0;
 }
 
 .valufin-audience-card {
-    background: #1f1b15;
-    border-left: 3px solid #3d6b66;
+    background: #2A2722;
+    border-left: 3px solid #5E8F80;
     border-radius: 0 10px 10px 0;
     padding: 16px 18px;
     margin: 6px 0;
 }
 .valufin-audience-card p {
     font-size: 14px;
-    color: #c7c0b0;
+    color: #B4AEA2;
     font-weight: 300;
     margin: 0;
     line-height: 1.6;
@@ -387,7 +650,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
 .valufin-subhero-fade {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(180deg, rgba(22,20,15,0.25) 0%, #16140f 95%);
+    background: linear-gradient(180deg, rgba(22,20,15,0.25) 0%, #211F1C 95%);
     z-index: 1;
 }
 .valufin-subhero-content {
@@ -400,11 +663,11 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
     font-size: 34px;
     font-weight: 700;
     color: transparent;
-    -webkit-text-stroke: 1.3px #ffffff;
+    -webkit-text-stroke: 1.3px #EDEBE4;
     margin: 0 0 10px;
 }
 .valufin-subhero-sub {
-    color: #a39c8c;
+    color: #8F887A;
     font-size: 15px;
     font-weight: 300;
     max-width: 460px;
@@ -417,29 +680,29 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #1f1b15;
-    border: 1px solid #322c23;
+    background: #2A2722;
+    border: 1px solid #3A362F;
     border-radius: 20px;
     padding: 8px 18px;
     margin: 28px 0 6px;
 }
 .valufin-step-num {
     width: 20px; height: 20px;
-    background: #3d6b66;
-    color: #e8e3d8;
+    background: #5E8F80;
+    color: #EDEBE4;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 11px; font-weight: 700;
 }
 .valufin-step-label {
-    font-size: 13px; font-weight: 600; color: #6b9b94;
+    font-size: 13px; font-weight: 600; color: #7FA896;
     letter-spacing: 0.04em; text-transform: uppercase;
 }
 
 /* Field cards with icon + bar */
 .valufin-icon-card {
-    background: #1f1b15;
-    border: 1px solid #322c23;
+    background: #2A2722;
+    border: 1px solid #3A362F;
     border-radius: 10px;
     padding: 14px 16px;
     margin-bottom: 10px;
@@ -448,15 +711,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
 .valufin-field-icon {
     width: 26px; height: 26px;
     background: rgba(61,107,102,0.2);
-    color: #6b9b94;
+    color: #7FA896;
     border-radius: 6px;
     display: flex; align-items: center; justify-content: center;
     font-size: 14px;
     flex-shrink: 0;
 }
-.valufin-field-label { font-size: 12px; color: #8e8675; font-weight: 500; }
-.valufin-field-value { font-size: 18px; font-weight: 600; color: #ffffff; margin: 0; }
-.valufin-bar-track { height: 4px; background: #322c23; border-radius: 2px; margin-top: 8px; overflow: hidden; }
+.valufin-field-label { font-size: 12px; color: #8F887A; font-weight: 500; }
+.valufin-field-value { font-size: 18px; font-weight: 600; color: #EDEBE4; margin: 0; }
+.valufin-bar-track { height: 4px; background: #3A362F; border-radius: 2px; margin-top: 8px; overflow: hidden; }
 .valufin-bar-fill { height: 100%; border-radius: 2px; }
 .valufin-bar-caption { font-size: 10.5px; margin-top: 4px; }
 
@@ -481,25 +744,74 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
     padding: 16px; text-align: left;
 }
 .valufin-flip-front {
-    background: #1f1b15; border: 1px solid #322c23;
+    background: #2A2722; border: 1px solid #3A362F;
     align-items: center; justify-content: center; text-align: center;
 }
 .valufin-flip-front .icon {
-    width: 42px; height: 42px; background: rgba(61,107,102,0.2); color: #6b9b94;
+    width: 42px; height: 42px; background: rgba(61,107,102,0.2); color: #7FA896;
     border-radius: 10px; display: flex; align-items: center; justify-content: center;
     font-size: 20px; margin-bottom: 10px;
 }
-.valufin-flip-front .term { font-size: 15px; font-weight: 600; color: #ffffff; margin: 0; }
-.valufin-flip-front .tap-hint { font-size: 10.5px; color: #6b9b94; margin-top: 8px; }
+.valufin-flip-front .term { font-size: 15px; font-weight: 600; color: #EDEBE4; margin: 0; }
+.valufin-flip-front .tap-hint { font-size: 10.5px; color: #7FA896; margin-top: 8px; }
 .valufin-flip-back {
-    background: #243a36; border: 1px solid #3d6b66;
+    background: #243a36; border: 1px solid #5E8F80;
     transform: rotateY(180deg);
     overflow-y: auto; justify-content: flex-start;
 }
-.valufin-flip-back .def-label { font-size: 9.5px; color: #8fc4bf; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 5px; }
-.valufin-flip-back .def-text { font-size: 11.5px; color: #d6e6e3; line-height: 1.45; font-weight: 300; margin: 0 0 8px; }
+.valufin-flip-back .def-label { font-size: 9.5px; color: #7FA896; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 5px; }
+.valufin-flip-back .def-text { font-size: 11.5px; color: #B4AEA2; line-height: 1.45; font-weight: 300; margin: 0 0 8px; }
 .valufin-flip-back .ex-label { font-size: 9.5px; color: #c9a875; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 4px; }
-.valufin-flip-back .ex-text { font-size: 11px; color: #b8a888; line-height: 1.45; font-weight: 300; font-style: italic; margin: 0; }
+.valufin-flip-back .ex-text { font-size: 11px; color: #C4B79A; line-height: 1.45; font-weight: 300; font-style: italic; margin: 0; }
+
+/* Single-card flashcard deck (Quizlet-style), used for vocab review */
+.valufin-deck { max-width: 460px; margin: 0 auto; }
+.valufin-deck .valufin-deck-card { height: 300px; }
+.valufin-deck .valufin-flip-front .icon { width: 52px; height: 52px; font-size: 24px; }
+.valufin-deck .valufin-flip-front .term { font-size: 20px; }
+.valufin-deck .valufin-flip-front .tap-hint { font-size: 12px; }
+.valufin-deck .valufin-flip-face { padding: 26px; }
+.valufin-deck .valufin-flip-back .def-label,
+.valufin-deck .valufin-flip-back .ex-label { font-size: 11px; }
+.valufin-deck .valufin-flip-back .def-text { font-size: 14px; margin-bottom: 14px; }
+.valufin-deck .valufin-flip-back .ex-text { font-size: 13px; }
+.valufin-deck-controls {
+    display: flex; align-items: center; justify-content: center; gap: 22px;
+    margin-top: 18px;
+}
+.valufin-deck-nav {
+    width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+    background: #2A2722; border: 1px solid #3A362F; color: #EDEBE4;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 18px; padding: 0;
+    transition: background 0.15s, border-color 0.15s;
+}
+.valufin-deck-nav:hover { background: #3A362F; border-color: #5E8F80; }
+.valufin-deck-counter { font-size: 13px; color: #8F887A; font-weight: 600; min-width: 54px; text-align: center; }
+
+/* Concept flip-cards ("What is IB?" etc.) */
+.valufin-concept-flip { height: 210px; cursor: pointer; margin-bottom: 16px; }
+.valufin-concept-flip-front {
+    background: #1c2e2b; border: 1px solid #3d5750;
+    align-items: center; justify-content: center; text-align: center;
+}
+.valufin-concept-flip-front .icon {
+    width: 44px; height: 44px; background: rgba(127,168,150,0.22); color: #9ed8c9;
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 12px;
+}
+.valufin-concept-flip-heading { font-size: 18px; font-weight: 600; color: #EDEBE4; margin: 0 0 10px; padding: 0 16px; }
+.valufin-concept-flip-front .tap-hint { font-size: 11px; color: #9ed8c9; margin: 0; }
+.valufin-concept-flip-back {
+    background: #243a36; border: 1px solid #5E8F80;
+    transform: rotateY(180deg);
+    overflow-y: auto; justify-content: flex-start; padding: 22px 24px;
+}
+.valufin-concept-flip-back .valufin-concept-body {
+    font-size: 14px; color: #B4AEA2; line-height: 1.7; font-weight: 300; margin: 0;
+}
+.valufin-concept-flip-back .valufin-concept-body strong,
+.valufin-concept-flip-back .valufin-concept-body em { color: #EDEBE4; }
 
 /* Full-page faint background image, sits behind all content */
 .valufin-page-bg {
@@ -516,47 +828,58 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
 
 /* Category cards on the homepage */
 .valufin-category-card {
-    background: #1f1b15;
-    border: 1px solid #322c23;
+    background: #2A2722;
+    border: 1px solid #3A362F;
     border-radius: 14px;
-    padding: 24px 22px;
+    padding: 0;
     height: 100%;
     text-align: left;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
+.valufin-category-image-wrap { width: 100%; height: 110px; overflow: hidden; flex-shrink: 0; }
+.valufin-category-image {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(55%) contrast(1.05); opacity: 0.85;
+    transition: transform 0.4s ease;
+}
+.valufin-category-card:hover .valufin-category-image { transform: scale(1.06); }
+.valufin-category-card-body { padding: 20px 22px 24px; flex: 1; }
 .valufin-category-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
 .valufin-category-icon {
     width: 38px; height: 38px;
     background: rgba(61,107,102,0.2);
-    color: #6b9b94;
+    color: #7FA896;
     border-radius: 9px;
     display: flex; align-items: center; justify-content: center;
     font-size: 18px;
     flex-shrink: 0;
 }
-.valufin-category-title { font-size: 17px; font-weight: 600; color: #ffffff; margin: 0; }
-.valufin-category-desc { font-size: 13px; color: #8e8675; font-weight: 300; line-height: 1.55; margin: 0 0 4px; }
+.valufin-category-title { font-size: 17px; font-weight: 600; color: #EDEBE4; margin: 0; }
+.valufin-category-desc { font-size: 13px; color: #8F887A; font-weight: 300; line-height: 1.55; margin: 0 0 4px; }
 
 /* Category page header */
 .valufin-category-header {
     display: flex; align-items: center; gap: 12px;
-    border-bottom: 1px solid #322c23;
+    border-bottom: 1px solid #3A362F;
     padding-bottom: 16px;
     margin-bottom: 24px;
 }
 .valufin-category-header-icon {
     width: 36px; height: 36px;
     background: rgba(61,107,102,0.2);
-    color: #6b9b94;
+    color: #7FA896;
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     font-size: 17px;
 }
-.valufin-category-header-title { font-size: 22px; font-weight: 600; color: #ffffff; margin: 0; }
+.valufin-category-header-title { font-size: 22px; font-weight: 600; color: #EDEBE4; margin: 0; }
 .valufin-category-header-pill {
     display: inline-block;
     background: #243a36;
-    border: 1px solid #3d6b66;
-    color: #9ed8f0;
+    border: 1px solid #5E8F80;
+    color: #7FA896;
     font-size: 12px;
     font-weight: 500;
     padding: 4px 12px;
@@ -566,8 +889,8 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
 
 /* Topic cards on category pages */
 .valufin-topic-card {
-    background: #1f1b15;
-    border: 1px solid #322c23;
+    background: #2A2722;
+    border: 1px solid #3A362F;
     border-radius: 12px;
     padding: 20px 20px 16px;
     height: 100%;
@@ -586,61 +909,110 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
     width: fit-content;
 }
 .valufin-tag-must-know { background: rgba(163, 77, 61, 0.18); color: #d68b7b; border: 1px solid rgba(163, 77, 61, 0.4); }
-.valufin-tag-high-value { background: rgba(163, 115, 61, 0.18); color: #d6ab7b; border: 1px solid rgba(163, 115, 61, 0.4); }
-.valufin-tag-good-to-have { background: rgba(61, 107, 102, 0.18); color: #8fc4bf; border: 1px solid rgba(61, 107, 102, 0.4); }
-.valufin-topic-title { font-size: 16px; font-weight: 600; color: #ffffff; margin: 0 0 8px; }
-.valufin-topic-desc { font-size: 13px; color: #8e8675; font-weight: 300; line-height: 1.55; margin: 0 0 14px; flex-grow: 1; }
+.valufin-tag-high-value { background: rgba(163, 115, 61, 0.18); color: #C4B79A; border: 1px solid rgba(163, 115, 61, 0.4); }
+.valufin-tag-good-to-have { background: rgba(61, 107, 102, 0.18); color: #7FA896; border: 1px solid rgba(61, 107, 102, 0.4); }
+.valufin-topic-title { font-size: 16px; font-weight: 600; color: #EDEBE4; margin: 0 0 8px; }
+.valufin-topic-desc { font-size: 13px; color: #8F887A; font-weight: 300; line-height: 1.55; margin: 0 0 14px; flex-grow: 1; }
+
+/* Editorial syllabus index (topic list as full-width rows) */
+.valufin-syllabus { margin-top: 8px; }
+.valufin-syllabus-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap; margin-bottom: 28px;
+}
+.valufin-syllabus-eyebrow {
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 12px;
+    letter-spacing: 0.24em; color: #7FA896; margin: 0 0 14px;
+}
+.valufin-syllabus-headline {
+    font-size: clamp(26px, 3.4vw, 38px); line-height: 1.1; letter-spacing: -0.01em;
+    max-width: 560px; margin: 0;
+}
+.valufin-syllabus-summary { font-size: 13px; color: #8F887A; white-space: nowrap; margin: 0 0 6px; }
+
+.valufin-syllabus-list { border-bottom: 1px solid #3A362F; }
+.valufin-syllabus-row {
+    display: grid; grid-template-columns: 76px 1fr auto; gap: 24px; align-items: center;
+    padding: 24px 12px; border-top: 1px solid #3A362F; cursor: pointer;
+    transition: background 0.15s;
+}
+.valufin-syllabus-row:hover { background: #26231E; }
+.valufin-syllabus-row-num { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.valufin-syllabus-row-icon {
+    width: 38px; height: 38px; border-radius: 10px; background: #2A2722; border: 1px solid #3A362F;
+    display: flex; align-items: center; justify-content: center; color: #7FA896; font-size: 17px; flex-shrink: 0;
+}
+.valufin-syllabus-row-index {
+    font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 28px; line-height: 1;
+    color: transparent; -webkit-text-stroke: 1.2px #524d43;
+}
+.valufin-syllabus-row-title-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.valufin-syllabus-row-title { font-size: 19px; margin: 0; }
+.valufin-syllabus-row-desc { font-size: 13.5px; color: #B4AEA2; line-height: 1.6; margin: 0; max-width: 560px; font-weight: 300; }
+.valufin-syllabus-tag {
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.05em;
+    text-transform: uppercase; border-radius: 999px; padding: 3px 10px;
+}
+.valufin-syllabus-tag-must-know { color: #d68b7b; background: rgba(214,139,123,0.14); }
+.valufin-syllabus-tag-high-value { color: #C4B79A; background: rgba(196,183,154,0.14); }
+.valufin-syllabus-tag-good-to-have { color: #7FA896; background: rgba(127,168,150,0.14); }
+.valufin-syllabus-row-interactive {
+    font-size: 11px; font-weight: 600; color: #7FA896; display: inline-flex; align-items: center; gap: 6px;
+}
+.valufin-syllabus-row-interactive .dot { width: 6px; height: 6px; border-radius: 50%; background: #7FA896; display: inline-block; }
+.valufin-syllabus-row-meta { display: flex; align-items: center; gap: 20px; }
+.valufin-syllabus-row-time { font-size: 12px; color: #8F887A; white-space: nowrap; }
 
 /* Stock pitch / framework topic pages */
 .valufin-intro-card {
-    background: #1f1b15; border: 1px solid #322c23; border-radius: 12px;
+    background: #2A2722; border: 1px solid #3A362F; border-radius: 12px;
     padding: 22px 24px; margin-bottom: 8px;
 }
-.valufin-intro-card p { font-size: 14.5px; color: #c7c0b0; line-height: 1.7; font-weight: 300; margin: 0 0 12px; }
+.valufin-intro-card p { font-size: 14.5px; color: #B4AEA2; line-height: 1.7; font-weight: 300; margin: 0 0 12px; }
 .valufin-intro-card p:last-child { margin-bottom: 0; }
-.valufin-intro-card strong { color: #ffffff; font-weight: 500; }
+.valufin-intro-card strong { color: #EDEBE4; font-weight: 500; }
 
 .valufin-step-card-header {
     display: flex; align-items: center; gap: 14px;
 }
 .valufin-step-num-lg {
-    width: 32px; height: 32px; background: #3d6b66; color: #e8e3d8; border-radius: 50%;
+    width: 32px; height: 32px; background: #5E8F80; color: #EDEBE4; border-radius: 50%;
     display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0;
 }
-.valufin-step-title { font-size: 16px; font-weight: 600; color: #ffffff; margin: 0; }
+.valufin-step-title { font-size: 16px; font-weight: 600; color: #EDEBE4; margin: 0; }
 
 .valufin-vocab-box {
-    background: #243a36; border: 1px solid #3d6b66; border-radius: 10px;
+    background: #243a36; border: 1px solid #5E8F80; border-radius: 10px;
     padding: 14px 16px; margin: 12px 0;
 }
-.valufin-vocab-title { font-size: 11px; color: #8fc4bf; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 8px; }
+.valufin-vocab-title { font-size: 11px; color: #7FA896; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 8px; }
 .valufin-vocab-row { display: flex; gap: 8px; margin-bottom: 6px; font-size: 13px; }
-.valufin-vocab-term { color: #ffffff; font-weight: 600; min-width: 70px; flex-shrink: 0; }
-.valufin-vocab-def { color: #d6e6e3; font-weight: 300; }
+.valufin-vocab-term { color: #EDEBE4; font-weight: 600; min-width: 70px; flex-shrink: 0; }
+.valufin-vocab-def { color: #B4AEA2; font-weight: 300; }
 
 .valufin-catalyst-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
-.valufin-catalyst-table th { text-align: left; color: #6b9b94; font-weight: 600; padding: 8px 10px; border-bottom: 1px solid #322c23; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
-.valufin-catalyst-table td { padding: 8px 10px; border-bottom: 1px solid #2a2620; color: #c7c0b0; font-weight: 300; }
-.valufin-catalyst-table td:first-child { color: #ffffff; font-weight: 500; }
+.valufin-catalyst-table th { text-align: left; color: #7FA896; font-weight: 600; padding: 8px 10px; border-bottom: 1px solid #3A362F; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+.valufin-catalyst-table td { padding: 8px 10px; border-bottom: 1px solid #3A362F; color: #B4AEA2; font-weight: 300; }
+.valufin-catalyst-table td:first-child { color: #EDEBE4; font-weight: 500; }
 
 .valufin-tool-link-box {
-    background: #243a36; border-left: 3px solid #6b9b94; border-radius: 0 10px 10px 0;
+    background: #243a36; border-left: 3px solid #7FA896; border-radius: 0 10px 10px 0;
     padding: 14px 16px; margin: 14px 0;
 }
-.valufin-tool-link-box a { color: #9ed8f0; text-decoration: none; font-weight: 600; font-size: 13.5px; }
+.valufin-tool-link-box a { color: #7FA896; text-decoration: none; font-weight: 600; font-size: 13.5px; }
 
 .valufin-example-box {
     background: #2a2014; border: 1px solid #4a3a24; border-radius: 10px;
     padding: 14px 16px; margin: 12px 0;
 }
-.valufin-example-title { font-size: 11px; color: #d6ab7b; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 8px; }
-.valufin-example-text { font-size: 13px; color: #e0d4c2; font-weight: 300; line-height: 1.6; margin: 0; }
-.valufin-example-text strong { color: #ffffff; }
+.valufin-example-title { font-size: 11px; color: #C4B79A; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 0 0 8px; }
+.valufin-example-text { font-size: 13px; color: #B4AEA2; font-weight: 300; line-height: 1.6; margin: 0; }
+.valufin-example-text strong { color: #EDEBE4; }
 
 /* Interview Q&A card (used for the full worked-example pitch) */
 .valufin-interview-card {
-    background: linear-gradient(135deg, #1f1b15, #1a1712);
-    border: 1px solid #3d6b66;
+    background: linear-gradient(135deg, #2A2722, #1a1712);
+    border: 1px solid #5E8F80;
     border-radius: 14px;
     padding: 0;
     margin-bottom: 24px;
@@ -648,241 +1020,337 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
 }
 .valufin-interview-q {
     padding: 18px 24px;
-    border-bottom: 1px solid #2a2620;
+    border-bottom: 1px solid #3A362F;
     display: flex; align-items: flex-start; gap: 12px;
 }
 .valufin-interview-q-icon {
-    width: 34px; height: 34px; background: #3a322c; color: #b8a888;
+    width: 34px; height: 34px; background: #3A362F; color: #C4B79A;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-size: 14px; font-weight: 700; flex-shrink: 0;
 }
-.valufin-interview-q-text { font-size: 14.5px; color: #e0d4c2; font-style: italic; line-height: 1.6; padding-top: 6px; }
-.valufin-interview-q-label { font-size: 10px; color: #b8a888; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin: 0 0 4px; }
+.valufin-interview-q-text { font-size: 14.5px; color: #B4AEA2; font-style: italic; line-height: 1.6; padding-top: 6px; }
+.valufin-interview-q-label { font-size: 10px; color: #C4B79A; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin: 0 0 4px; }
 .valufin-interview-a-header {
     padding: 14px 24px 0; display: flex; align-items: center; gap: 12px;
 }
 .valufin-interview-a-icon {
-    width: 34px; height: 34px; background: #3d6b66; color: #e8e3d8;
+    width: 34px; height: 34px; background: #5E8F80; color: #EDEBE4;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-size: 14px; font-weight: 700; flex-shrink: 0;
 }
-.valufin-interview-a-label { font-size: 10px; color: #6b9b94; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+.valufin-interview-a-label { font-size: 10px; color: #7FA896; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
 .valufin-interview-step {
     margin: 12px 24px 16px 70px;
-    border-left: 2px solid #2a2620;
+    border-left: 2px solid #3A362F;
     padding-left: 16px;
 }
 .valufin-interview-step-num {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 20px; height: 20px; background: #3d6b66; color: #e8e3d8;
+    width: 20px; height: 20px; background: #5E8F80; color: #EDEBE4;
     border-radius: 50%; font-size: 10px; font-weight: 700; margin-right: 8px;
 }
-.valufin-interview-step-title { font-size: 13.5px; font-weight: 600; color: #ffffff; }
-.valufin-interview-step-body { font-size: 13.5px; color: #c7c0b0; line-height: 1.75; font-weight: 300; margin: 8px 0 0; font-style: italic; }
-.valufin-interview-step-body strong { color: #ffffff; font-weight: 500; font-style: normal; }
+.valufin-interview-step-title { font-size: 13.5px; font-weight: 600; color: #EDEBE4; }
+.valufin-interview-step-body { font-size: 13.5px; color: #B4AEA2; line-height: 1.75; font-weight: 300; margin: 8px 0 0; font-style: italic; }
+.valufin-interview-step-body strong { color: #EDEBE4; font-weight: 500; font-style: normal; }
 
 /* Follow-up question cards */
 .valufin-followup-q {
     padding: 16px 20px; display: flex; align-items: flex-start; gap: 12px;
-    border-bottom: 1px solid #2a2620;
+    border-bottom: 1px solid #3A362F;
 }
 .valufin-followup-q-icon {
-    width: 28px; height: 28px; background: #3a322c; color: #b8a888;
+    width: 28px; height: 28px; background: #3A362F; color: #C4B79A;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-size: 12px; font-weight: 700; flex-shrink: 0;
 }
-.valufin-followup-q-text { font-size: 14px; color: #e0d4c2; font-style: italic; line-height: 1.5; padding-top: 3px; }
+.valufin-followup-q-text { font-size: 14px; color: #B4AEA2; font-style: italic; line-height: 1.5; padding-top: 3px; }
 .valufin-followup-a {
     padding: 16px 20px 8px; display: flex; align-items: flex-start; gap: 12px;
 }
 .valufin-followup-a-icon {
-    width: 28px; height: 28px; background: #3d6b66; color: #e8e3d8;
+    width: 28px; height: 28px; background: #5E8F80; color: #EDEBE4;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-size: 12px; font-weight: 700; flex-shrink: 0;
 }
-.valufin-followup-a-text { font-size: 13.5px; color: #c7c0b0; font-weight: 300; line-height: 1.65; font-style: italic; padding-top: 3px; }
-.valufin-followup-a-text strong { color: #ffffff; font-weight: 500; font-style: normal; }
+.valufin-followup-a-text { font-size: 13.5px; color: #B4AEA2; font-weight: 300; line-height: 1.65; font-style: italic; padding-top: 3px; }
+.valufin-followup-a-text strong { color: #EDEBE4; font-weight: 500; font-style: normal; }
 .valufin-why-asked {
     margin: 0 0 14px 40px;
-    background: #243a36; border-left: 2px solid #3d6b66;
+    background: #243a36; border-left: 2px solid #5E8F80;
     padding: 8px 12px; border-radius: 0 6px 6px 0;
-    font-size: 11.5px; color: #8fc4bf; font-weight: 400;
+    font-size: 11.5px; color: #7FA896; font-weight: 400;
 }
 
 /* "In simple terms" jargon-translation box */
 .valufin-simple-terms-row {
-    margin-bottom: 8px; font-size: 12.5px; color: #c7c0b0; font-weight: 300; line-height: 1.6;
+    margin-bottom: 8px; font-size: 12.5px; color: #B4AEA2; font-weight: 300; line-height: 1.6;
 }
-.valufin-simple-terms-row strong { color: #ffffff; font-weight: 600; }
+.valufin-simple-terms-row strong { color: #EDEBE4; font-weight: 600; }
 
 /* Stock pitch practice tool */
 .valufin-progress-row { display: flex; gap: 6px; margin-bottom: 8px; }
-.valufin-progress-step { flex: 1; height: 4px; border-radius: 2px; background: #322c23; }
-.valufin-progress-step.done { background: #3d6b66; }
-.valufin-progress-step.active { background: #6b9b94; }
+.valufin-progress-step { flex: 1; height: 4px; border-radius: 2px; background: #3A362F; }
+.valufin-progress-step.done { background: #5E8F80; }
+.valufin-progress-step.active { background: #7FA896; }
 
 .valufin-chat-ai {
-    background: #1f1b15; border: 1px solid #322c23; border-radius: 14px 14px 14px 4px;
+    background: #2A2722; border: 1px solid #3A362F; border-radius: 14px 14px 14px 4px;
     padding: 16px 18px; margin-bottom: 16px; max-width: 90%;
 }
-.valufin-chat-ai .valufin-chat-label { font-size: 10px; color: #6b9b94; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
-.valufin-chat-ai .valufin-chat-text { font-size: 14px; color: #e0d4c2; line-height: 1.6; }
+.valufin-chat-ai .valufin-chat-label { font-size: 10px; color: #7FA896; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
+.valufin-chat-ai .valufin-chat-text { font-size: 14px; color: #B4AEA2; line-height: 1.6; }
 
 .valufin-chat-user {
-    background: #243a36; border: 1px solid #3d6b66; border-radius: 14px 14px 4px 14px;
+    background: #243a36; border: 1px solid #5E8F80; border-radius: 14px 14px 4px 14px;
     padding: 14px 18px; margin: 0 0 16px auto; max-width: 85%;
 }
-.valufin-chat-user .valufin-chat-label { font-size: 10px; color: #8fc4bf; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
-.valufin-chat-user .valufin-chat-text { font-size: 14px; color: #ffffff; line-height: 1.6; font-style: italic; }
+.valufin-chat-user .valufin-chat-label { font-size: 10px; color: #7FA896; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
+.valufin-chat-user .valufin-chat-text { font-size: 14px; color: #EDEBE4; line-height: 1.6; font-style: italic; }
 
 .valufin-feedback-box {
     background: #2a2014; border: 1px solid #4a3a24; border-radius: 10px;
     padding: 14px 16px; margin-bottom: 16px;
 }
-.valufin-feedback-label { font-size: 10px; color: #d6ab7b; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
-.valufin-feedback-text { font-size: 13px; color: #e0d4c2; line-height: 1.6; font-weight: 300; }
+.valufin-feedback-label { font-size: 10px; color: #C4B79A; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
+.valufin-feedback-text { font-size: 13px; color: #B4AEA2; line-height: 1.6; font-weight: 300; }
 
 .valufin-summary-card {
-    background: #1f1b15; border: 1px solid #3d6b66; border-radius: 12px;
+    background: #2A2722; border: 1px solid #5E8F80; border-radius: 12px;
     padding: 20px; margin-top: 20px;
 }
-.valufin-summary-label { font-size: 12px; color: #8e8675; text-transform: uppercase; letter-spacing: 0.06em; }
-.valufin-summary-score { font-size: 22px; font-weight: 700; color: #6b9b94; margin: 4px 0 12px; }
+.valufin-summary-label { font-size: 12px; color: #8F887A; text-transform: uppercase; letter-spacing: 0.06em; }
+.valufin-summary-score { font-size: 22px; font-weight: 700; color: #7FA896; margin: 4px 0 12px; }
 
 /* Mental math tip cards */
 .valufin-tip-card {
-    background: #1f1b15; border: 1px solid #322c23; border-radius: 10px;
+    background: #2A2722; border: 1px solid #3A362F; border-radius: 10px;
     padding: 16px 18px; margin-bottom: 10px;
 }
-.valufin-tip-title { font-size: 14px; font-weight: 600; color: #6b9b94; margin: 0 0 6px; }
-.valufin-tip-body { font-size: 13px; color: #c7c0b0; font-weight: 300; line-height: 1.6; margin: 0; }
+.valufin-tip-title { font-size: 14px; font-weight: 600; color: #7FA896; margin: 0 0 6px; }
+.valufin-tip-body { font-size: 13px; color: #B4AEA2; font-weight: 300; line-height: 1.6; margin: 0; }
 .valufin-tip-example {
     background: #243a36; border-radius: 6px; padding: 8px 12px; margin-top: 8px;
-    font-size: 12.5px; color: #9ed8f0; font-family: monospace;
+    font-size: 12.5px; color: #7FA896; font-family: monospace;
 }
 
 /* Quiz / drill card */
 .valufin-quiz-card {
-    background: #1f1b15; border: 1px solid #322c23; border-radius: 12px;
+    background: #2A2722; border: 1px solid #3A362F; border-radius: 12px;
     padding: 24px; text-align: center;
 }
-.valufin-quiz-question { font-size: 30px; font-weight: 700; color: #ffffff; margin: 0 0 4px; }
+.valufin-quiz-question { font-size: 30px; font-weight: 700; color: #EDEBE4; margin: 0 0 4px; }
 .valufin-quiz-stats { display: flex; justify-content: center; gap: 28px; margin-top: 16px; }
-.valufin-quiz-stat-value { font-size: 18px; font-weight: 700; color: #6b9b94; display: block; }
-.valufin-quiz-stat-label { font-size: 11px; color: #8e8675; text-transform: uppercase; letter-spacing: 0.04em; }
+.valufin-quiz-stat-value { font-size: 18px; font-weight: 700; color: #7FA896; display: block; }
+.valufin-quiz-stat-label { font-size: 11px; color: #8F887A; text-transform: uppercase; letter-spacing: 0.04em; }
 
 /* Reference number cards for market sizing */
 .valufin-refnum-card {
-    background: #1f1b15; border: 1px solid #322c23; border-radius: 10px;
+    background: #2A2722; border: 1px solid #3A362F; border-radius: 10px;
     padding: 14px 16px; text-align: left;
 }
-.valufin-refnum-value { font-size: 18px; font-weight: 700; color: #6b9b94; margin: 0 0 2px; }
-.valufin-refnum-label { font-size: 12px; color: #8e8675; font-weight: 400; margin: 0; }
+.valufin-refnum-value { font-size: 18px; font-weight: 700; color: #7FA896; margin: 0 0 2px; }
+.valufin-refnum-label { font-size: 12px; color: #8F887A; font-weight: 400; margin: 0; }
 
 /* Frameworks page */
 .valufin-mece-row { display: flex; gap: 16px; margin-top: 14px; }
-.valufin-mece-box { flex: 1; background: #243a36; border: 1px solid #3d6b66; border-radius: 10px; padding: 14px 16px; }
-.valufin-mece-box-title { font-size: 13px; font-weight: 700; color: #8fc4bf; margin: 0 0 6px; }
-.valufin-mece-box-body { font-size: 12.5px; color: #d6e6e3; font-weight: 300; line-height: 1.5; margin: 0; }
+.valufin-mece-box { flex: 1; background: #243a36; border: 1px solid #5E8F80; border-radius: 10px; padding: 14px 16px; }
+.valufin-mece-box-title { font-size: 13px; font-weight: 700; color: #7FA896; margin: 0 0 6px; }
+.valufin-mece-box-body { font-size: 12.5px; color: #B4AEA2; font-weight: 300; line-height: 1.5; margin: 0; }
 
 .valufin-featured-framework {
-    background: linear-gradient(135deg, #1f1b15, #1a2420);
-    border: 2px solid #3d6b66; border-radius: 16px; padding: 28px; margin-bottom: 8px;
+    background: linear-gradient(135deg, #2A2722, #1a2420);
+    border: 2px solid #5E8F80; border-radius: 16px; padding: 28px; margin-bottom: 8px;
 }
 .valufin-featured-badge {
-    display: inline-block; background: #3d6b66; color: #e8e3d8; font-size: 10px; font-weight: 700;
+    display: inline-block; background: #5E8F80; color: #EDEBE4; font-size: 10px; font-weight: 700;
     letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
 }
-.valufin-featured-title { font-size: 24px; font-weight: 700; color: #ffffff; margin: 0 0 6px; }
-.valufin-featured-when { font-size: 13px; color: #9ed8f0; font-style: italic; margin: 0 0 16px; }
+.valufin-featured-title { font-size: 24px; font-weight: 700; color: #EDEBE4; margin: 0 0 6px; }
+.valufin-featured-when { font-size: 13px; color: #7FA896; font-style: italic; margin: 0 0 16px; }
 .valufin-formula-box {
-    background: #16140f; border: 1px solid #3d6b66; border-radius: 10px;
-    padding: 16px 20px; text-align: center; font-size: 18px; font-weight: 600;
-    color: #6b9b94; margin-bottom: 18px; font-family: monospace;
+    background: #5E8F80; border: none; border-radius: 10px;
+    padding: 22px 20px; text-align: center; font-size: 32px; font-weight: 700;
+    color: #EDEBE4; margin-bottom: 18px; font-family: 'Poppins', sans-serif;
 }
-.valufin-branch-box { background: #1f1b15; border: 1px solid #322c23; border-radius: 10px; padding: 16px 18px; height: 100%; }
-.valufin-branch-title { font-size: 14px; font-weight: 600; color: #ffffff; margin: 0 0 8px; }
-.valufin-branch-list { font-size: 13px; color: #c7c0b0; font-weight: 300; line-height: 1.7; margin: 0; padding-left: 18px; }
+
+.valufin-info-trigger {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #2A2722; border: 1px solid #5E8F80; color: #7FA896;
+    padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: 600;
+    font-family: 'Sora', sans-serif; cursor: pointer; margin: 4px 0 16px;
+}
+.valufin-info-trigger:hover { background: #243a36; }
+.valufin-info-trigger-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; border-radius: 50%; background: #5E8F80; color: #EDEBE4;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+
+.valufin-section-label-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.valufin-section-label-row .valufin-info-trigger { margin: 0; }
+
+.valufin-outline-heading {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #EDEBE4;
+    text-align: center;
+    margin: 12px 0 20px;
+}
+
+.valufin-tree-section-header {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: #2A2722; border: 1px solid #3A362F; border-radius: 10px;
+    padding: 16px 22px; margin: 24px 0 20px;
+}
+.valufin-tree-section-title { font-size: 24px; font-weight: 700; color: #EDEBE4; margin: 0; }
+.valufin-tree-section-header .valufin-info-trigger { margin: 0; flex-shrink: 0; }
+
+.valufin-big-tree { margin: 20px 0 28px; }
+.valufin-big-tree-root { text-align: center; }
+.valufin-big-tree-root-node {
+    display: inline-block; background: #5E8F80; color: #EDEBE4;
+    font-size: 20px; font-weight: 700; font-family: 'Poppins', sans-serif;
+    padding: 14px 30px; border-radius: 10px; cursor: pointer; transition: filter 0.15s;
+}
+.valufin-big-tree-root-node:hover { filter: brightness(1.15); }
+.valufin-big-tree-connector { position: relative; width: 100%; height: 42px; }
+.valufin-big-tree-connector::before {
+    content: ''; position: absolute; left: 50%; top: 0; width: 2px; height: 21px;
+    background: #5E8F80; transform: translateX(-1px);
+}
+.valufin-big-tree-connector::after {
+    content: ''; position: absolute; left: 25%; right: 25%; top: 21px; height: 2px; background: #5E8F80;
+}
+.valufin-big-tree-stem-left, .valufin-big-tree-stem-right {
+    position: absolute; top: 21px; width: 2px; height: 21px; background: #5E8F80;
+}
+.valufin-big-tree-stem-left { left: 25%; transform: translateX(-1px); }
+.valufin-big-tree-stem-right { left: 75%; transform: translateX(-1px); }
+
+.valufin-big-tree-branches { display: flex; justify-content: space-around; gap: 40px; }
+.valufin-big-tree-branch { flex: 1; text-align: center; }
+.valufin-big-tree-node-2 {
+    display: inline-block; background: #243a36; border: 2px solid #5E8F80; color: #EDEBE4;
+    font-size: 18px; font-weight: 700; padding: 10px 22px; border-radius: 8px;
+    cursor: pointer; transition: filter 0.15s;
+}
+.valufin-big-tree-node-2:hover { filter: brightness(1.2); }
+.valufin-big-tree-leaves { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.valufin-big-tree-node-3 {
+    background: #2A2722; border: 1px solid #3A362F; color: #B4AEA2;
+    font-size: 15px; font-weight: 500; padding: 10px 18px; border-radius: 8px; display: inline-block;
+    cursor: pointer; transition: filter 0.15s, border-color 0.15s;
+}
+.valufin-big-tree-node-3:hover { border-color: #5E8F80; filter: brightness(1.3); }
+.valufin-big-tree-node-3.highlight { border-color: #5E8F80; background: #16221f; color: #7FA896; }
+.valufin-branch-box { background: #2A2722; border: 1px solid #3A362F; border-radius: 10px; padding: 16px 18px; height: 100%; }
+.valufin-branch-title { font-size: 14px; font-weight: 600; color: #EDEBE4; margin: 0 0 8px; }
+.valufin-branch-list { font-size: 13px; color: #B4AEA2; font-weight: 300; line-height: 1.7; margin: 0; padding-left: 18px; }
+
+.valufin-eq-connector { position: relative; width: 100%; height: 32px; }
+.valufin-eq-connector::before {
+    content: ''; position: absolute; left: 50%; top: 0; width: 2px; height: 16px;
+    background: #5E8F80; transform: translateX(-1px);
+}
+.valufin-eq-connector::after {
+    content: ''; position: absolute; left: 25%; right: 25%; top: 16px; height: 2px; background: #5E8F80;
+}
+.valufin-eq-stem-left, .valufin-eq-stem-right {
+    position: absolute; top: 16px; width: 2px; height: 16px; background: #5E8F80;
+}
+.valufin-eq-stem-left { left: 25%; transform: translateX(-1px); }
+.valufin-eq-stem-right { left: 75%; transform: translateX(-1px); }
+
+.valufin-eq-branches { display: flex; justify-content: space-around; gap: 24px; }
+.valufin-eq-branch { flex: 1; text-align: center; padding: 0 12px; }
+.valufin-eq-branch-title {
+    font-size: 24px; font-weight: 700; color: #EDEBE4; font-family: monospace;
+    margin: 0 0 10px; line-height: 1.3;
+}
+.valufin-eq-branch-notes { font-size: 12.5px; color: #8F887A; font-weight: 300; line-height: 1.7; margin: 0; }
 
 .valufin-deep-dive {
     background: #1a1712; border: 1px solid #4a3a24; border-radius: 10px;
     padding: 18px 20px; margin: 16px 0;
 }
-.valufin-deep-dive-title { font-size: 13px; color: #d6ab7b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 10px; }
-.valufin-deep-dive-body { font-size: 13px; color: #e0d4c2; font-weight: 300; line-height: 1.7; margin: 0; }
+.valufin-deep-dive-title { font-size: 13px; color: #C4B79A; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 10px; }
+.valufin-deep-dive-body { font-size: 13px; color: #B4AEA2; font-weight: 300; line-height: 1.7; margin: 0; }
 
-.valufin-tree-container { background: #16140f; border: 1px solid #322c23; border-radius: 10px; padding: 20px; margin: 16px 0; }
-.valufin-tree-node { background: #243a36; border: 1px solid #3d6b66; border-radius: 6px; padding: 8px 14px; display: inline-block; font-size: 13px; color: #ffffff; font-weight: 600; }
+.valufin-tree-container { background: #211F1C; border: 1px solid #3A362F; border-radius: 10px; padding: 20px; margin: 16px 0; }
+.valufin-tree-node { background: #243a36; border: 1px solid #5E8F80; border-radius: 6px; padding: 8px 14px; display: inline-block; font-size: 13px; color: #EDEBE4; font-weight: 600; }
 .valufin-tree-level-1 { text-align: center; margin-bottom: 16px; }
 .valufin-tree-level-2 { display: flex; justify-content: center; gap: 60px; margin-bottom: 16px; flex-wrap: wrap; }
 .valufin-tree-level-3 { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-.valufin-tree-node-sub { background: #1f1b15; border: 1px solid #322c23; color: #c7c0b0; font-size: 12px; font-weight: 400; padding: 6px 10px; border-radius: 6px; display: inline-block; }
-.valufin-tree-node-sub.highlight { border-color: #3d6b66; color: #9ed8f0; }
+.valufin-tree-node-sub { background: #2A2722; border: 1px solid #3A362F; color: #B4AEA2; font-size: 12px; font-weight: 400; padding: 6px 10px; border-radius: 6px; display: inline-block; }
+.valufin-tree-node-sub.highlight { border-color: #5E8F80; color: #7FA896; }
 
 .valufin-example-walkthrough { background: #2a2014; border: 1px solid #4a3a24; border-radius: 10px; padding: 18px 20px; margin-top: 16px; }
 .valufin-example-step { margin-bottom: 12px; font-size: 13px; line-height: 1.6; }
-.valufin-example-step-label { color: #d6ab7b; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
-.valufin-example-step-text { color: #e0d4c2; font-weight: 300; }
-.valufin-example-quote { color: #ffffff; font-style: italic; }
+.valufin-example-step-label { color: #C4B79A; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+.valufin-example-step-text { color: #B4AEA2; font-weight: 300; }
+.valufin-example-quote { color: #EDEBE4; font-style: italic; }
 
 .valufin-fw-tap-card {
-    background: #1f1b15; border: 1px solid #322c23; border-radius: 10px;
+    background: #2A2722; border: 1px solid #3A362F; border-radius: 10px;
     padding: 16px 18px; height: 100%; cursor: pointer;
 }
-.valufin-fw-tap-title { font-size: 14px; font-weight: 600; color: #ffffff; margin: 0 0 4px; }
-.valufin-fw-tap-when { font-size: 11.5px; color: #9ed8f0; font-style: italic; margin: 0; }
+.valufin-fw-tap-title { font-size: 14px; font-weight: 600; color: #EDEBE4; margin: 0 0 4px; }
+.valufin-fw-tap-when { font-size: 11.5px; color: #7FA896; font-style: italic; margin: 0; }
 
-.valufin-porter-force { background: #243a36; border: 1px solid #3d6b66; border-radius: 10px; padding: 14px 16px; height: 100%; }
-.valufin-porter-force-title { font-size: 13px; font-weight: 700; color: #8fc4bf; margin: 0 0 6px; }
-.valufin-porter-force-body { font-size: 12px; color: #d6e6e3; font-weight: 300; line-height: 1.5; margin: 0; }
+.valufin-porter-force { background: #243a36; border: 1px solid #5E8F80; border-radius: 10px; padding: 14px 16px; height: 100%; }
+.valufin-porter-force-title { font-size: 13px; font-weight: 700; color: #7FA896; margin: 0 0 6px; }
+.valufin-porter-force-body { font-size: 12px; color: #B4AEA2; font-weight: 300; line-height: 1.5; margin: 0; }
 
 /* M&A page */
 .valufin-deal-type-card {
-    background: #1f1b15; border: 1px solid #322c23; border-radius: 12px;
+    background: #2A2722; border: 1px solid #3A362F; border-radius: 12px;
     padding: 20px 18px; height: 100%;
 }
 .valufin-deal-type-tag {
-    display: inline-block; background: rgba(61,107,102,0.2); color: #8fc4bf;
+    display: inline-block; background: rgba(61,107,102,0.2); color: #7FA896;
     border: 1px solid rgba(61,107,102,0.4); border-radius: 20px;
     font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
     padding: 3px 10px; margin-bottom: 10px;
 }
-.valufin-deal-type-title { font-size: 16px; font-weight: 700; color: #ffffff; margin: 0 0 8px; }
-.valufin-deal-type-def { font-size: 13px; color: #c7c0b0; font-weight: 300; line-height: 1.6; margin: 0 0 10px; }
+.valufin-deal-type-title { font-size: 16px; font-weight: 700; color: #EDEBE4; margin: 0 0 8px; }
+.valufin-deal-type-def { font-size: 13px; color: #B4AEA2; font-weight: 300; line-height: 1.6; margin: 0 0 10px; }
 
 .valufin-structure-card {
-    background: #1a2420; border: 1px solid #3d6b66; border-radius: 12px;
+    background: #1a2420; border: 1px solid #5E8F80; border-radius: 12px;
     padding: 20px 18px; height: 100%;
 }
 .valufin-structure-tag {
-    display: inline-block; background: #3d6b66; color: #e8e3d8; border-radius: 20px;
+    display: inline-block; background: #5E8F80; color: #EDEBE4; border-radius: 20px;
     font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
     padding: 3px 10px; margin-bottom: 10px;
 }
-.valufin-structure-title { font-size: 16px; font-weight: 700; color: #ffffff; margin: 0 0 8px; }
-.valufin-structure-def { font-size: 13px; color: #d6e6e3; font-weight: 300; line-height: 1.6; margin: 0 0 10px; }
-.valufin-structure-pros { font-size: 12px; color: #8fc4bf; margin: 0 0 4px; font-weight: 500; }
+.valufin-structure-title { font-size: 16px; font-weight: 700; color: #EDEBE4; margin: 0 0 8px; }
+.valufin-structure-def { font-size: 13px; color: #B4AEA2; font-weight: 300; line-height: 1.6; margin: 0 0 10px; }
+.valufin-structure-pros { font-size: 12px; color: #7FA896; margin: 0 0 4px; font-weight: 500; }
 .valufin-structure-cons { font-size: 12px; color: #d68b7b; margin: 0; font-weight: 500; }
 
 .valufin-process-step { display: flex; gap: 16px; margin-bottom: 14px; align-items: flex-start; }
 .valufin-process-num {
-    width: 32px; height: 32px; background: #3d6b66; color: #e8e3d8; border-radius: 50%;
+    width: 32px; height: 32px; background: #5E8F80; color: #EDEBE4; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 14px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
 }
-.valufin-process-content { background: #1f1b15; border: 1px solid #322c23; border-radius: 10px; padding: 14px 18px; flex: 1; }
-.valufin-process-title { font-size: 14px; font-weight: 600; color: #ffffff; margin: 0 0 4px; }
-.valufin-process-body { font-size: 13px; color: #c7c0b0; font-weight: 300; line-height: 1.6; margin: 0; }
+.valufin-process-content { background: #2A2722; border: 1px solid #3A362F; border-radius: 10px; padding: 14px 18px; flex: 1; }
+.valufin-process-title { font-size: 14px; font-weight: 600; color: #EDEBE4; margin: 0 0 4px; }
+.valufin-process-body { font-size: 13px; color: #B4AEA2; font-weight: 300; line-height: 1.6; margin: 0; }
 
-.valufin-tech-card { background: #243a36; border: 1px solid #3d6b66; border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; }
-.valufin-tech-title { font-size: 16px; font-weight: 700; color: #8fc4bf; margin: 0 0 8px; }
-.valufin-tech-body { font-size: 13.5px; color: #d6e6e3; font-weight: 300; line-height: 1.7; margin: 0; }
-.valufin-tech-body strong { color: #ffffff; }
-.valufin-formula { background: #16140f; border: 1px solid #3d6b66; border-radius: 8px; padding: 10px 16px; font-family: monospace; font-size: 13px; color: #9ed8f0; margin: 10px 0; }
+.valufin-tech-card { background: #243a36; border: 1px solid #5E8F80; border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; }
+.valufin-tech-title { font-size: 16px; font-weight: 700; color: #7FA896; margin: 0 0 8px; }
+.valufin-tech-body { font-size: 13.5px; color: #B4AEA2; font-weight: 300; line-height: 1.7; margin: 0; }
+.valufin-tech-body strong { color: #EDEBE4; }
+.valufin-formula { background: #211F1C; border: 1px solid #5E8F80; border-radius: 8px; padding: 10px 16px; font-family: monospace; font-size: 13px; color: #7FA896; margin: 10px 0; }
 
 .valufin-practice-teaser {
-    background: linear-gradient(135deg, #1f1b15, #1a2420);
-    border: 2px solid #3d6b66; border-radius: 14px; padding: 24px; text-align: center; margin-top: 32px;
+    background: linear-gradient(135deg, #2A2722, #1a2420);
+    border: 2px solid #5E8F80; border-radius: 14px; padding: 24px; text-align: center; margin-top: 32px;
 }
 
 /* Modal dialog (used by Frameworks' "tap for full breakdown") */
@@ -892,15 +1360,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
     z-index: 100; padding: 20px;
 }
 .valufin-modal-box {
-    background: #1a1712; border: 1px solid #3d6b66; border-radius: 16px;
+    background: #1a1712; border: 1px solid #5E8F80; border-radius: 16px;
     padding: 28px 32px; max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto;
     position: relative;
 }
 .valufin-modal-close {
     position: absolute; top: 16px; right: 16px; background: none; border: none;
-    color: #8e8675; font-size: 20px; cursor: pointer; width: auto;
+    color: #8F887A; font-size: 20px; cursor: pointer; width: auto;
 }
-.valufin-modal-close:hover { color: #ffffff; }
+.valufin-modal-close:hover { color: #EDEBE4; }
 
 /* Generic info / error / success banners (Streamlit st.info/st.error/st.success equivalents) */
 .valufin-banner { border-radius: 8px; padding: 12px 16px; font-size: 13.5px; line-height: 1.6; margin: 10px 0; }
@@ -908,4 +1376,4 @@ hr, .valufin-hr { border: none; border-top: 1px solid #322c23; margin: 20px 0; }
 .valufin-banner-info { background: rgba(61,107,102,0.15); border: 1px solid rgba(61,107,102,0.4); color: #c7e6e2; }
 .valufin-banner-error { background: rgba(163,77,61,0.15); border: 1px solid rgba(163,77,61,0.4); color: #e6b8ab; }
 .valufin-banner-warning { background: rgba(163,115,61,0.15); border: 1px solid rgba(163,115,61,0.4); color: #e6ceab; }
-.valufin-banner-success { background: rgba(61,107,102,0.2); border: 1px solid #3d6b66; color: #d6e6e3; }
+.valufin-banner-success { background: rgba(61,107,102,0.2); border: 1px solid #5E8F80; color: #B4AEA2; }

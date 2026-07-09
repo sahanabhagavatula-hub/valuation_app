@@ -1,27 +1,5 @@
 import { Button } from './Widgets';
 
-export function CategoryCard({ icon, title, description }) {
-  return (
-    <div className="valufin-category-card">
-      <div className="valufin-category-card-top">
-        <div className="valufin-category-icon"><i className={`ti ti-${icon}`} /></div>
-        <p className="valufin-category-title">{title}</p>
-      </div>
-      <p className="valufin-category-desc">{description}</p>
-    </div>
-  );
-}
-
-export function CategoryHeader({ icon, title, pillLabel }) {
-  return (
-    <div className="valufin-category-header">
-      <div className="valufin-category-header-icon"><i className={`ti ti-${icon}`} /></div>
-      <p className="valufin-category-header-title">{title}</p>
-      <span className="valufin-category-header-pill">{pillLabel}</span>
-    </div>
-  );
-}
-
 const TAG_CLASS = {
   'must know': 'valufin-tag-must-know',
   'high value': 'valufin-tag-high-value',

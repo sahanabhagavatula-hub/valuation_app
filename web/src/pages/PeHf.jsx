@@ -1,4 +1,7 @@
 import CategoryPage from './CategoryPage';
+import { getCategoryByPath } from '../data/categories';
+
+const cat = getCategoryByPath('/pe-hf');
 
 const TOPICS = [
   { tag: 'must know', title: 'Stock pitch', description: 'A buy/sell recommendation with thesis, valuation, catalysts, and risks.', path: '/stock-pitch' },
@@ -12,7 +15,6 @@ const TOPICS = [
 export default function PeHf() {
   return (
     <CategoryPage
-      icon="chart-candle"
       title="Private Equity / Hedge Fund"
       pillLabel="PE / HF"
       caption="Buy-side recruiting tests how you think about investments, not just how you model them. Tap any topic to start learning."
@@ -20,6 +22,9 @@ export default function PeHf() {
       backLabel="←  Back to home"
       backPath="/"
       comingSoonMentionsTool
+      heroImage={cat.image}
+      heroTint={cat.tint}
+      heroAccent={cat.accent}
     />
   );
 }

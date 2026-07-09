@@ -1,4 +1,7 @@
 import CategoryPage from './CategoryPage';
+import { getCategoryByPath } from '../data/categories';
+
+const cat = getCategoryByPath('/wam');
 
 const TOPICS = [
   { tag: 'must know', title: 'Portfolio construction', description: 'Asset allocation, diversification, and risk-return tradeoffs.' },
@@ -12,13 +15,15 @@ const TOPICS = [
 export default function WealthAssetManagement() {
   return (
     <CategoryPage
-      icon="briefcase"
       title="Wealth & Asset Management"
       pillLabel="WAM"
       caption="Client-facing investing and portfolio management — a different skill set than pure deal-making. Tap any topic to start learning."
       topics={TOPICS}
       backLabel="←  Back to home"
       backPath="/"
+      heroImage={cat.image}
+      heroTint={cat.tint}
+      heroAccent={cat.accent}
     />
   );
 }
