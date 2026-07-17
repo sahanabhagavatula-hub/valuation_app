@@ -59,39 +59,39 @@ const CARDS = [
 function DcfDiagram() {
   return (
     <svg viewBox="0 0 800 180" style={{ width: '100%', maxWidth: 800, display: 'block', margin: '0 auto' }}>
-      <text x="0" y="20" fill="#8F887A" fontSize="11" fontFamily="Sora, sans-serif">Year 1</text>
-      <text x="120" y="20" fill="#8F887A" fontSize="11" fontFamily="Sora, sans-serif">Year 2</text>
-      <text x="240" y="20" fill="#8F887A" fontSize="11" fontFamily="Sora, sans-serif">Year 3</text>
-      <text x="360" y="20" fill="#8F887A" fontSize="11" fontFamily="Sora, sans-serif">Year 4</text>
-      <text x="480" y="20" fill="#8F887A" fontSize="11" fontFamily="Sora, sans-serif">Year 5</text>
-      <text x="610" y="20" fill="#C4B79A" fontSize="11" fontFamily="Sora, sans-serif">Terminal value</text>
+      <text x="0" y="20" fill="#8F887A" fontSize="11" fontFamily="Roboto Mono, monospace">Year 1</text>
+      <text x="120" y="20" fill="#8F887A" fontSize="11" fontFamily="Roboto Mono, monospace">Year 2</text>
+      <text x="240" y="20" fill="#8F887A" fontSize="11" fontFamily="Roboto Mono, monospace">Year 3</text>
+      <text x="360" y="20" fill="#8F887A" fontSize="11" fontFamily="Roboto Mono, monospace">Year 4</text>
+      <text x="480" y="20" fill="#8F887A" fontSize="11" fontFamily="Roboto Mono, monospace">Year 5</text>
+      <text x="610" y="20" fill="#C4B79A" fontSize="11" fontFamily="Roboto Mono, monospace">Terminal value</text>
 
-      <rect x="0" y="35" width="90" height="40" rx="6" fill="#2A2722" stroke="#3A362F" />
-      <rect x="120" y="35" width="90" height="40" rx="6" fill="#2A2722" stroke="#3A362F" />
-      <rect x="240" y="35" width="90" height="40" rx="6" fill="#2A2722" stroke="#3A362F" />
-      <rect x="360" y="35" width="90" height="40" rx="6" fill="#2A2722" stroke="#3A362F" />
-      <rect x="480" y="35" width="90" height="40" rx="6" fill="#2A2722" stroke="#3A362F" />
-      <rect x="600" y="35" width="190" height="40" rx="6" fill="#243a36" stroke="#5E8F80" />
+      <rect x="0" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
+      <rect x="120" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
+      <rect x="240" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
+      <rect x="360" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
+      <rect x="480" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
+      <rect x="600" y="35" width="190" height="40" rx="6" fill="#0d1a15" stroke="#3FBF6F" />
 
-      <text x="45" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Sora, sans-serif">FCF</text>
-      <text x="165" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Sora, sans-serif">FCF</text>
-      <text x="285" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Sora, sans-serif">FCF</text>
-      <text x="405" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Sora, sans-serif">FCF</text>
-      <text x="525" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Sora, sans-serif">FCF</text>
-      <text x="695" y="59" fill="#7FA896" fontSize="13" textAnchor="middle" fontFamily="Sora, sans-serif">"Forever" growth</text>
+      <text x="45" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Roboto Mono, monospace">FCF</text>
+      <text x="165" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Roboto Mono, monospace">FCF</text>
+      <text x="285" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Roboto Mono, monospace">FCF</text>
+      <text x="405" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Roboto Mono, monospace">FCF</text>
+      <text x="525" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Roboto Mono, monospace">FCF</text>
+      <text x="695" y="59" fill="#3FBF6F" fontSize="13" textAnchor="middle" fontFamily="Roboto Mono, monospace">"Forever" growth</text>
 
-      <line x1="45" y1="85" x2="400" y2="130" stroke="#7FA896" strokeWidth="1.5" strokeDasharray="3,3" />
-      <line x1="165" y1="85" x2="400" y2="130" stroke="#7FA896" strokeWidth="1.5" strokeDasharray="3,3" />
-      <line x1="285" y1="85" x2="400" y2="130" stroke="#7FA896" strokeWidth="1.5" strokeDasharray="3,3" />
-      <line x1="405" y1="85" x2="400" y2="130" stroke="#7FA896" strokeWidth="1.5" strokeDasharray="3,3" />
-      <line x1="525" y1="85" x2="400" y2="130" stroke="#7FA896" strokeWidth="1.5" strokeDasharray="3,3" />
-      <line x1="695" y1="85" x2="400" y2="130" stroke="#7FA896" strokeWidth="1.5" strokeDasharray="3,3" />
+      <line x1="45" y1="85" x2="400" y2="130" stroke="#3FBF6F" strokeWidth="1.5" strokeDasharray="3,3" />
+      <line x1="165" y1="85" x2="400" y2="130" stroke="#3FBF6F" strokeWidth="1.5" strokeDasharray="3,3" />
+      <line x1="285" y1="85" x2="400" y2="130" stroke="#3FBF6F" strokeWidth="1.5" strokeDasharray="3,3" />
+      <line x1="405" y1="85" x2="400" y2="130" stroke="#3FBF6F" strokeWidth="1.5" strokeDasharray="3,3" />
+      <line x1="525" y1="85" x2="400" y2="130" stroke="#3FBF6F" strokeWidth="1.5" strokeDasharray="3,3" />
+      <line x1="695" y1="85" x2="400" y2="130" stroke="#3FBF6F" strokeWidth="1.5" strokeDasharray="3,3" />
 
-      <circle cx="400" cy="130" r="6" fill="#5E8F80" />
-      <text x="400" y="155" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Sora, sans-serif" fontWeight="600">
+      <circle cx="400" cy="130" r="6" fill="#3FBF6F" />
+      <text x="400" y="155" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Roboto Mono, monospace" fontWeight="600">
         Company value today
       </text>
-      <text x="400" y="172" fill="#8F887A" fontSize="10.5" textAnchor="middle" fontFamily="Sora, sans-serif">
+      <text x="400" y="172" fill="#8F887A" fontSize="10.5" textAnchor="middle" fontFamily="Roboto Mono, monospace">
         Discounted and added together
       </text>
     </svg>

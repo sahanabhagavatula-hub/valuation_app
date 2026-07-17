@@ -7,12 +7,13 @@ export function Metric({ label, value }) {
   );
 }
 
-export function Button({ children, onClick, variant = 'primary', type = 'button' }) {
+export function Button({ children, onClick, variant = 'primary', type = 'button', disabled = false }) {
   return (
     <button
       type={type}
       className={variant === 'primary' ? 'valufin-btn' : 'valufin-btn valufin-btn-secondary'}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>

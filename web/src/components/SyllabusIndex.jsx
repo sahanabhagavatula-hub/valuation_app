@@ -1,3 +1,5 @@
+import FlipReveal from './FlipText';
+
 const TAG_CLASS = {
   'must know': 'valufin-syllabus-tag-must-know',
   'high value': 'valufin-syllabus-tag-high-value',
@@ -31,7 +33,7 @@ export default function SyllabusIndex({ eyebrow = 'THE SYLLABUS', headline, topi
               </div>
               <div className="valufin-syllabus-row-main">
                 <div className="valufin-syllabus-row-title-line">
-                  <h3 className="valufin-syllabus-row-title">{topic.title}</h3>
+                  <h3 className="valufin-syllabus-row-title"><FlipReveal text={topic.title} /></h3>
                   <span className={`valufin-syllabus-tag ${tagClass}`}>{topic.tag}</span>
                   {topic.path && (
                     <span className="valufin-syllabus-row-interactive">

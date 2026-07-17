@@ -50,7 +50,7 @@ export default function CategoryPage({
                 <button className="valufin-category-back" onClick={() => navigate(backPath)}>{backLabel}</button>
               </div>
             </div>
-            <div className="valufin-category-hero-content scroll-element">
+            <div className="valufin-category-hero-content scroll-element-once">
               <p className="valufin-category-hero-pill" style={{ color: heroAccent }}>[ {pillLabel.toUpperCase()} ]</p>
               <h1 className="valufin-category-hero-title">{title}</h1>
               <p className="valufin-hero-sub">{caption}</p>
@@ -61,7 +61,7 @@ export default function CategoryPage({
             </div>
           </div>
 
-          <div className="valufin-category-hero-extra">
+          <div className="valufin-category-hero-extra valufin-pin-freeze">
             {beforeTopics}
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function CategoryPage({
               <button className="valufin-category-back" onClick={() => navigate(backPath)}>{backLabel}</button>
             </div>
           </div>
-          <div className="valufin-category-hero-content scroll-element">
+          <div className="valufin-category-hero-content scroll-element-once">
             <p className="valufin-category-hero-pill" style={{ color: heroAccent }}>[ {pillLabel.toUpperCase()} ]</p>
             <h1 className="valufin-category-hero-title">{title}</h1>
             <p className="valufin-hero-sub">{caption}</p>
@@ -89,15 +89,17 @@ export default function CategoryPage({
       )}
 
       {topicsLayout === 'syllabus' ? (
-        <div className="scroll-element">
-          <SyllabusIndex headline={syllabusHeadline} topics={topics} onTopicClick={handleClick} />
+        <div className={beforeTopics ? 'valufin-pin-cover' : 'scroll-element-once'}>
+          <div className={beforeTopics ? 'valufin-pin-cover-inner' : undefined}>
+            <SyllabusIndex headline={syllabusHeadline} topics={topics} onTopicClick={handleClick} />
+          </div>
         </div>
       ) : (
         <>
           <p className="valufin-section-label">Topics — tap any to start learning</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
             {topics.map((topic) => (
-              <div className="scroll-element" key={topic.title}>
+              <div className="scroll-element-once" key={topic.title}>
                 <TopicCard
                   tag={topic.tag}
                   title={topic.title}

@@ -2,14 +2,15 @@ import CategoryPage from './CategoryPage';
 import FlashcardDeck from '../components/FlashcardDeck';
 import ConceptFlipCard from '../components/ConceptFlipCard';
 import { getCategoryByPath } from '../data/categories';
+import candlestickChart from '../assets/candlestick_chart.png';
 
 const cat = getCategoryByPath('/ib');
 
 const TOPICS = [
   { tag: 'must know', title: 'DCF valuation', description: "Discount future cash flows to find a company's intrinsic value. Fully built — try it now.", path: '/tool', icon: 'trending-up', lessons: 5, minutes: 40 },
   { tag: 'must know', title: 'M&A process', description: 'How mergers and acquisitions actually get done, from pitch to close.', path: '/ma-process', icon: 'arrows-join', lessons: 4, minutes: 25 },
-  { tag: 'must know', title: 'Comps analysis', description: 'Compare EV/EBITDA and P/E multiples across peer companies.', icon: 'chart-bar', lessons: 4, minutes: 30 },
-  { tag: 'high value', title: 'Pitch books', description: "How bankers package analysis into client-ready presentations.", icon: 'presentation', lessons: 3, minutes: 20 },
+  { tag: 'must know', title: 'Comps analysis', description: 'Compare EV/EBITDA and P/E multiples across peer companies. Fully built — try it now.', path: '/comps', icon: 'chart-bar', lessons: 4, minutes: 30 },
+  { tag: 'high value', title: 'Pitch books', description: "How bankers package analysis into client-ready presentations. Fully built — try it now.", path: '/pitch-books', icon: 'presentation', lessons: 3, minutes: 20 },
   { tag: 'high value', title: '3-statement model', description: 'Income statement, balance sheet, and cash flow linked together.', icon: 'list', lessons: 6, minutes: 55 },
   { tag: 'good to have', title: 'Precedent transactions', description: 'Valuing a company based on what similar companies sold for in past M&A deals.', icon: 'clock', lessons: 3, minutes: 20 },
 ];
@@ -100,37 +101,32 @@ export default function InvestmentBanking() {
       syllabusHeadline="Six topics, ranked by what interviews test."
       beforeTopics={
         <>
-          <div className="scroll-element" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-            <ConceptFlipCard icon="building-bank" heading="What is investment banking?">
-              Investment banking is the division of a bank that advises companies — not
-              individual consumers — on major financial transactions, primarily raising capital
-              (issuing stock or debt) and mergers &amp; acquisitions. Bankers act purely as
-              advisors and intermediaries: they don't invest their own money in the deal's
-              outcome, they get paid a fee for their advice and for executing the transaction.
+          <div className="valufin-frame-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+            <ConceptFlipCard icon="building-bank" heading="What is investment banking?" image={candlestickChart}>
+              Big companies come to investment banks for help with big money decisions — like
+              raising money, or buying another company. Bankers don't risk their own money;
+              they give advice and get paid a fee for it, kind of like a real estate agent for
+              billion-dollar deals.
             </ConceptFlipCard>
 
-            <ConceptFlipCard icon="briefcase" heading="What do investment bankers actually do?">
-              Junior bankers (analysts and associates) spend most of their time building
-              financial models — DCFs, merger models, LBO models — putting together pitch
-              books, and running valuation analysis, all in service of a senior banker's client
-              relationships. The job is less about picking winning investments and more about
-              flawless execution: accurate numbers, polished slides, and meeting extremely
-              tight deadlines.
+            <ConceptFlipCard icon="briefcase" heading="What do investment bankers actually do?" image={candlestickChart}>
+              Mostly: building spreadsheets and slides. Junior bankers spend their days
+              crunching numbers and making presentations so senior bankers can pitch ideas to
+              clients. It's less "stock picking genius" and more "extremely precise, under a
+              tight deadline."
             </ConceptFlipCard>
 
-            <ConceptFlipCard icon="target" heading="Why this matters for recruiting">
-              IB recruiting tests two things above all: technical skill — can you build a DCF,
-              walk through a 3-statement model, or explain accretion/dilution — and the stamina
-              and attention to detail the job itself demands. Interviewers will ask you to walk
-              through valuation methodologies live, so understanding <em>why</em> each
-              framework works, not just memorizing the steps, is what separates a strong
-              candidate.
+            <ConceptFlipCard icon="target" heading="Why this matters for recruiting" image={candlestickChart}>
+              Interviewers want to see two things: can you actually build a simple model, and
+              can you keep up with a demanding pace. They'll ask you to explain your thinking
+              out loud — so understanding <em>why</em> something works beats memorizing
+              buzzwords every time.
             </ConceptFlipCard>
           </div>
 
           <div style={{ height: 8 }} />
-          <div className="scroll-element">
-            <FlashcardDeck cards={CARDS} />
+          <div className="valufin-frame-fade valufin-frame-fade-delay">
+            <FlashcardDeck cards={CARDS} coverTitle="Essential vocab to know before we begin" />
           </div>
 
           <div style={{ height: 8 }} />

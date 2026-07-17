@@ -1,63 +1,60 @@
 /* ============================================================
-   ValuED — design tokens
-   Dark-first. Import once at the app root.
+   ValuED — "Terminal Editorial" theme tokens
+   Trading-terminal dark UI + modern sans, market-data motifs.
+   Import once at the app root.
    ============================================================ */
 
 :root {
-  /* --- Warm neutrals --- */
-  --color-ink:        #211F1C; /* page background */
-  --color-ink-800:    #1B1916; /* deep surface / icon tiles */
-  --color-ink-700:    #2A2722; /* raised surface / cards */
-  --color-ink-600:    #3A362F; /* borders / dividers */
-  --color-stone-400:  #8F887A; /* muted / captions */
-  --color-stone-300:  #B4AEA2; /* secondary text */
-  --color-ivory:      #EDEBE4; /* primary text on dark / light bg */
+  /* --- Base --- */
+  --color-bg:        #0A0E14; /* page background, near-black navy */
+  --color-surface:   rgba(255,255,255,0.02);  /* raised rows / ticker bg */
+  --color-surface-hover: rgba(255,255,255,0.035);
+  --color-border:    rgba(237,235,228,0.08);  /* hairlines */
+  --color-border-strong: rgba(237,235,228,0.1);
 
-  /* --- Accents --- */
-  --color-sage:       #7FA896; /* primary accent (on dark) */
-  --color-sage-deep:  #5E8F80; /* primary accent (on light) */
-  --color-taupe:      #C4B79A; /* secondary accent / eyebrows */
+  /* --- Text --- */
+  --color-text:        #EDEBE4; /* primary */
+  --color-text-muted:  #9C978C; /* secondary */
+  --color-text-subtle: #8F887A; /* captions / meta */
+  --color-text-dim:    #6f6a5f; /* least emphasis (table headers) */
+
+  /* --- Market signal colors (core to this theme) --- */
+  --color-up:    #3FBF6F; /* gains / accent / primary CTA */
+  --color-down:  #D9694F; /* losses / must-know tag */
+  --color-gold:  #C4B79A; /* high-value tier / secondary accent */
 
   /* --- Semantic (dark-first) --- */
-  --bg:            var(--color-ink);
-  --surface:       var(--color-ink-700);
-  --surface-deep:  var(--color-ink-800);
-  --border:        var(--color-ink-600);
-  --text:          var(--color-ivory);
-  --text-muted:    var(--color-stone-300);
-  --text-subtle:   var(--color-stone-400);
-  --accent:        var(--color-sage);
-  --accent-2:      var(--color-taupe);
+  --bg:            var(--color-bg);
+  --surface:       var(--color-surface);
+  --surface-hover: var(--color-surface-hover);
+  --border:        var(--color-border);
+  --text:          var(--color-text);
+  --text-muted:    var(--color-text-muted);
+  --text-subtle:   var(--color-text-subtle);
+  --text-dim:      var(--color-text-dim);
+  --accent:        var(--color-up);
+  --accent-2:      var(--color-gold);
+  --danger:        var(--color-down);
 
   /* --- Typography --- */
-  --font-display: 'Poppins', system-ui, sans-serif;   /* headings + wordmark */
-  --font-body:    'Sora', system-ui, sans-serif; /* body + UI */
-  --font-serif:   'Newsreader', Georgia, serif;       /* optional editorial accent */
+  --font-display: 'Libre Franklin', system-ui, sans-serif; /* headings, wordmark, UI */
+  --font-body:    'Libre Franklin', system-ui, sans-serif; /* body — same family, lighter weights */
+  --font-mono:    'Roboto Mono', 'SF Mono', monospace;      /* tickers, deltas, data only */
 
   /* Type scale (px) */
-  --text-display: 72px;
-  --text-h1:      48px;
-  --text-h2:      36px;
-  --text-h3:      24px;
+  --text-hero:  92px;
+  --text-h1:    38px;
+  --text-h2:    28px;
+  --text-h3:    22px;
   --text-body-lg: 18px;
-  --text-body:    16px;
-  --text-sm:      14px;
-  --text-caption: 13px;
+  --text-body:  16px;
+  --text-sm:    14px;
+  --text-mono-lg: 17px;
+  --text-mono:  13px;
+  --text-mono-sm: 11px;
 
   /* Radius */
-  --radius-sm: 8px;
-  --radius:    16px;
-  --radius-lg: 20px;
-  --radius-xl: 44px; /* app-icon tile */
-}
-
-/* Light surface override — apply to a section that sits on ivory */
-[data-theme="light"] {
-  --bg:         var(--color-ivory);
-  --surface:    #ffffff;
-  --border:     #D9D4C7;
-  --text:       var(--color-ink);
-  --text-muted: #5A554C;
-  --text-subtle:#8F887A;
-  --accent:     var(--color-sage-deep);
+  --radius-sm: 6px;
+  --radius:    8px;
+  --radius-lg: 10px;
 }

@@ -1,43 +1,51 @@
 /* ============================================================
-   ValuED — typography helpers
+   ValuED — "Terminal Editorial" typography helpers
    Import after tokens.css. Load the fonts first (see README).
+   Libre Franklin for everything human-readable; Roboto Mono is
+   reserved for data (tickers, deltas, prices, timestamps) only —
+   never blend the two into the same text.
    ============================================================ */
 
-/* Outlined display treatment — the primary "hero" look.
-   It is Poppins with a transparent fill + colored stroke.
-   Use on large type only (>= 40px); below that, use .display solid. */
+/* Outlined display treatment — the hero look, on large type only (>= 40px). */
 .text-outline {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: transparent;
   -webkit-text-stroke: 2.5px var(--stroke-color, var(--text));
-  text-stroke: 2.5px var(--stroke-color, var(--text)); /* progressive */
+  text-stroke: 2.5px var(--stroke-color, var(--text));
   paint-order: stroke fill;
 }
-/* accent-colored outline (e.g. second hero line) */
 .text-outline--accent { --stroke-color: var(--accent); }
 
 /* Solid display / headings */
-.display { font-family: var(--font-display); font-weight: 600; font-size: var(--text-display); line-height: 1.02; letter-spacing: -0.02em; }
-.h1 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-h1); line-height: 1.05; letter-spacing: -0.02em; }
-.h2 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-h2); line-height: 1.1;  letter-spacing: -0.01em; }
-.h3 { font-family: var(--font-body);    font-weight: 600; font-size: var(--text-h3); line-height: 1.2; }
+.display { font-family: var(--font-display); font-weight: 800; font-size: var(--text-hero); line-height: 1.02; letter-spacing: -0.03em; }
+.h1 { font-family: var(--font-display); font-weight: 800; font-size: var(--text-h1); line-height: 1.1; letter-spacing: -0.02em; }
+.h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--text-h2); line-height: 1.15; letter-spacing: -0.02em; }
+.h3 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-h3); line-height: 1.2; }
 
 /* Body + UI */
 .body { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body); line-height: 1.6; }
 .body-lg { font-size: var(--text-body-lg); line-height: 1.6; }
 .small   { font-size: var(--text-sm); }
 
-/* Eyebrow / caption — uppercase taupe label */
-.eyebrow {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: var(--text-caption);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent-2);
-}
+/* Data / mono — tickers, deltas, prices, lesson counts, timestamps */
+.mono { font-family: var(--font-mono); }
+.mono-lg { font-family: var(--font-mono); font-size: var(--text-mono-lg); font-weight: 600; }
+.mono-sm { font-family: var(--font-mono); font-size: var(--text-mono-sm); }
 
-/* Editorial serif italic — pull quotes */
-.quote { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+/* Pill eyebrow — mono, sentence case, green text on a faint green pill */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--text-mono);
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(63,191,111,0.3);
+  background: rgba(63,191,111,0.06);
+}

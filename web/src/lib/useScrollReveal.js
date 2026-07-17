@@ -34,6 +34,23 @@ export function useScrollReveal(deps = []) {
           }),
       });
 
+      const onceElements = gsap.utils.toArray('.scroll-element-once');
+      gsap.set(onceElements, { opacity: 0, y: 50, scale: 0.92 });
+
+      ScrollTrigger.batch(onceElements, {
+        start: 'top 85%',
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: 'back.out(1.6)',
+            overwrite: true,
+          }),
+      });
+
       const bgElements = gsap.utils.toArray('.scroll-bg');
       gsap.set(bgElements, { opacity: 0, scale: 1.18 });
 
@@ -58,6 +75,24 @@ export function useScrollReveal(deps = []) {
             overwrite: true,
           }),
       });
+
+      const pinTarget = document.querySelector('.valufin-pin-freeze');
+      if (pinTarget) {
+        const coverTarget = document.querySelector('.valufin-pin-cover');
+        const freezeHeight = Math.round(pinTarget.getBoundingClientRect().height);
+        // The frozen frame needs its own full height of scroll room to clear
+        // the viewport again after unpinning — reserve that as runway so its
+        // tail never peeks back into view at the bottom of the page.
+        if (coverTarget) coverTarget.style.paddingBottom = `${freezeHeight}px`;
+
+        ScrollTrigger.create({
+          trigger: pinTarget,
+          start: 'top top',
+          end: () => '+=' + freezeHeight,
+          pin: true,
+          pinSpacing: false,
+        });
+      }
 
       ScrollTrigger.refresh();
     });
