@@ -11,7 +11,7 @@ const TOPICS = [
   { tag: 'must know', title: 'M&A process', description: 'How mergers and acquisitions actually get done, from pitch to close.', path: '/ma-process', icon: 'arrows-join', lessons: 4, minutes: 25 },
   { tag: 'must know', title: 'Comps analysis', description: 'Compare EV/EBITDA and P/E multiples across peer companies. Fully built — try it now.', path: '/comps', icon: 'chart-bar', lessons: 4, minutes: 30 },
   { tag: 'high value', title: 'Pitch books', description: "How bankers package analysis into client-ready presentations. Fully built — try it now.", path: '/pitch-books', icon: 'presentation', lessons: 3, minutes: 20 },
-  { tag: 'high value', title: '3-statement model', description: 'Income statement, balance sheet, and cash flow linked together.', icon: 'list', lessons: 6, minutes: 55 },
+  { tag: 'high value', title: '3-statement model', description: 'Income statement, balance sheet, and cash flow linked together. Fully built — try it now.', path: '/three-statement-model', icon: 'list', lessons: 6, minutes: 55 },
   { tag: 'good to have', title: 'Precedent transactions', description: 'Valuing a company based on what similar companies sold for in past M&A deals.', icon: 'clock', lessons: 3, minutes: 20 },
 ];
 

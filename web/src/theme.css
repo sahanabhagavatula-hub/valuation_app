@@ -1713,6 +1713,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 }
 .valufin-tier-pill.high-value { color: #C4B79A; background: rgba(196,183,154,0.1); border: 1px solid rgba(196,183,154,0.3); }
 .valufin-tier-pill.must-know { color: #3FBF6F; background: rgba(63,191,111,0.1); border: 1px solid rgba(63,191,111,0.3); }
+.valufin-tier-pill.must-know-clay { color: #D9694F; background: rgba(217,105,79,0.1); border: 1px solid rgba(217,105,79,0.3); }
 .valufin-tier-pill.good-to-have { color: #9C978C; background: rgba(237,235,228,0.06); border: 1px solid rgba(237,235,228,0.16); }
 .valufin-ticker-caption { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #6f6a5f; }
 
@@ -2336,3 +2337,124 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-mlab-scorecard-box-value { font-family: 'Archivo Black', sans-serif; font-size: 22px; margin-bottom: 4px; }
 .valufin-mlab-scorecard-box-label { font-family: 'Roboto Mono', monospace; font-size: 9px; letter-spacing: 0.04em; color: #8F887A; line-height: 1.3; }
 .valufin-mlab-scorecard-box.highlight .valufin-mlab-scorecard-box-label { color: #4a4436; }
+
+/* ==================== Three-Statement Model ==================== */
+.valufin-3st-eyebrow { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 18px; }
+
+/* Lesson 1 — link diagram */
+.valufin-3st-link-row { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; margin-bottom: 20px; }
+.valufin-3st-link-card { flex: 1; min-width: 150px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); padding: 22px 18px; text-align: center; }
+.valufin-3st-link-row .valufin-3st-link-card:first-child { border: 1px solid rgba(79,195,199,0.3); border-radius: 10px 0 0 10px; }
+.valufin-3st-link-label { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.08em; margin-top: 10px; margin-bottom: 6px; }
+.valufin-3st-link-line { font-family: 'Archivo Black', sans-serif; font-size: 14px; color: #EDEBE4; }
+.valufin-3st-link-connector {
+    all: unset; cursor: pointer; box-sizing: border-box; flex: 0 0 46px; display: flex; align-items: center;
+    justify-content: center; border-top: 1px solid rgba(237,235,228,0.1); border-bottom: 1px solid rgba(237,235,228,0.1);
+}
+.valufin-3st-link-note { background: #12161C; border-left: 3px solid #4FC3C7; padding: 16px 20px; border-radius: 0 8px 8px 0; font-size: 13.5px; line-height: 1.65; color: #D8D3C8; }
+
+/* Lesson 2 — ledger statement */
+.valufin-3st-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.valufin-3st-tab {
+    all: unset; cursor: pointer; box-sizing: border-box; padding: 9px 16px; border-radius: 8px;
+    font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11.5px; letter-spacing: 0.04em;
+    color: #EDEBE4; background: transparent; border: 1px solid rgba(237,235,228,0.16);
+}
+.valufin-3st-tab.active { color: #0A0E14; background: #EDEBE4; border-color: #EDEBE4; }
+.valufin-3st-tab.teal.active { color: #0A0E14; background: #4FC3C7; border-color: #4FC3C7; }
+.valufin-3st-statement { background: #0d1013; border: 1px solid rgba(237,235,228,0.12); border-radius: 12px; overflow: hidden; }
+.valufin-3st-statement-head { padding: 16px 22px; border-bottom: 1px solid rgba(237,235,228,0.1); font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #6f6a5f; }
+.valufin-3st-row { display: grid; grid-template-columns: 1fr 110px; gap: 12px; padding: 9px 22px; border-bottom: 1px solid rgba(237,235,228,0.04); }
+.valufin-3st-row.border { background: rgba(79,195,199,0.06); border-bottom: 1px solid rgba(79,195,199,0.25); }
+.valufin-3st-row span { font-family: 'Libre Franklin', sans-serif; font-size: 13.5px; }
+.valufin-3st-row span:last-child { font-family: 'Roboto Mono', monospace; text-align: right; }
+
+/* Lesson 3 — circularity */
+.valufin-3st-revolver-panel { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 24px 26px; }
+.valufin-3st-range { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 99px; background: rgba(237,235,228,0.14); outline: none; display: block; margin-bottom: 14px; }
+.valufin-3st-range::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 99px; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
+.valufin-3st-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 99px; border: none; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
+.valufin-3st-range.gold::-webkit-slider-thumb { background: #C4B79A; box-shadow: 0 0 0 4px rgba(196,183,154,0.22); }
+.valufin-3st-range.gold::-moz-range-thumb { background: #C4B79A; box-shadow: 0 0 0 4px rgba(196,183,154,0.22); }
+.valufin-3st-revolver-stats { display: flex; justify-content: space-between; font-family: 'Roboto Mono', monospace; font-size: 12px; color: #8F887A; margin-bottom: 20px; flex-wrap: wrap; gap: 8px; }
+.valufin-3st-circle-wrap { position: relative; width: 280px; height: 280px; margin: 26px auto 0; }
+.valufin-3st-circle-node {
+    position: absolute; width: 118px; text-align: center; background: #0d1013;
+    border: 1px solid; border-radius: 10px; padding: 10px 8px;
+}
+.valufin-3st-circle-node.top { top: 0; left: 50%; transform: translate(-50%, -50%); }
+.valufin-3st-circle-node.right { top: 50%; right: 0; transform: translate(50%, -50%); }
+.valufin-3st-circle-node.bottom { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
+.valufin-3st-circle-node.left { top: 50%; left: 0; transform: translate(-50%, -50%); }
+.valufin-3st-circle-node-label { font-family: 'Roboto Mono', monospace; font-size: 9px; margin-bottom: 3px; }
+.valufin-3st-circle-node-value { font-family: 'Archivo Black', sans-serif; font-size: 13px; color: #EDEBE4; }
+
+/* Lesson 4 — why IB cares */
+.valufin-3st-use-row {
+    all: unset; cursor: pointer; box-sizing: border-box; display: block; width: 100%; text-align: left;
+    padding: 16px 18px; margin-bottom: 10px; border-radius: 10px; background: #12161C; border: 1px solid rgba(237,235,228,0.1);
+}
+.valufin-3st-use-row.open { background: rgba(79,195,199,0.06); border-color: rgba(79,195,199,0.3); }
+.valufin-3st-use-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.valufin-3st-use-headleft { display: flex; align-items: center; gap: 12px; }
+.valufin-3st-use-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex: none; }
+.valufin-3st-use-task { font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 14.5px; color: #EDEBE4; }
+.valufin-3st-use-tag { font-family: 'Roboto Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; white-space: nowrap; }
+.valufin-3st-use-explain { font-size: 13px; line-height: 1.6; color: #8F887A; margin-top: 10px; }
+
+/* Lesson 5 — quiz */
+.valufin-3st-quiz-panel { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 22px 24px; margin-bottom: 16px; }
+.valufin-3st-quiz-scenario { font-size: 15px; font-weight: 600; color: #EDEBE4; margin-bottom: 18px; }
+.valufin-3st-quiz-choices { display: flex; gap: 10px; flex-wrap: wrap; }
+.valufin-3st-quiz-choice {
+    all: unset; cursor: pointer; box-sizing: border-box; padding: 10px 16px; border-radius: 8px;
+    font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 12px; color: #EDEBE4;
+    background: transparent; border: 1px solid rgba(237,235,228,0.16);
+}
+.valufin-3st-quiz-choice.correct { color: #3FBF6F; background: rgba(63,191,111,0.12); border-color: #3FBF6F; }
+.valufin-3st-quiz-feedback { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(237,235,228,0.1); font-size: 13.5px; line-height: 1.6; color: #D8D3C8; }
+.valufin-3st-quiz-footer { display: flex; align-items: center; gap: 10px; }
+.valufin-3st-quiz-next {
+    all: unset; cursor: pointer; box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 700;
+    font-size: 12px; letter-spacing: 0.04em; color: #EDEBE4; border: 1px solid rgba(237,235,228,0.16); padding: 11px 20px; border-radius: 8px;
+}
+.valufin-3st-quiz-score { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #8F887A; align-self: center; }
+
+/* Lesson 6 — capstone activity */
+.valufin-3st-activity-panel { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 22px 24px; margin-bottom: 18px; }
+.valufin-3st-activity-slider-label { display: flex; justify-content: space-between; font-family: 'Roboto Mono', monospace; font-size: 12px; color: #8F887A; margin-bottom: 6px; }
+.valufin-3st-activity-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.valufin-3st-activity-card { background: #0d1013; border-radius: 10px; padding: 16px; border: 1px solid; }
+.valufin-3st-activity-card.teal { border-color: rgba(79,195,199,0.25); }
+.valufin-3st-activity-card.gold { border-color: rgba(196,183,154,0.25); }
+.valufin-3st-activity-card.clay { border-color: rgba(217,105,79,0.25); }
+.valufin-3st-activity-card-label { font-family: 'Roboto Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; margin-bottom: 10px; }
+.valufin-3st-activity-line-label { font-family: 'Roboto Mono', monospace; font-size: 11.5px; color: #8F887A; margin-bottom: 4px; }
+.valufin-3st-activity-line-value { font-family: 'Archivo Black', sans-serif; font-size: 17px; color: #EDEBE4; margin-bottom: 10px; }
+
+/* Six distinct takeaway-box styles, one per lesson */
+.valufin-3st-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
+.valufin-3st-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
+.valufin-3st-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+
+.valufin-3st-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
+.valufin-3st-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
+.valufin-3st-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
+
+.valufin-3st-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
+.valufin-3st-takeaway-quote-mark { position: absolute; top: -6px; left: -4px; }
+.valufin-3st-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
+
+.valufin-3st-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
+.valufin-3st-takeaway-rule.gold { border-top-color: #C4B79A; }
+.valufin-3st-takeaway-rule.red { border-top-color: #D9694F; }
+.valufin-3st-takeaway-rule-label { font-family: 'Roboto Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; margin-bottom: 8px; }
+.valufin-3st-takeaway-rule-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
+
+.valufin-3st-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
+.valufin-3st-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-3st-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
+
+@media (max-width: 720px) {
+  .valufin-3st-activity-grid { grid-template-columns: 1fr; }
+}

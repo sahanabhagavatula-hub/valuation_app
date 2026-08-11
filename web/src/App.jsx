@@ -17,6 +17,7 @@ import MAProcess from './pages/MAProcess';
 import StockPitch from './pages/StockPitch';
 import CompsAnalysis from './pages/CompsAnalysis';
 import PitchBooks from './pages/PitchBooks';
+import ThreeStatementModel from './pages/ThreeStatementModel';
 import TickerTape from './components/TickerTape';
 import './theme.css';
 
@@ -57,6 +58,7 @@ export default function App() {
         <Route path="/stock-pitch" element={<StockPitch />} />
         <Route path="/comps" element={<CompsAnalysis />} />
         <Route path="/pitch-books" element={<PitchBooks />} />
+        <Route path="/three-statement-model" element={<ThreeStatementModel />} />
       </Routes>
     </HashRouter>
   );
