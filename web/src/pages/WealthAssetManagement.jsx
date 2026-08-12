@@ -6,6 +6,7 @@ import { getCategoryByPath } from '../data/categories';
 const cat = getCategoryByPath('/wam');
 
 const TOPICS = [
+  { tag: 'must know', title: 'The Generalist Olympics', description: "Fit, portfolio construction, valuation, markets, and stock pitches — the full AM interview loop. Fully built — try it now.", path: '/generalist-olympics', icon: 'target-arrow', lessons: 6, minutes: 40 },
   { tag: 'must know', title: 'Portfolio construction', description: 'Asset allocation, diversification, and risk-return tradeoffs.', icon: 'chart-pie', lessons: 4, minutes: 30 },
   { tag: 'must know', title: 'Client communication', description: 'Explaining markets and performance to non-expert clients.', icon: 'message-circle', lessons: 3, minutes: 20 },
   { tag: 'high value', title: 'Investment philosophy', description: 'Active vs. passive, value vs. growth, and how to articulate your view.', icon: 'bulb', lessons: 4, minutes: 30 },
@@ -78,7 +79,7 @@ export default function WealthAssetManagement() {
       heroTint={cat.tint}
       heroAccent={cat.accent}
       topicsLayout="syllabus"
-      syllabusHeadline="Six topics, ranked by what interviews test."
+      syllabusHeadline="Seven topics, ranked by what interviews test."
       beforeTopics={
         <>
           <div className="valufin-frame-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>

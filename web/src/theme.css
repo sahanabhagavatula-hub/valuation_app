@@ -2458,3 +2458,135 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 @media (max-width: 720px) {
   .valufin-3st-activity-grid { grid-template-columns: 1fr; }
 }
+
+/* ==================== The Generalist Olympics (Wealth & Asset Mgmt) ==================== */
+.valufin-gol-eyebrow { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 16px; }
+
+/* Lesson 1 — field cards + clue game */
+.valufin-gol-field-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
+.valufin-gol-field-card {
+    all: unset; cursor: pointer; box-sizing: border-box; flex: 1; min-width: 130px; text-align: center;
+    padding: 20px 10px; border-radius: 12px; background: #12161C; border: 1px solid rgba(237,235,228,0.1);
+    transition: all 0.2s ease;
+}
+.valufin-gol-field-card.active { transform: translateY(-3px); }
+.valufin-gol-field-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
+.valufin-gol-field-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; }
+.valufin-gol-field-detail { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 26px; }
+.valufin-gol-field-detail-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.1em; }
+.valufin-gol-field-dot { width: 8px; height: 8px; border-radius: 99px; flex-shrink: 0; }
+.valufin-gol-field-detail-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
+.valufin-gol-clue-panel { background: #0d1013; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 18px 20px; margin-bottom: 26px; }
+.valufin-gol-clue-text { font-size: 14px; color: #EDEBE4; margin-bottom: 14px; font-style: italic; }
+.valufin-gol-clue-choices { display: flex; gap: 8px; flex-wrap: wrap; }
+.valufin-gol-clue-choice {
+    all: unset; cursor: pointer; box-sizing: border-box; padding: 9px 14px; border-radius: 7px;
+    font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11.5px; color: #EDEBE4;
+    background: transparent; border: 1px solid rgba(237,235,228,0.16);
+}
+.valufin-gol-clue-feedback { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(237,235,228,0.08); font-size: 13px; }
+.valufin-gol-clue-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
+.valufin-gol-clue-score { font-family: 'Roboto Mono', monospace; font-size: 11px; color: #8F887A; }
+.valufin-gol-clue-next { all: unset; cursor: pointer; font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11px; color: #4FC3C7; }
+
+/* Lesson 2 — allocation builder */
+.valufin-gol-client-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+.valufin-gol-client-tab {
+    all: unset; cursor: pointer; box-sizing: border-box; flex: 1; text-align: center; padding: 10px 8px;
+    border-radius: 8px; font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11.5px;
+    color: #EDEBE4; background: transparent; border: 1px solid rgba(237,235,228,0.16);
+}
+.valufin-gol-client-tab.active { color: #0A0E14; background: #4FC3C7; border-color: #4FC3C7; }
+.valufin-gol-allocation-panel { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 22px 24px; }
+.valufin-gol-range { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 99px; background: rgba(237,235,228,0.14); outline: none; display: block; margin-bottom: 20px; }
+.valufin-gol-range::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 99px; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
+.valufin-gol-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 99px; border: none; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
+.valufin-gol-bars { display: flex; align-items: flex-end; gap: 40px; justify-content: center; height: 150px; margin-bottom: 18px; }
+.valufin-gol-bar-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+.valufin-gol-bar { width: 64px; border-radius: 8px 8px 0 0; }
+.valufin-gol-bar-label { font-family: 'Roboto Mono', monospace; font-size: 11px; margin-top: 8px; font-weight: 700; }
+.valufin-gol-fit-verdict { font-family: 'Roboto Mono', monospace; font-size: 11.5px; }
+
+/* Lesson 3 — upset client role-play */
+.valufin-gol-client-message { background: #0d1013; border: 1px solid rgba(217,105,79,0.3); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; display: flex; gap: 14px; align-items: flex-start; }
+.valufin-gol-client-avatar { width: 38px; height: 38px; border-radius: 99px; background: rgba(217,105,79,0.16); border: 1px solid rgba(217,105,79,0.4); display: flex; align-items: center; justify-content: center; flex: none; }
+.valufin-gol-client-message-label { font-family: 'Roboto Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #D9694F; margin-bottom: 8px; }
+.valufin-gol-client-message-body { font-size: 14px; line-height: 1.6; color: #EDEBE4; margin: 0; font-style: italic; }
+.valufin-gol-response-row {
+    all: unset; cursor: pointer; box-sizing: border-box; display: flex; gap: 12px; align-items: flex-start;
+    width: 100%; text-align: left; padding: 16px 18px; margin-bottom: 10px; border-radius: 10px;
+    background: #12161C; border: 1px solid rgba(237,235,228,0.1);
+}
+.valufin-gol-response-row.good { background: rgba(63,191,111,0.08); border-color: rgba(63,191,111,0.3); }
+.valufin-gol-response-row.bad { background: rgba(217,105,79,0.08); border-color: rgba(217,105,79,0.3); }
+.valufin-gol-response-badge { width: 26px; height: 26px; border-radius: 99px; display: flex; align-items: center; justify-content: center; flex: none; margin-top: 1px; font-family: 'Archivo Black', sans-serif; font-size: 12px; }
+.valufin-gol-response-label { font-size: 13.5px; font-weight: 600; color: #EDEBE4; }
+.valufin-gol-response-feedback { font-size: 13px; line-height: 1.6; margin-top: 8px; }
+
+/* Lesson 4 — multiples vs DCF */
+.valufin-gol-val-card { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 10px; padding: 16px 18px; margin-bottom: 10px; }
+.valufin-gol-val-scenario { font-size: 13.5px; color: #D8D3C8; margin-bottom: 10px; }
+.valufin-gol-val-choices { display: flex; gap: 8px; flex-wrap: wrap; }
+.valufin-gol-val-choice {
+    all: unset; cursor: pointer; box-sizing: border-box; display: flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: 7px; font-family: 'Roboto Mono', monospace; font-weight: 700;
+    font-size: 11.5px; color: #EDEBE4; background: transparent; border: 1px solid rgba(237,235,228,0.16);
+}
+.valufin-gol-val-choice.correct { color: #0A0E14; background: #3FBF6F; border-color: #3FBF6F; }
+.valufin-gol-val-choice.wrong { color: #0A0E14; background: #D9694F; border-color: #D9694F; }
+
+/* Lesson 5 — market pulse */
+.valufin-gol-ticker-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 18px; }
+.valufin-gol-ticker-card {
+    all: unset; cursor: pointer; box-sizing: border-box; padding: 14px 16px; border-radius: 10px;
+    background: #12161C; border: 1px solid rgba(237,235,228,0.1); min-height: 78px; display: block;
+}
+.valufin-gol-ticker-card.active { background: rgba(79,195,199,0.08); border-color: #4FC3C7; }
+.valufin-gol-ticker-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.valufin-gol-ticker-symbol { font-family: 'Roboto Mono', monospace; font-size: 11px; color: #6f6a5f; }
+.valufin-gol-ticker-value { font-family: 'Archivo Black', sans-serif; font-size: 15px; color: #EDEBE4; }
+.valufin-gol-ticker-hint { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #4FC3C7; }
+.valufin-gol-ticker-note { background: #12161C; border-left: 3px solid #4FC3C7; padding: 16px 20px; border-radius: 0 8px 8px 0; font-size: 13.5px; line-height: 1.65; color: #D8D3C8; margin-bottom: 18px; }
+
+/* Lesson 6 — 60-second pitch */
+.valufin-gol-pitch-row {
+    all: unset; cursor: pointer; box-sizing: border-box; display: block; width: 100%; text-align: left;
+    padding: 14px 16px; margin-bottom: 10px; border-radius: 10px; background: #12161C; border: 1px solid rgba(237,235,228,0.1);
+}
+.valufin-gol-pitch-row.open { background: rgba(79,195,199,0.06); border-color: rgba(79,195,199,0.3); }
+.valufin-gol-pitch-head { display: flex; justify-content: space-between; align-items: center; }
+.valufin-gol-pitch-step { font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.06em; color: #4FC3C7; }
+.valufin-gol-pitch-label { font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 14px; color: #EDEBE4; }
+.valufin-gol-pitch-detail { font-size: 13px; line-height: 1.6; color: #8F887A; margin-top: 10px; }
+.valufin-gol-pitch-progress { background: #12161C; border: 1px dashed rgba(79,195,199,0.35); border-radius: 10px; padding: 16px 18px; margin-top: 6px; display: flex; align-items: center; gap: 12px; }
+.valufin-gol-pitch-ring { position: relative; width: 36px; height: 36px; flex: none; }
+.valufin-gol-pitch-ring-count { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Roboto Mono', monospace; font-size: 11px; font-weight: 700; color: #4FC3C7; }
+.valufin-gol-pitch-progress-label { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #4FC3C7; }
+.valufin-gol-pitch-hint { font-size: 12.5px; color: #8F887A; margin: 10px 0 0; }
+
+/* Six distinct takeaway-box styles, one per lesson */
+.valufin-gol-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
+.valufin-gol-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
+.valufin-gol-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+
+.valufin-gol-takeaway-teal { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(79,195,199,0.1), rgba(79,195,199,0.02)); }
+.valufin-gol-takeaway-teal-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #4FC3C7; flex: none; display: flex; align-items: center; justify-content: center; }
+.valufin-gol-takeaway-teal-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
+
+.valufin-gol-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
+.valufin-gol-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-gol-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
+
+.valufin-gol-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
+.valufin-gol-takeaway-rule.gold { border-top-color: #C4B79A; }
+.valufin-gol-takeaway-rule.red { border-top-color: #D9694F; }
+.valufin-gol-takeaway-rule-label { font-family: 'Roboto Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; margin-bottom: 8px; }
+.valufin-gol-takeaway-rule-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
+
+.valufin-gol-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
+.valufin-gol-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-gol-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
+
+@media (max-width: 640px) {
+  .valufin-gol-ticker-grid { grid-template-columns: 1fr; }
+}

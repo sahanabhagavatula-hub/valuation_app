@@ -18,6 +18,7 @@ import StockPitch from './pages/StockPitch';
 import CompsAnalysis from './pages/CompsAnalysis';
 import PitchBooks from './pages/PitchBooks';
 import ThreeStatementModel from './pages/ThreeStatementModel';
+import GeneralistOlympics from './pages/GeneralistOlympics';
 import TickerTape from './components/TickerTape';
 import './theme.css';
 
@@ -59,6 +60,7 @@ export default function App() {
         <Route path="/comps" element={<CompsAnalysis />} />
         <Route path="/pitch-books" element={<PitchBooks />} />
         <Route path="/three-statement-model" element={<ThreeStatementModel />} />
+        <Route path="/generalist-olympics" element={<GeneralistOlympics />} />
       </Routes>
     </HashRouter>
   );
