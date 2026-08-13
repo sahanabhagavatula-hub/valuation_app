@@ -47,11 +47,37 @@ const LESSONS = [
 ];
 
 const STAR_PARTS = [
-  { label: 'SITUATION', detail: 'Set the scene in one or two sentences — enough context to understand the stakes, not a full narrative.' },
-  { label: 'TASK', detail: 'What specifically were you responsible for? This is what makes the story yours, not just something that happened around you.' },
-  { label: 'ACTION', detail: 'What did you personally do — the decisions, the steps, the specific choices you made to move things forward.' },
-  { label: 'RESULT', detail: 'What happened because of your action — ideally with a number or a concrete, specific outcome attached.' },
+  {
+    id: 'situation', letter: 'S', label: 'SITUATION', top: '4%', left: '50%',
+    detail: 'Set the scene in one or two sentences — enough context to understand the stakes, not a full narrative.',
+    example: '"Our club\'s biggest fundraiser was two weeks out and the venue backed out."',
+  },
+  {
+    id: 'task', letter: 'T', label: 'TASK', top: '36%', left: '92%',
+    detail: 'State your specific responsibility or goal in that situation — what were you actually on the hook for?',
+    example: '"As logistics lead, it was on me to find a new venue without losing any sponsors."',
+  },
+  {
+    id: 'action', letter: 'A', label: 'ACTION', top: '86%', left: '74%',
+    detail: 'The steps you personally took — this is the longest part of the answer, and the only place "I" should dominate over "we."',
+    example: '"I called five backup venues within a day, negotiated a same-week rate, and personally re-briefed each sponsor on the change."',
+  },
+  {
+    id: 'result', letter: 'R', label: 'RESULT', top: '86%', left: '26%',
+    detail: "What happened, ideally with a number or concrete outcome — and what you'd do differently next time.",
+    example: '"We kept all 12 sponsors, the event still hit its fundraising goal, and next year I built a backup-venue list from day one."',
+  },
 ];
+
+const STAR_SCENARIOS = [
+  'Tell me about a time you had to convince a skeptical teammate to see things your way.',
+  'Describe a group project where the workload was unevenly split — what did you do?',
+  'Walk me through a time you caught a mistake before it became a bigger problem.',
+  'Tell me about a time you had to learn something completely new under a tight deadline.',
+  "Describe a time you disagreed with a professor's or manager's decision.",
+];
+
+const STAR_POLYGON = '200,15 239.97,134.99 366.44,135.92 264.67,211.01 302.86,331.58 200,258 97.14,331.58 135.33,211.01 33.56,135.92 160.03,134.99';
 
 const STORY_MATCH = [
   { id: 'led-project', label: 'Led a project under a tight deadline', fits: ['Leadership', 'Initiative'] },
@@ -80,40 +106,94 @@ function CheckIcon() {
   );
 }
 
-const STAR_LETTERS = ['S', 'T', 'A', 'R'];
-const STAR_POSITIONS = ['top', 'right', 'bottom', 'left'];
+function SparkleIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C4B79A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: 4 }}>
+      <path d="M12 20l-1.4-3.4L7 15l3.6-1.6L12 10l1.4 3.4L17 15l-3.6 1.6z" />
+      <path d="M5 6l.7 1.7L7.5 8.5 5.7 9.2 5 11l-.7-1.8L2.5 8.5l1.8-.8z" />
+    </svg>
+  );
+}
 
-function Lesson1({ activePart, setActivePart }) {
+function Lesson1() {
+  const [activeId, setActiveId] = useState(null);
+  const [practiceOpen, setPracticeOpen] = useState(false);
+  const [scenarioIdx, setScenarioIdx] = useState(0);
+
+  const activePart = STAR_PARTS.find((p) => p.id === activeId);
+
   return (
     <>
       <div className="valufin-bhv-eyebrow">CLICK EACH POINT →</div>
       <div className="valufin-bhv-star-wrap">
-        <svg className="valufin-bhv-star-svg" viewBox="0 0 320 320">
-          <polygon
-            points="160,10 193.9,126.1 310,160 193.9,193.9 160,310 126.1,193.9 10,160 126.1,126.1"
-            fill="rgba(79,195,199,0.05)"
-            stroke="rgba(79,195,199,0.3)"
-            strokeWidth="1.5"
-          />
+        <svg className="valufin-bhv-star-svg" viewBox="0 0 400 380">
+          <polygon points={STAR_POLYGON} fill="none" stroke="rgba(79,195,199,0.28)" strokeWidth="1.5" />
         </svg>
-        <div className="valufin-bhv-star-hub">{STAR_LETTERS[activePart]}</div>
-        {STAR_PARTS.map((p, i) => (
-          <button
-            key={p.label}
-            className={`valufin-bhv-star-point valufin-bhv-star-point-${STAR_POSITIONS[i]}${activePart === i ? ' active' : ''}`}
-            onClick={() => setActivePart(i)}
-          >
-            {STAR_LETTERS[i]}
-          </button>
-        ))}
+        {STAR_PARTS.map((p) => {
+          const active = activeId === p.id;
+          return (
+            <button
+              key={p.id}
+              onClick={() => setActiveId(p.id)}
+              className="valufin-bhv-star-point"
+              style={{
+                top: p.top, left: p.left,
+                background: active ? 'rgba(79,195,199,0.12)' : '#12161C',
+                borderColor: active ? '#4FC3C7' : 'rgba(237,235,228,0.14)',
+                boxShadow: active ? '0 0 24px rgba(79,195,199,0.25)' : 'none',
+              }}
+            >
+              <div>
+                <div className="valufin-bhv-star-point-letter" style={{ color: active ? '#4FC3C7' : '#EDEBE4' }}>{p.letter}</div>
+                <div className="valufin-bhv-star-point-label" style={{ color: active ? '#4FC3C7' : '#8F887A' }}>{p.label}</div>
+              </div>
+            </button>
+          );
+        })}
+        <div className="valufin-bhv-star-hub">
+          <span>STAR</span>
+        </div>
+        <button className="valufin-bhv-star-practice" onClick={() => setPracticeOpen(true)}>
+          <div>
+            <SparkleIcon />
+            <div className="valufin-bhv-star-practice-label">PRACTICE</div>
+          </div>
+        </button>
       </div>
-      <div className="valufin-bhv-detail">
-        <div className="valufin-bhv-detail-head">{STAR_PARTS[activePart].label}</div>
-        <p className="valufin-bhv-detail-body">{STAR_PARTS[activePart].detail}</p>
-      </div>
-      <div className="valufin-bhv-takeaway-terminal">
-        <div className="valufin-bhv-takeaway-terminal-label">// TAKEAWAY</div>
-        <div className="valufin-bhv-takeaway-terminal-body">{LESSONS[0].takeaway}</div>
+
+      {activePart && (
+        <div className="valufin-bhv-star-modal-backdrop" onClick={() => setActiveId(null)}>
+          <div className="valufin-bhv-star-modal-box" onClick={(e) => e.stopPropagation()}>
+            <div className="valufin-bhv-star-modal-head">
+              <span className="valufin-bhv-star-modal-badge">{activePart.letter}</span>
+              <div className="valufin-bhv-star-modal-badge-label">{activePart.label}</div>
+            </div>
+            <div className="valufin-bhv-star-modal-detail">{activePart.detail}</div>
+            <div className="valufin-bhv-star-modal-example">
+              <div className="valufin-bhv-star-modal-example-label">EXAMPLE</div>
+              <div className="valufin-bhv-star-modal-example-body">{activePart.example}</div>
+            </div>
+            <button className="valufin-bhv-star-modal-close" onClick={() => setActiveId(null)}>← close</button>
+          </div>
+        </div>
+      )}
+
+      {practiceOpen && (
+        <div className="valufin-bhv-star-modal-backdrop" onClick={() => setPracticeOpen(false)}>
+          <div className="valufin-bhv-star-modal-box practice" onClick={(e) => e.stopPropagation()}>
+            <div className="valufin-bhv-star-modal-example-label" style={{ color: '#C4B79A', marginBottom: 10 }}>PRACTICE SCENARIO {scenarioIdx + 1}</div>
+            <div className="valufin-bhv-star-modal-scenario">"{STAR_SCENARIOS[scenarioIdx]}"</div>
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button className="valufin-bhv-star-modal-cta" onClick={() => setScenarioIdx((scenarioIdx + 1) % STAR_SCENARIOS.length)}>↻ another scenario</button>
+              <button className="valufin-bhv-star-modal-close" onClick={() => setPracticeOpen(false)}>← close</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="valufin-bhv-star-takeaway">
+        <div className="valufin-bhv-star-takeaway-label">// TAKEAWAY</div>
+        <div className="valufin-bhv-star-takeaway-body">{LESSONS[0].takeaway}</div>
       </div>
     </>
   );
@@ -236,7 +316,6 @@ export default function Behaviorals() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [completed, setCompleted] = useState([false, false, false, false, false]);
 
-  const [activePart, setActivePart] = useState(0);
   const [isConcrete, setIsConcrete] = useState(true);
   const [activeStory, setActiveStory] = useState('led-project');
   const [picks, setPicks] = useState({});
@@ -318,7 +397,7 @@ export default function Behaviorals() {
           <p className="valufin-lesson-detail-body">{activeLesson.body1}</p>
           <p className="valufin-lesson-detail-body" style={{ marginBottom: 30 }}>{activeLesson.body2}</p>
 
-          {activeIndex === 0 && <Lesson1 activePart={activePart} setActivePart={setActivePart} />}
+          {activeIndex === 0 && <Lesson1 />}
           {activeIndex === 1 && <Lesson2 isConcrete={isConcrete} setIsConcrete={setIsConcrete} />}
           {activeIndex === 2 && <Lesson3 activeStory={activeStory} setActiveStory={setActiveStory} picks={picks} setPicks={setPicks} />}
           {activeIndex === 3 && <Lesson4 isSelf={isSelf} setIsSelf={setIsSelf} />}

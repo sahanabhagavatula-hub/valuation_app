@@ -3117,16 +3117,34 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-bhv-detail-head, .valufin-wtf-detail-head, .valufin-cur-detail-head { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #4FC3C7; margin-bottom: 10px; }
 .valufin-bhv-detail-body, .valufin-wtf-detail-body, .valufin-cur-detail-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
 
-.valufin-bhv-star-wrap { position: relative; width: 300px; height: 300px; max-width: 100%; margin: 4px auto 26px; }
+.valufin-bhv-star-wrap { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1 / 0.95; margin: 0 auto 30px; }
 .valufin-bhv-star-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.valufin-bhv-star-hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 92px; height: 92px; border-radius: 50%; background: #12161C; border: 1px solid rgba(237,235,228,0.14); display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 22px; color: #4FC3C7; }
-.valufin-bhv-star-point { all: unset; cursor: pointer; box-sizing: border-box; position: absolute; width: 68px; height: 68px; border-radius: 50%; background: #12161C; border: 1px solid rgba(237,235,228,0.14); display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 18px; color: #EDEBE4; transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease; }
-.valufin-bhv-star-point.active { border-color: #4FC3C7; background: rgba(79,195,199,0.12); color: #4FC3C7; box-shadow: 0 0 0 4px rgba(79,195,199,0.08); }
-.valufin-bhv-star-point:hover { border-color: rgba(79,195,199,0.5); }
-.valufin-bhv-star-point-top { top: 0; left: 50%; transform: translate(-50%, 0); }
-.valufin-bhv-star-point-right { top: 50%; right: 0; transform: translate(0, -50%); }
-.valufin-bhv-star-point-bottom { bottom: 0; left: 50%; transform: translate(-50%, 0); }
-.valufin-bhv-star-point-left { top: 50%; left: 0; transform: translate(0, -50%); }
+.valufin-bhv-star-point { all: unset; cursor: pointer; box-sizing: border-box; position: absolute; transform: translate(-50%, -50%); width: 112px; height: 112px; border-radius: 999px; display: flex; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgba(237,235,228,0.14); transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+.valufin-bhv-star-point-letter { font-family: 'Archivo Black', sans-serif; font-size: 26px; line-height: 1; }
+.valufin-bhv-star-point-label { font-family: 'Roboto Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; margin-top: 4px; }
+.valufin-bhv-star-hub { position: absolute; top: 47%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 999px; background: #12161C; border: 1px solid rgba(237,235,228,0.15); display: flex; align-items: center; justify-content: center; }
+.valufin-bhv-star-hub span { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #8F887A; }
+.valufin-bhv-star-practice { all: unset; cursor: pointer; box-sizing: border-box; position: absolute; top: 36%; left: 8%; transform: translate(-50%, -50%); width: 96px; height: 96px; border-radius: 999px; display: flex; align-items: center; justify-content: center; text-align: center; background: rgba(196,183,154,0.1); border: 1.5px solid #C4B79A; }
+.valufin-bhv-star-practice-label { font-family: 'Roboto Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; color: #C4B79A; }
+
+.valufin-bhv-star-modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(3px); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.valufin-bhv-star-modal-box { width: 100%; max-width: 460px; background: #12161C; border: 1px solid rgba(79,195,199,0.3); border-radius: 14px; padding: 30px 32px; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+.valufin-bhv-star-modal-box.practice { border-color: rgba(196,183,154,0.35); }
+.valufin-bhv-star-modal-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.valufin-bhv-star-modal-badge { flex: none; width: 40px; height: 40px; border-radius: 999px; background: rgba(79,195,199,0.12); border: 1.5px solid #4FC3C7; display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 18px; color: #4FC3C7; }
+.valufin-bhv-star-modal-badge-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #4FC3C7; }
+.valufin-bhv-star-modal-detail { font-size: 15.5px; line-height: 1.65; color: #D8D3C8; margin-bottom: 18px; }
+.valufin-bhv-star-modal-example { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 14px 16px; border-radius: 0 8px 8px 0; margin-bottom: 20px; }
+.valufin-bhv-star-modal-example-label { font-family: 'Roboto Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; color: #4FC3C7; margin-bottom: 6px; }
+.valufin-bhv-star-modal-example-body { font-size: 13.5px; line-height: 1.6; color: #D8D3C8; font-style: italic; }
+.valufin-bhv-star-modal-scenario { font-size: 16px; line-height: 1.65; color: #EDEBE4; margin-bottom: 22px; font-style: italic; }
+.valufin-bhv-star-modal-cta { all: unset; cursor: pointer; font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11.5px; letter-spacing: 0.06em; color: #C4B79A; border: 1px solid rgba(196,183,154,0.4); padding: 9px 16px; border-radius: 7px; }
+.valufin-bhv-star-modal-close { all: unset; cursor: pointer; font-family: 'Roboto Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: #8F887A; padding: 9px 4px; }
+.valufin-bhv-star-modal-close:hover { color: #EDEBE4; }
+
+.valufin-bhv-star-takeaway { background: #12161C; border: 1px solid rgba(196,183,154,0.25); border-radius: 12px; padding: 24px 26px; margin-bottom: 26px; }
+.valufin-bhv-star-takeaway-label { font-family: 'Roboto Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: #C4B79A; margin-bottom: 10px; }
+.valufin-bhv-star-takeaway-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 
 .valufin-bhv-panel, .valufin-wtf-panel, .valufin-cur-panel, .valufin-net-panel { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 22px 24px; }
 .valufin-bhv-panel-body, .valufin-wtf-panel-body, .valufin-cur-panel-body, .valufin-net-panel-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
