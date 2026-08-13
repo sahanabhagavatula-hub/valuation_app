@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 import MacWindow from '../components/MacWindow';
 
 const BADGE_COLORS = ['#4FC3C7', '#C4B79A', '#D9694F', '#4FC3C7'];
@@ -372,7 +372,6 @@ function shuffle(arr) {
 }
 
 export default function PitchBooks() {
-  const navigate = useNavigate();
   const [view, setView] = useState('list');
   const [activeIndex, setActiveIndex] = useState(0);
   const [completed, setCompleted] = useState([true, false, false, false]);
@@ -426,10 +425,9 @@ export default function PitchBooks() {
       }}
     >
       <div className="valufin-lesson-topbar">
-        <button className="valufin-lesson-topbar-back" onClick={() => (view === 'list' ? navigate('/ib') : backToTopics())}>
-          ← {view === 'list' ? 'Investment Banking' : 'Pitch Books'}
-        </button>
-        <span className="valufin-lesson-topbar-tag">PTB · PITCH BOOKS</span>
+        <Breadcrumb items={view === 'list'
+          ? [{ label: 'Investment Banking', path: '/ib' }, { label: 'Pitch Books' }]
+          : [{ label: 'Investment Banking', path: '/ib' }, { label: 'Pitch Books', onClick: backToTopics }, { label: activeLesson.title }]} />
       </div>
 
       {view === 'list' ? (

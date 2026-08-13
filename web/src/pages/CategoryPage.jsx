@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
 import { TopicCard, Banner } from '../components/Curriculum';
 import SyllabusIndex from '../components/SyllabusIndex';
+import Breadcrumb from '../components/Breadcrumb';
 import { useScrollReveal } from '../lib/useScrollReveal';
 
 export default function CategoryPage({
@@ -10,7 +10,6 @@ export default function CategoryPage({
   pillLabel,
   caption,
   topics,
-  backLabel,
   backPath,
   comingSoonMentionsTool = false,
   heroImage,
@@ -46,8 +45,7 @@ export default function CategoryPage({
           <div className="valufin-category-hero-inner">
             <div className="valufin-hero-topbar">
               <div className="valufin-hero-topbar-inner">
-                <Topbar />
-                <button className="valufin-category-back" onClick={() => navigate(backPath)}>{backLabel}</button>
+                <Breadcrumb items={[{ label: 'Home', path: backPath }, { label: title }]} />
               </div>
             </div>
             <div className="valufin-category-hero-content scroll-element-once">
@@ -72,8 +70,7 @@ export default function CategoryPage({
           <div className="valufin-scene-scanlines" />
           <div className="valufin-hero-topbar">
             <div className="valufin-hero-topbar-inner">
-              <Topbar />
-              <button className="valufin-category-back" onClick={() => navigate(backPath)}>{backLabel}</button>
+              <Breadcrumb items={[{ label: 'Home', path: backPath }, { label: title }]} />
             </div>
           </div>
           <div className="valufin-category-hero-content scroll-element-once">

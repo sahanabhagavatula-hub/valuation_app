@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import SiteHeader from './components/SiteHeader';
 import Home from './pages/Home';
 import Basics from './pages/Basics';
 import Tool from './pages/Tool';
@@ -59,6 +60,7 @@ export default function App() {
   return (
     <HashRouter>
       <ScrollToTop />
+      <SiteHeader />
       <GlobalTicker />
       <Routes>
         <Route path="/" element={<Home />} />

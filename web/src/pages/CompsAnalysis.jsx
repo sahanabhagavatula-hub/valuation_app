@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BADGE_COLORS = ['#4FC3C7', '#C4B79A', '#D9694F', '#4FC3C7', '#C4B79A'];
 const MONO_COLORS = ['#4FC3C7', '#C4B79A', '#D9694F'];
@@ -533,7 +533,6 @@ function Lesson5({ batchIndex, setBatchIndex, selected, setSelected, scored, set
 }
 
 export default function CompsAnalysis() {
-  const navigate = useNavigate();
   const [view, setView] = useState('list');
   const [activeIndex, setActiveIndex] = useState(0);
   const [completed, setCompleted] = useState([false, false, false, false, false]);
@@ -598,10 +597,9 @@ export default function CompsAnalysis() {
       }}
     >
       <div className="valufin-lesson-topbar">
-        <button className="valufin-lesson-topbar-back" onClick={() => (view === 'list' ? navigate('/ib') : backToTopics())}>
-          ← {view === 'list' ? 'Investment Banking' : 'The Multiples Lab'}
-        </button>
-        <span className="valufin-lesson-topbar-tag">CMP · MULTIPLES LAB</span>
+        <Breadcrumb items={view === 'list'
+          ? [{ label: 'Investment Banking', path: '/ib' }, { label: 'The Multiples Lab' }]
+          : [{ label: 'Investment Banking', path: '/ib' }, { label: 'The Multiples Lab', onClick: backToTopics }, { label: activeLesson.title }]} />
       </div>
 
       {view === 'list' ? (

@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
 import { Button, PasswordField } from '../components/Widgets';
 import { ChatBubble, FeedbackBox, ProgressRow, SummaryCard } from '../components/Curriculum';
+import Breadcrumb from '../components/Breadcrumb';
 import { callClaude } from '../lib/anthropic';
 
 const DEAL_TYPES = [
@@ -39,7 +38,6 @@ const MA_QUESTIONS = [
 const TOTAL_QUESTIONS = 5;
 
 export default function MAProcess() {
-  const navigate = useNavigate();
   const [anthropicKey, setAnthropicKey] = useState('');
 
   const [step, setStep] = useState(0);
@@ -151,8 +149,7 @@ Write a short overall assessment: one-line verdict (e.g. "Strong on process, nee
 
       <div className="valufin-main">
         <div className="valufin-container">
-          <Topbar />
-          <Button variant="secondary" onClick={() => navigate('/ib')}>←  Back to Investment Banking</Button>
+          <Breadcrumb items={[{ label: 'Investment Banking', path: '/ib' }, { label: 'M&A process' }]} />
 
           <span className="valufin-eyebrow">Investment Banking · Must know</span>
           <h1>M&amp;A process.</h1>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BADGE_COLORS = ['#4FC3C7', '#C4B79A', '#D9694F', '#4FC3C7', '#C4B79A'];
 
@@ -234,7 +234,6 @@ function Lesson5({ quizIndex, setQuizIndex, picked, setPicked }) {
 }
 
 export default function ExcelModeling() {
-  const navigate = useNavigate();
   const [view, setView] = useState('list');
   const [activeIndex, setActiveIndex] = useState(0);
   const [completed, setCompleted] = useState([false, false, false, false, false]);
@@ -266,10 +265,9 @@ export default function ExcelModeling() {
   return (
     <div style={{ minHeight: '100vh', backgroundImage: 'radial-gradient(rgba(237,235,228,0.06) 1px, transparent 1px)', backgroundSize: '22px 22px' }}>
       <div className="valufin-lesson-topbar">
-        <button className="valufin-lesson-topbar-back" onClick={() => (view === 'list' ? navigate('/corp-finance') : backToTopics())}>
-          ← {view === 'list' ? 'Corporate Finance' : 'Excel Modeling'}
-        </button>
-        <span className="valufin-lesson-topbar-tag">XLM · EXCEL MODELING</span>
+        <Breadcrumb items={view === 'list'
+          ? [{ label: 'Corporate Finance', path: '/corp-finance' }, { label: 'Excel Modeling' }]
+          : [{ label: 'Corporate Finance', path: '/corp-finance' }, { label: 'Excel Modeling', onClick: backToTopics }, { label: activeLesson.title }]} />
       </div>
 
       {view === 'list' ? (

@@ -73,7 +73,6 @@ export default function WealthAssetManagement() {
       pillLabel="WAM"
       caption="Client-facing investing and portfolio management — a different skill set than pure deal-making. Tap any topic to start learning."
       topics={TOPICS}
-      backLabel="←  Back to home"
       backPath="/"
       heroImage={cat.image}
       heroTint={cat.tint}

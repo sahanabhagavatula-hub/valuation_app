@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
 import { Button } from '../components/Widgets';
+import Breadcrumb from '../components/Breadcrumb';
 import { FRAMEWORKS } from '../data/frameworks';
 
 export default function Frameworks() {
@@ -8,8 +8,7 @@ export default function Frameworks() {
 
   return (
     <div className="valufin-container">
-      <Topbar />
-      <Button variant="secondary" onClick={() => navigate('/consulting')}>←  Back to Consulting</Button>
+      <Breadcrumb items={[{ label: 'Consulting', path: '/consulting' }, { label: 'Frameworks' }]} />
 
       <span className="valufin-eyebrow">Consulting · Must know</span>
       <h1>Frameworks.</h1>

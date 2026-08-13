@@ -58,7 +58,6 @@ export default function Universal() {
       pillLabel="All roles"
       caption="These show up no matter which path you're recruiting for. Tap any topic to start learning."
       topics={TOPICS}
-      backLabel="←  Back to home"
       backPath="/"
       heroImage={cat.image}
       heroTint={cat.tint}

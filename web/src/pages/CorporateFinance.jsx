@@ -72,7 +72,6 @@ export default function CorporateFinance() {
       pillLabel="Corp Finance"
       caption="The foundational skills that show up everywhere in finance, regardless of which specific path you're recruiting for. Tap any topic to start learning."
       topics={TOPICS}
-      backLabel="←  Back to home"
       backPath="/"
       comingSoonMentionsTool
       heroImage={cat.image}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BADGE_COLORS = ['#4FC3C7', '#C4B79A', '#D9694F', '#4FC3C7', '#C4B79A', '#D9694F'];
 
@@ -241,7 +241,6 @@ function Lesson6({ quizIndex, setQuizIndex, picked, setPicked }) {
 }
 
 export default function PortfolioConstruction() {
-  const navigate = useNavigate();
   const [view, setView] = useState('list');
   const [activeIndex, setActiveIndex] = useState(0);
   const [completed, setCompleted] = useState([false, false, false, false, false, false]);
@@ -275,10 +274,9 @@ export default function PortfolioConstruction() {
   return (
     <div style={{ minHeight: '100vh', backgroundImage: 'radial-gradient(rgba(237,235,228,0.06) 1px, transparent 1px)', backgroundSize: '22px 22px' }}>
       <div className="valufin-lesson-topbar">
-        <button className="valufin-lesson-topbar-back" onClick={() => (view === 'list' ? navigate('/wam') : backToTopics())}>
-          ← {view === 'list' ? 'Wealth & Asset Management' : 'Portfolio Construction'}
-        </button>
-        <span className="valufin-lesson-topbar-tag">PFC · PORTFOLIO CONSTRUCTION</span>
+        <Breadcrumb items={view === 'list'
+          ? [{ label: 'Wealth & Asset Management', path: '/wam' }, { label: 'Portfolio Construction' }]
+          : [{ label: 'Wealth & Asset Management', path: '/wam' }, { label: 'Portfolio Construction', onClick: backToTopics }, { label: activeLesson.title }]} />
       </div>
 
       {view === 'list' ? (

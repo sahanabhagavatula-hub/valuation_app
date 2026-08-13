@@ -1,5 +1,5 @@
 import { useState, Fragment } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BADGE_COLORS = ['#4FC3C7', '#C4B79A', '#D9694F', '#4FC3C7', '#C4B79A', '#D9694F'];
 
@@ -455,7 +455,6 @@ function Lesson6Activity({ growth, setGrowth, margin, setMargin }) {
 }
 
 export default function ThreeStatementModel() {
-  const navigate = useNavigate();
   const [view, setView] = useState('list');
   const [activeIndex, setActiveIndex] = useState(0);
   const [completed, setCompleted] = useState([false, false, false, false, false, false]);
@@ -516,10 +515,9 @@ export default function ThreeStatementModel() {
       }}
     >
       <div className="valufin-lesson-topbar">
-        <button className="valufin-lesson-topbar-back" onClick={() => (view === 'list' ? navigate('/ib') : backToTopics())}>
-          ← {view === 'list' ? 'Investment Banking' : 'Three-Statement Model'}
-        </button>
-        <span className="valufin-lesson-topbar-tag">3ST · THREE-STATEMENT MODEL</span>
+        <Breadcrumb items={view === 'list'
+          ? [{ label: 'Investment Banking', path: '/ib' }, { label: 'Three-Statement Model' }]
+          : [{ label: 'Investment Banking', path: '/ib' }, { label: 'Three-Statement Model', onClick: backToTopics }, { label: activeLesson.title }]} />
       </div>
 
       {view === 'list' ? (

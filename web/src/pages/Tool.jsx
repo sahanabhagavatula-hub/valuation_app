@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
+import Breadcrumb from '../components/Breadcrumb';
 import SubHero from '../components/SubHero';
 import StepPill from '../components/StepPill';
 import IconFieldCard from '../components/IconFieldCard';
@@ -181,15 +181,15 @@ export default function Tool() {
 
       <div className="valufin-main">
         <div className="valufin-container">
-          <Topbar />
+          <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'AI valuation tool' }]} />
+
           <SubHero
             title="AI valuation tool."
             subtitle="Type a ticker, pull real financials, and learn how analysts value a company — step by step, with no finance background assumed."
           />
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 16 }}>
+          <div style={{ marginBottom: 16 }}>
             <Button variant="secondary" onClick={() => navigate('/basics')}>📖  Valuation basics</Button>
-            <Button variant="secondary" onClick={() => navigate('/')}>←  Back to home</Button>
           </div>
 
           <StepPill number={1} label="Look up a company" />

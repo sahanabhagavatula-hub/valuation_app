@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
 import { Button } from '../components/Widgets';
+import Breadcrumb from '../components/Breadcrumb';
 
 const TIPS = [
   {
@@ -44,7 +43,6 @@ function generateQuestion() {
 }
 
 export default function MentalMath() {
-  const navigate = useNavigate();
   const [correct, setCorrect] = useState(0);
   const [missed, setMissed] = useState(0);
   const [current, setCurrent] = useState(() => generateQuestion());
@@ -97,8 +95,7 @@ export default function MentalMath() {
 
   return (
     <div className="valufin-container">
-      <Topbar />
-      <Button variant="secondary" onClick={() => navigate('/consulting')}>←  Back to Consulting</Button>
+      <Breadcrumb items={[{ label: 'Consulting', path: '/consulting' }, { label: 'Mental math' }]} />
 
       <span className="valufin-eyebrow">Consulting · High value</span>
       <h1>Mental math.</h1>

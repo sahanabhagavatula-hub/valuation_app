@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
-import { Button } from '../components/Widgets';
+import { useParams } from 'react-router-dom';
 import { Modal } from '../components/Curriculum';
+import Breadcrumb from '../components/Breadcrumb';
 import { FRAMEWORKS } from '../data/frameworks';
 
 const COFFEE_EXAMPLE = {
@@ -266,24 +265,26 @@ function GenericFrameworkDetail({ fw }) {
   );
 }
 
+const FRAMEWORK_TITLES = { profitability: 'Profitability Framework', porter: "Porter's 5 Forces" };
+
 export default function FrameworkDetail() {
   const { slug } = useParams();
-  const navigate = useNavigate();
 
   let content;
+  let title = FRAMEWORK_TITLES[slug];
   if (slug === 'profitability') {
     content = <ProfitabilityDetail />;
   } else if (slug === 'porter') {
     content = <PorterDetail />;
   } else {
     const fw = FRAMEWORKS.find((f) => f.slug === slug);
+    title = fw?.title;
     content = fw ? <GenericFrameworkDetail fw={fw} /> : <p>Framework not found.</p>;
   }
 
   return (
     <div className="valufin-container">
-      <Topbar />
-      <Button variant="secondary" onClick={() => navigate('/frameworks')}>←  Back to Frameworks</Button>
+      <Breadcrumb items={[{ label: 'Consulting', path: '/consulting' }, { label: 'Frameworks', path: '/frameworks' }, { label: title || 'Framework' }]} />
       {content}
     </div>
   );

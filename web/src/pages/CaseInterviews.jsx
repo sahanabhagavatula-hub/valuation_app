@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BADGE_COLORS = ['#4FC3C7', '#C4B79A', '#D9694F', '#4FC3C7', '#C4B79A', '#D9694F'];
 
@@ -264,7 +264,6 @@ function Lesson6({ quizIndex, setQuizIndex, picked, setPicked }) {
 }
 
 export default function CaseInterviews() {
-  const navigate = useNavigate();
   const [view, setView] = useState('list');
   const [activeIndex, setActiveIndex] = useState(0);
   const [completed, setCompleted] = useState([false, false, false, false, false, false]);
@@ -298,10 +297,9 @@ export default function CaseInterviews() {
   return (
     <div style={{ minHeight: '100vh', backgroundImage: 'radial-gradient(rgba(237,235,228,0.06) 1px, transparent 1px)', backgroundSize: '22px 22px' }}>
       <div className="valufin-lesson-topbar">
-        <button className="valufin-lesson-topbar-back" onClick={() => (view === 'list' ? navigate('/consulting') : backToTopics())}>
-          ← {view === 'list' ? 'Consulting' : 'Case Interviews'}
-        </button>
-        <span className="valufin-lesson-topbar-tag">CSE · CASE INTERVIEWS</span>
+        <Breadcrumb items={view === 'list'
+          ? [{ label: 'Consulting', path: '/consulting' }, { label: 'Case Interviews' }]
+          : [{ label: 'Consulting', path: '/consulting' }, { label: 'Case Interviews', onClick: backToTopics }, { label: activeLesson.title }]} />
       </div>
 
       {view === 'list' ? (

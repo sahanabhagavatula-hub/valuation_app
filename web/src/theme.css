@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&family=Archivo+Black&family=Roboto+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.44.0/tabler-icons.min.css');
 @import './tokens.css';
 @import './typography.css';
@@ -8,7 +8,7 @@
 }
 
 html, body, #root {
-    font-family: 'Libre Franklin', -apple-system, sans-serif;
+    font-family: 'Outfit', -apple-system, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -22,45 +22,89 @@ body {
 a { color: inherit; }
 
 /* Content column — mirrors Streamlit's wide-layout block-container */
+/* Canonical page margin: 1600px max-width, 60px left/right — shared by every page. */
 .valufin-container {
-    max-width: 1280px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 2rem 2.5rem 3rem;
+    padding: 2rem 60px 3rem;
     isolation: isolate;
 }
 
-.valufin-topbar {
+/* Global sticky site nav — logo + the same links as the home page scenes, left-justified. */
+.valufin-site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,14,20,0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(237,235,228,0.1);
+}
+.valufin-site-header-inner {
+    max-width: 1600px;
+    height: 60px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+}
+.valufin-site-header-logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    padding: 16px 2.5rem;
-    margin: 0 -2.5rem 24px;
-    width: calc(100% + 5rem);
-    backdrop-filter: blur(14px);
+    flex: none;
     text-decoration: none;
     cursor: pointer;
-    -webkit-backdrop-filter: blur(14px);
-    background: rgba(10,14,20,0.75);
-    border-bottom: 1px solid rgba(237,235,228,0.1);
 }
-.valufin-logo-mark {
-    width: 28px; height: 28px;
-    flex-shrink: 0;
-    border-radius: 6px;
+.valufin-site-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
 }
+.valufin-site-header-link {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.05em;
+    color: #9C978C;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 4px 2px 6px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+.valufin-site-header-link:hover { color: #EDEBE4; }
+.valufin-site-header-link.active { color: #EDEBE4; border-bottom-color: #3FBF6F; }
+
+/* Breadcrumb — replaces the old ad hoc "back to X" pill buttons everywhere. Left-justified, no pill. */
+.valufin-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+}
+.valufin-breadcrumb-item { display: inline-flex; align-items: center; gap: 6px; }
+.valufin-breadcrumb-sep { color: #6f6a5f; }
+.valufin-breadcrumb-link {
+    all: unset;
+    cursor: pointer;
+    color: #9C978C;
+    transition: color 0.15s ease;
+}
+.valufin-breadcrumb-link:hover { color: #EDEBE4; }
+.valufin-breadcrumb-current { color: #EDEBE4; }
+
 .valufin-logo-text {
-    font-family: 'Libre Franklin', sans-serif;
-    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
     font-size: 18px;
     letter-spacing: 0.02em;
-    color: transparent;
-    -webkit-text-stroke: 0.8px #EDEBE4;
-}
-.valufin-logo-text-accent {
-    -webkit-text-stroke: 0.8px #3FBF6F;
+    color: #EDEBE4;
 }
 
 .valufin-eyebrow {
@@ -89,7 +133,7 @@ a { color: inherit; }
     gap: 8px;
 }
 
-h1, h2, h3 { font-family: 'Libre Franklin', sans-serif; color: #EDEBE4; font-weight: 600; margin: 0; }
+h1, h2, h3 { font-family: 'DM Sans', sans-serif; color: #EDEBE4; font-weight: 700; margin: 0; }
 p, span, label { color: #EDEBE4; }
 .valufin-caption { color: #8F887A; font-size: 13px; }
 
@@ -128,7 +172,7 @@ p, span, label { color: #EDEBE4; }
     color: #EDEBE4;
     border-radius: 7px;
     padding: 9px 12px;
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 14px;
 }
 .valufin-input:focus, .valufin-input-number:focus {
@@ -161,7 +205,7 @@ p, span, label { color: #EDEBE4; }
     border: none;
     border-radius: 8px;
     font-weight: 600;
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 15px;
     padding: 10px 18px;
     cursor: pointer;
@@ -324,39 +368,14 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     padding: 20px 0 0;
 }
 .valufin-hero-topbar-inner {
-    max-width: 1280px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 2.5rem;
+    padding: 0 60px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 16px;
 }
-.valufin-category-back {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(27,25,22,0.55);
-    border: 1px solid rgba(237,235,228,0.08);
-    color: #EDEBE4;
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 12.5px; font-weight: 600;
-    padding: 7px 16px; border-radius: 20px;
-    cursor: pointer; white-space: nowrap;
-    transition: background 0.15s, border-color 0.15s;
-    backdrop-filter: blur(6px);
-}
-.valufin-category-back:hover { background: rgba(27,25,22,0.8); border-color: #3FBF6F; }
-.valufin-hero-topbar .valufin-topbar {
-    position: static;
-    border-bottom: none;
-    margin: 0;
-    padding: 4px 0;
-    width: auto;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background: none;
-}
-.valufin-hero-topbar .valufin-logo-mark { width: 40px; height: 40px; }
-.valufin-hero-topbar .valufin-logo-text { font-size: 30px; }
 .valufin-hero-content {
     position: relative;
     z-index: 2;
@@ -365,34 +384,32 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     opacity: 0;
 }
 .valufin-hero-brand {
-    font-family: 'Libre Franklin', sans-serif;
-    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
     font-size: clamp(64px, 12vw, 160px);
     line-height: 1;
     letter-spacing: -0.01em;
     margin: 0 0 12px;
-    color: transparent;
-    -webkit-text-stroke: 2.5px #EDEBE4;
+    color: #EDEBE4;
 }
 .valufin-hero-brand-accent {
-    -webkit-text-stroke: 2.5px #3FBF6F;
+    color: #3FBF6F;
 }
 .valufin-hero-content .valufin-eyebrow {
     margin-top: 8px;
     margin-bottom: 0;
 }
 .valufin-hero h1 {
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(52px, 8vw, 104px);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.08;
     letter-spacing: -0.01em;
     margin: 0 0 20px;
-    color: transparent;
-    -webkit-text-stroke: 2px #EDEBE4;
+    color: #EDEBE4;
 }
 .valufin-hero h1 .accent {
-    color: transparent;
-    -webkit-text-stroke: 2px #3FBF6F;
+    color: #3FBF6F;
 }
 .valufin-hero-sub {
     font-size: 17px;
@@ -425,7 +442,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     text-align: center;
 }
 .valufin-category-hero-pill {
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 12.5px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -433,14 +450,13 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     margin: 0 0 18px;
 }
 .valufin-category-hero-title {
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(48px, 7vw, 88px);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.01em;
     margin: 0 0 20px;
-    color: transparent;
-    -webkit-text-stroke: 2px #EDEBE4;
+    color: #EDEBE4;
 }
 
 /* Category hero variant that extends its photo down behind intro content (used when beforeTopics is set) */
@@ -465,9 +481,9 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-category-hero-extra {
     position: relative;
     z-index: 2;
-    max-width: 1280px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 2.5rem 8px;
+    padding: 0 60px 8px;
 }
 .valufin-scene-overlay-extended {
     background: linear-gradient(
@@ -548,7 +564,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     align-items: center;
 }
 .valufin-scene-number {
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 12.5px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -558,7 +574,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     margin: 0 0 22px;
 }
 .valufin-scene-title {
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(40px, 6vw, 76px);
     font-weight: 800;
     line-height: 1.02;
@@ -575,7 +591,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     margin: 0 0 26px;
 }
 .valufin-scene-enter {
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.16em;
@@ -684,10 +700,10 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     margin: 0 auto;
 }
 .valufin-subhero h1 {
+    font-family: 'DM Sans', sans-serif;
     font-size: 34px;
-    font-weight: 700;
-    color: transparent;
-    -webkit-text-stroke: 1.3px #EDEBE4;
+    font-weight: 800;
+    color: #EDEBE4;
     margin: 0 0 10px;
 }
 .valufin-subhero-sub {
@@ -815,10 +831,10 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     width: 52px; height: 52px; font-size: 24px;
     background: rgba(94,143,128,0.12); color: #3FBF6F;
 }
-.valufin-deck .valufin-flip-front .term { font-size: 22px; color: #0A0E14; font-family: 'Libre Franklin', sans-serif; }
+.valufin-deck .valufin-flip-front .term { font-size: 22px; color: #0A0E14; font-family: 'DM Sans', sans-serif; font-weight: 700; }
 .valufin-deck .valufin-flip-front .tap-hint { font-size: 12px; color: #8F887A; }
 .valufin-deck-cover-title {
-    font-family: 'Libre Franklin', sans-serif; font-size: 23px; font-weight: 700;
+    font-family: 'DM Sans', sans-serif; font-size: 23px; font-weight: 700;
     color: #0A0E14; text-align: center; line-height: 1.3; margin: 0 0 14px;
 }
 .valufin-deck .valufin-flip-back {
@@ -852,7 +868,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     align-items: center; justify-content: center; text-align: center;
 }
 .valufin-concept-flip-heading {
-    font-family: 'Libre Franklin', sans-serif; font-size: 24px; font-weight: 600; color: #EDEBE4;
+    font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 600; color: #EDEBE4;
     margin: 0 0 12px; padding: 0 16px; line-height: 1.25; text-align: center;
 }
 .valufin-concept-flip-front .tap-hint { font-size: 11px; color: #3FBF6F; margin: 0; text-align: center; }
@@ -906,25 +922,25 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     50% { transform: translateY(8px); }
 }
 .valufin-terminal-hero-content {
-    position: relative; max-width: 1280px; margin: 0 auto; padding: 0 2.5rem;
+    position: relative; max-width: 1600px; margin: 0 auto; padding: 0 60px;
     z-index: 1; text-align: left;
 }
 .valufin-terminal-hero-title {
-    font-family: 'Libre Franklin', sans-serif; font-weight: 800;
+    font-family: 'DM Sans', sans-serif; font-weight: 800;
     font-size: clamp(46px, 6.4vw, 92px); line-height: 1.02; letter-spacing: -0.03em;
     margin: 28px 0 0; color: #EDEBE4;
 }
 .valufin-terminal-hero-title--no-eyebrow { margin-top: 0; }
 .valufin-terminal-hero-title .accent { color: #3FBF6F; }
 .valufin-btn-terminal-primary {
-    font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 14.5px;
+    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14.5px;
     letter-spacing: -0.01em; background: #3FBF6F; color: #0A0E14;
     padding: 15px 28px; border-radius: 8px; border: none; cursor: pointer;
     transition: background 0.15s;
 }
 .valufin-btn-terminal-primary:hover { background: #52d67e; }
 .valufin-btn-terminal-secondary {
-    font-family: 'Libre Franklin', sans-serif; font-weight: 600; font-size: 14.5px;
+    font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14.5px;
     color: #EDEBE4; padding: 15px 20px; background: none; border: none; cursor: pointer;
     transition: color 0.15s;
 }
@@ -1101,9 +1117,9 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     padding-bottom: 40px;
 }
 .valufin-pin-cover-inner {
-    max-width: 1280px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 2.5rem;
+    padding: 0 60px;
 }
 
 /* Content that lives inside the frozen frame (.valufin-pin-freeze) can't use
@@ -1125,7 +1141,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     gap: 24px; flex-wrap: wrap; margin-bottom: 28px;
 }
 .valufin-syllabus-eyebrow {
-    font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 12px;
+    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 12px;
     letter-spacing: 0.24em; color: #3FBF6F; margin: 0 0 14px;
 }
 .valufin-syllabus-headline {
@@ -1147,14 +1163,14 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     display: flex; align-items: center; justify-content: center; color: #3FBF6F; font-size: 17px; flex-shrink: 0;
 }
 .valufin-syllabus-row-index {
-    font-family: 'Libre Franklin', sans-serif; font-weight: 600; font-size: 28px; line-height: 1;
-    color: transparent; -webkit-text-stroke: 1.2px #6f6a5f;
+    font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 28px; line-height: 1;
+    color: #6f6a5f;
 }
 .valufin-syllabus-row-title-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
 .valufin-syllabus-row-title { font-size: 19px; margin: 0; }
 .valufin-syllabus-row-desc { font-size: 13.5px; color: #9C978C; line-height: 1.6; margin: 0; max-width: 560px; font-weight: 300; }
 .valufin-syllabus-tag {
-    font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.05em;
+    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.05em;
     text-transform: uppercase; border-radius: 999px; padding: 3px 10px;
 }
 .valufin-syllabus-tag-must-know { color: #D9694F; background: rgba(214,139,123,0.14); }
@@ -1374,14 +1390,14 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-formula-box {
     background: #3FBF6F; border: none; border-radius: 10px;
     padding: 22px 20px; text-align: center; font-size: 32px; font-weight: 700;
-    color: #EDEBE4; margin-bottom: 18px; font-family: 'Libre Franklin', sans-serif;
+    color: #EDEBE4; margin-bottom: 18px; font-family: 'Outfit', sans-serif;
 }
 
 .valufin-info-trigger {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(255,255,255,0.02); border: 1px solid #3FBF6F; color: #3FBF6F;
     padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: 600;
-    font-family: 'Libre Franklin', sans-serif; cursor: pointer; margin: 4px 0 16px;
+    font-family: 'Outfit', sans-serif; cursor: pointer; margin: 4px 0 16px;
 }
 .valufin-info-trigger:hover { background: rgba(63,191,111,0.08); }
 .valufin-info-trigger-icon {
@@ -1394,12 +1410,12 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-section-label-row .valufin-info-trigger { margin: 0; }
 
 .valufin-outline-heading {
+    font-family: 'DM Sans', sans-serif;
     font-size: 42px;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.01em;
-    color: transparent;
-    -webkit-text-stroke: 1.5px #EDEBE4;
+    color: #EDEBE4;
     text-align: center;
     margin: 12px 0 20px;
 }
@@ -1416,7 +1432,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-big-tree-root { text-align: center; }
 .valufin-big-tree-root-node {
     display: inline-block; background: #3FBF6F; color: #EDEBE4;
-    font-size: 20px; font-weight: 700; font-family: 'Libre Franklin', sans-serif;
+    font-size: 20px; font-weight: 700; font-family: 'Outfit', sans-serif;
     padding: 14px 30px; border-radius: 10px; cursor: pointer; transition: filter 0.15s;
 }
 .valufin-big-tree-root-node:hover { filter: brightness(1.15); }
@@ -1591,7 +1607,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     display: flex; align-items: center; gap: 8px;
     background: rgba(255,255,255,0.02); border: 1px solid rgba(237,235,228,0.08);
     border-radius: 8px; padding: 12px 14px; cursor: pointer;
-    font-family: 'Libre Franklin', sans-serif; font-size: 13px; font-weight: 600;
+    font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600;
     color: #9C978C; text-align: left; transition: border-color 0.15s, color 0.15s;
 }
 .valufin-lesson-tab:hover { border-color: rgba(63,191,111,0.3); }
@@ -1641,7 +1657,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-filter-chip {
     background: rgba(255,255,255,0.02); border: 1px solid rgba(237,235,228,0.08); border-radius: 20px;
     padding: 9px 16px; font-size: 12.5px; font-weight: 600; color: #9C978C; cursor: pointer;
-    font-family: 'Libre Franklin', sans-serif; transition: border-color 0.15s, color 0.15s, background 0.15s;
+    font-family: 'Outfit', sans-serif; transition: border-color 0.15s, color 0.15s, background 0.15s;
 }
 .valufin-filter-chip:hover { border-color: rgba(63,191,111,0.3); }
 .valufin-filter-chip.active { border-color: #3FBF6F; background: rgba(63,191,111,0.1); color: #3FBF6F; }
@@ -1694,18 +1710,12 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 
 /* Pitch Books — MTA-poster lesson flow */
 .valufin-lesson-topbar {
-    position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px);
+    position: sticky; top: 60px; z-index: 10; backdrop-filter: blur(14px);
     background: rgba(10,14,20,0.75); border-bottom: 1px solid rgba(237,235,228,0.08);
-    padding: 16px 2.5rem; margin: 0 -2.5rem 0; display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 60px; margin: 0; display: flex; align-items: center; justify-content: flex-start;
 }
 .valufin-global-ticker { padding: 8px 0; background: #0A0E14; position: relative; z-index: 15; }
 .valufin-global-ticker .valufin-ticker-tape-content { font-size: 12px; }
-.valufin-lesson-topbar-back {
-    all: unset; cursor: pointer; font-family: 'Roboto Mono', monospace; font-size: 12.5px;
-    color: #9C978C; display: flex; align-items: center; gap: 8px;
-}
-.valufin-lesson-topbar-back:hover { color: #EDEBE4; }
-.valufin-lesson-topbar-tag { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #3FBF6F; }
 
 .valufin-tier-pill {
     font-family: 'Roboto Mono', monospace; font-weight: 600; font-size: 12px; letter-spacing: 0.14em;
@@ -1718,12 +1728,12 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-ticker-caption { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #6f6a5f; }
 
 .valufin-archivo-h1 {
-    font-family: 'Archivo Black', sans-serif; font-weight: 400;
+    font-family: 'DM Sans', sans-serif; font-weight: 800;
     font-size: clamp(40px, 6vw, 68px); letter-spacing: -0.01em; line-height: 0.98;
     text-transform: uppercase; margin: 0;
 }
 .valufin-archivo-lesson-title {
-    font-family: 'Archivo Black', sans-serif; font-weight: 400;
+    font-family: 'DM Sans', sans-serif; font-weight: 800;
     font-size: clamp(19px, 2.6vw, 26px); line-height: 1.15; letter-spacing: -0.005em;
     text-transform: uppercase; margin-bottom: 8px;
 }
@@ -1768,7 +1778,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-lesson-exit { all: unset; cursor: pointer; font-family: 'Roboto Mono', monospace; font-size: 12.5px; color: #6f6a5f; }
 .valufin-lesson-exit:hover { color: #EDEBE4; }
 .valufin-lesson-next {
-    all: unset; cursor: pointer; font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 14.5px;
+    all: unset; cursor: pointer; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14.5px;
     background: #3FBF6F; color: #0A0E14; padding: 13px 24px; border-radius: 8px;
 }
 .valufin-lesson-next:hover { background: #52d67e; }
@@ -2010,7 +2020,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pb-methodmodal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
 .valufin-pb-methodmodal-badge {
     width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center;
-    justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 13px; color: #0A0E14;
+    justify-content: center; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 13px; color: #0A0E14;
 }
 .valufin-pb-methodmodal-name { font-weight: 800; font-size: 17px; color: #111; }
 .valufin-pb-methodmodal-tag { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #8a8580; }
@@ -2028,7 +2038,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pb-qa-tab.active { opacity: 1; transform: scale(1.08); box-shadow: 0 0 0 2px rgba(237,235,228,0.4); }
 .valufin-pb-qa-card { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 22px 24px; }
 .valufin-pb-qa-meta { font-family: 'Roboto Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #6f6a5f; margin-bottom: 12px; }
-.valufin-pb-qa-line { font-family: 'Libre Franklin', sans-serif; font-size: 13px; margin-bottom: 8px; }
+.valufin-pb-qa-line { font-family: 'Outfit', sans-serif; font-size: 13px; margin-bottom: 8px; }
 .valufin-pb-qa-line:last-child { margin-bottom: 0; }
 .valufin-pb-qa-who { font-weight: 700; }
 .valufin-pb-qa-who.client { color: #D97757; }
@@ -2049,10 +2059,10 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pb-deck-card.picked .valufin-pb-deck-num { color: #4FC3C7; }
 .valufin-pb-deck-card.correct .valufin-pb-deck-num { color: #3FBF6F; }
 .valufin-pb-deck-card.wrong .valufin-pb-deck-num { color: #D9694F; }
-.valufin-pb-deck-label { font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 13.5px; line-height: 1.25; color: #EDEBE4; }
+.valufin-pb-deck-label { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 13.5px; line-height: 1.25; color: #EDEBE4; }
 .valufin-pb-deck-actions { display: flex; gap: 12px; margin-bottom: 8px; }
 .valufin-pb-deck-btn-primary {
-    all: unset; cursor: pointer; box-sizing: border-box; flex: 1; text-align: center; font-family: 'Libre Franklin', sans-serif;
+    all: unset; cursor: pointer; box-sizing: border-box; flex: 1; text-align: center; font-family: 'Outfit', sans-serif;
     font-weight: 700; font-size: 14.5px; background: #1C5A5E; color: #EDEBE4; padding: 14px; border-radius: 8px;
 }
 .valufin-pb-deck-btn-secondary {
@@ -2063,13 +2073,13 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pb-deck-result { border: 1px solid rgba(237,235,228,0.14); border-radius: 12px; background: #0A0E14; margin-top: 18px; overflow: hidden; }
 .valufin-pb-deck-result-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid rgba(237,235,228,0.1); }
 .valufin-pb-deck-result-head span:first-child { font-size: 16px; color: #EDEBE4; }
-.valufin-pb-deck-result-head span:last-child { font-family: 'Archivo Black', sans-serif; font-size: 22px; }
+.valufin-pb-deck-result-head span:last-child { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 22px; }
 .valufin-pb-deck-result-body { padding: 18px 22px; font-family: 'Roboto Mono', monospace; font-size: 12.5px; color: #8F887A; line-height: 1.6; }
 
 /* Four distinct takeaway-box styles, one per lesson — deliberately not repeated */
 .valufin-pb-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-pb-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-pb-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-pb-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 
 .valufin-pb-takeaway-bracket { position: relative; border: 1px dashed rgba(79,195,199,0.4); border-radius: 10px; padding: 24px 26px; margin: 30px 0; background: rgba(79,195,199,0.04); }
 .valufin-pb-takeaway-bracket-corner { position: absolute; width: 18px; height: 18px; }
@@ -2078,7 +2088,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pb-takeaway-bracket-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 
 .valufin-pb-takeaway-quote { position: relative; margin: 34px 0; padding: 8px 8px 8px 34px; }
-.valufin-pb-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-pb-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-pb-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 
 .valufin-pb-takeaway-rule { margin: 30px 0; border-top: 2px solid #D9694F; padding-top: 16px; }
@@ -2114,7 +2124,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     border-top: 1.5px solid rgba(237,235,228,0.3); border-right: 1.5px solid rgba(237,235,228,0.3);
 }
 .valufin-mlab-result-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8F887A; margin-bottom: 8px; }
-.valufin-mlab-result-value { font-family: 'Archivo Black', sans-serif; font-size: 40px; }
+.valufin-mlab-result-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 40px; }
 .valufin-mlab-result-verdict { font-size: 13px; margin-top: 8px; }
 .valufin-mlab-eyebrow { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #4FC3C7; margin-bottom: 16px; }
 .valufin-lesson-footnote { font-size: 13.5px; line-height: 1.6; color: #8F887A; margin: 0 0 34px; }
@@ -2229,7 +2239,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     position: absolute; top: 10px; right: 10px; width: 14px; height: 14px;
     border-top: 1.5px solid rgba(63,191,111,0.4); border-right: 1.5px solid rgba(63,191,111,0.4);
 }
-.valufin-mlab-capstone-score-value { font-family: 'Archivo Black', sans-serif; font-size: 36px; }
+.valufin-mlab-capstone-score-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 36px; }
 .valufin-mlab-capstone-grade { font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 12.5px; letter-spacing: 0.06em; margin-bottom: 4px; }
 .valufin-mlab-capstone-subtext { font-family: 'Roboto Mono', monospace; font-size: 11.5px; color: #8F887A; }
 .valufin-mlab-capstone-table { border: 1px solid rgba(237,235,228,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 18px; }
@@ -2251,12 +2261,12 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
     background: rgba(79,195,199,0.08); border: 1px solid rgba(79,195,199,0.28); margin-bottom: 18px;
 }
 .valufin-mlab-capstone-median-label { font-family: 'Roboto Mono', monospace; font-size: 10.5px; color: #8F887A; margin-bottom: 5px; }
-.valufin-mlab-capstone-median-value { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #EDEBE4; }
+.valufin-mlab-capstone-median-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #EDEBE4; }
 .valufin-mlab-capstone-median-value.accent { color: #4FC3C7; }
 .valufin-mlab-capstone-divider { width: 1px; height: 36px; background: rgba(237,235,228,0.15); }
 .valufin-mlab-capstone-actions { display: flex; gap: 12px; }
 .valufin-mlab-capstone-btn-primary {
-    all: unset; cursor: pointer; box-sizing: border-box; flex: 1; text-align: center; font-family: 'Libre Franklin', sans-serif;
+    all: unset; cursor: pointer; box-sizing: border-box; flex: 1; text-align: center; font-family: 'Outfit', sans-serif;
     font-weight: 700; font-size: 14.5px; background: #1B4D50; color: #EDEBE4; padding: 14px; border-radius: 8px;
 }
 .valufin-mlab-capstone-btn-secondary {
@@ -2301,7 +2311,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-mlab-flip-watermark-icon { width: 96px; height: 96px; }
 .valufin-mlab-flip-mono {
     position: relative; z-index: 1; width: 44px; height: 44px; border-radius: 10px; margin-bottom: 12px;
-    display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif;
+    display: flex; align-items: center; justify-content: center; font-family: 'DM Sans', sans-serif; font-weight: 800;
     font-size: 15px; color: #0A0E14;
 }
 .valufin-mlab-flip-name { position: relative; z-index: 1; font-weight: 700; font-size: 14px; color: #EDEBE4; margin-bottom: 6px; padding: 0 6px; }
@@ -2334,7 +2344,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-mlab-scorecard-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .valufin-mlab-scorecard-box { text-align: center; padding: 14px 8px; border-radius: 8px; background: rgba(237,235,228,0.03); border: 1px solid rgba(237,235,228,0.08); }
 .valufin-mlab-scorecard-box.highlight { background: rgba(237,235,228,0.94); }
-.valufin-mlab-scorecard-box-value { font-family: 'Archivo Black', sans-serif; font-size: 22px; margin-bottom: 4px; }
+.valufin-mlab-scorecard-box-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 22px; margin-bottom: 4px; }
 .valufin-mlab-scorecard-box-label { font-family: 'Roboto Mono', monospace; font-size: 9px; letter-spacing: 0.04em; color: #8F887A; line-height: 1.3; }
 .valufin-mlab-scorecard-box.highlight .valufin-mlab-scorecard-box-label { color: #4a4436; }
 
@@ -2346,7 +2356,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-3st-link-card { flex: 1; min-width: 150px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); padding: 22px 18px; text-align: center; }
 .valufin-3st-link-row .valufin-3st-link-card:first-child { border: 1px solid rgba(79,195,199,0.3); border-radius: 10px 0 0 10px; }
 .valufin-3st-link-label { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.08em; margin-top: 10px; margin-bottom: 6px; }
-.valufin-3st-link-line { font-family: 'Archivo Black', sans-serif; font-size: 14px; color: #EDEBE4; }
+.valufin-3st-link-line { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 14px; color: #EDEBE4; }
 .valufin-3st-link-connector {
     all: unset; cursor: pointer; box-sizing: border-box; flex: 0 0 46px; display: flex; align-items: center;
     justify-content: center; border-top: 1px solid rgba(237,235,228,0.1); border-bottom: 1px solid rgba(237,235,228,0.1);
@@ -2366,7 +2376,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-3st-statement-head { padding: 16px 22px; border-bottom: 1px solid rgba(237,235,228,0.1); font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #6f6a5f; }
 .valufin-3st-row { display: grid; grid-template-columns: 1fr 110px; gap: 12px; padding: 9px 22px; border-bottom: 1px solid rgba(237,235,228,0.04); }
 .valufin-3st-row.border { background: rgba(79,195,199,0.06); border-bottom: 1px solid rgba(79,195,199,0.25); }
-.valufin-3st-row span { font-family: 'Libre Franklin', sans-serif; font-size: 13.5px; }
+.valufin-3st-row span { font-family: 'Outfit', sans-serif; font-size: 13.5px; }
 .valufin-3st-row span:last-child { font-family: 'Roboto Mono', monospace; text-align: right; }
 
 /* Lesson 3 — circularity */
@@ -2387,7 +2397,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-3st-circle-node.bottom { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
 .valufin-3st-circle-node.left { top: 50%; left: 0; transform: translate(-50%, -50%); }
 .valufin-3st-circle-node-label { font-family: 'Roboto Mono', monospace; font-size: 9px; margin-bottom: 3px; }
-.valufin-3st-circle-node-value { font-family: 'Archivo Black', sans-serif; font-size: 13px; color: #EDEBE4; }
+.valufin-3st-circle-node-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 13px; color: #EDEBE4; }
 
 /* Lesson 4 — why IB cares */
 .valufin-3st-use-row {
@@ -2398,7 +2408,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-3st-use-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .valufin-3st-use-headleft { display: flex; align-items: center; gap: 12px; }
 .valufin-3st-use-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex: none; }
-.valufin-3st-use-task { font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 14.5px; color: #EDEBE4; }
+.valufin-3st-use-task { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14.5px; color: #EDEBE4; }
 .valufin-3st-use-tag { font-family: 'Roboto Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; white-space: nowrap; }
 .valufin-3st-use-explain { font-size: 13px; line-height: 1.6; color: #8F887A; margin-top: 10px; }
 
@@ -2430,12 +2440,12 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-3st-activity-card.clay { border-color: rgba(217,105,79,0.25); }
 .valufin-3st-activity-card-label { font-family: 'Roboto Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; margin-bottom: 10px; }
 .valufin-3st-activity-line-label { font-family: 'Roboto Mono', monospace; font-size: 11.5px; color: #8F887A; margin-bottom: 4px; }
-.valufin-3st-activity-line-value { font-family: 'Archivo Black', sans-serif; font-size: 17px; color: #EDEBE4; margin-bottom: 10px; }
+.valufin-3st-activity-line-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 17px; color: #EDEBE4; margin-bottom: 10px; }
 
 /* Six distinct takeaway-box styles, one per lesson */
 .valufin-3st-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-3st-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-3st-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-3st-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 
 .valufin-3st-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-3st-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
@@ -2452,7 +2462,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-3st-takeaway-rule-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 
 .valufin-3st-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-3st-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-3st-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-3st-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 
 @media (max-width: 720px) {
@@ -2471,7 +2481,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 }
 .valufin-gol-field-card.active { transform: translateY(-3px); }
 .valufin-gol-field-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
-.valufin-gol-field-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; }
+.valufin-gol-field-label { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; }
 .valufin-gol-field-detail { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 26px; }
 .valufin-gol-field-detail-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.1em; }
 .valufin-gol-field-dot { width: 8px; height: 8px; border-radius: 99px; flex-shrink: 0; }
@@ -2519,7 +2529,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 }
 .valufin-gol-response-row.good { background: rgba(63,191,111,0.08); border-color: rgba(63,191,111,0.3); }
 .valufin-gol-response-row.bad { background: rgba(217,105,79,0.08); border-color: rgba(217,105,79,0.3); }
-.valufin-gol-response-badge { width: 26px; height: 26px; border-radius: 99px; display: flex; align-items: center; justify-content: center; flex: none; margin-top: 1px; font-family: 'Archivo Black', sans-serif; font-size: 12px; }
+.valufin-gol-response-badge { width: 26px; height: 26px; border-radius: 99px; display: flex; align-items: center; justify-content: center; flex: none; margin-top: 1px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; }
 .valufin-gol-response-label { font-size: 13.5px; font-weight: 600; color: #EDEBE4; }
 .valufin-gol-response-feedback { font-size: 13px; line-height: 1.6; margin-top: 8px; }
 
@@ -2544,7 +2554,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-gol-ticker-card.active { background: rgba(79,195,199,0.08); border-color: #4FC3C7; }
 .valufin-gol-ticker-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
 .valufin-gol-ticker-symbol { font-family: 'Roboto Mono', monospace; font-size: 11px; color: #6f6a5f; }
-.valufin-gol-ticker-value { font-family: 'Archivo Black', sans-serif; font-size: 15px; color: #EDEBE4; }
+.valufin-gol-ticker-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 15px; color: #EDEBE4; }
 .valufin-gol-ticker-hint { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #4FC3C7; }
 .valufin-gol-ticker-note { background: #12161C; border-left: 3px solid #4FC3C7; padding: 16px 20px; border-radius: 0 8px 8px 0; font-size: 13.5px; line-height: 1.65; color: #D8D3C8; margin-bottom: 18px; }
 
@@ -2556,7 +2566,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-gol-pitch-row.open { background: rgba(79,195,199,0.06); border-color: rgba(79,195,199,0.3); }
 .valufin-gol-pitch-head { display: flex; justify-content: space-between; align-items: center; }
 .valufin-gol-pitch-step { font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.06em; color: #4FC3C7; }
-.valufin-gol-pitch-label { font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 14px; color: #EDEBE4; }
+.valufin-gol-pitch-label { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; color: #EDEBE4; }
 .valufin-gol-pitch-detail { font-size: 13px; line-height: 1.6; color: #8F887A; margin-top: 10px; }
 .valufin-gol-pitch-progress { background: #12161C; border: 1px dashed rgba(79,195,199,0.35); border-radius: 10px; padding: 16px 18px; margin-top: 6px; display: flex; align-items: center; gap: 12px; }
 .valufin-gol-pitch-ring { position: relative; width: 36px; height: 36px; flex: none; }
@@ -2567,14 +2577,14 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 /* Six distinct takeaway-box styles, one per lesson */
 .valufin-gol-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-gol-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-gol-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-gol-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 
 .valufin-gol-takeaway-teal { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(79,195,199,0.1), rgba(79,195,199,0.02)); }
 .valufin-gol-takeaway-teal-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #4FC3C7; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-gol-takeaway-teal-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 
 .valufin-gol-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-gol-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-gol-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-gol-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 
 .valufin-gol-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
@@ -2584,7 +2594,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-gol-takeaway-rule-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 
 .valufin-gol-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-gol-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-gol-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-gol-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 
 @media (max-width: 640px) {
@@ -2599,7 +2609,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pta-tab.clay.active { background: #D9694F; border-color: #D9694F; }
 .valufin-pta-panel { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 22px 24px; }
 .valufin-pta-panel-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 8px; }
-.valufin-pta-panel-value { font-family: 'Archivo Black', sans-serif; font-size: 34px; margin-bottom: 12px; }
+.valufin-pta-panel-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 34px; margin-bottom: 12px; }
 .valufin-pta-panel-body { font-size: 13.5px; line-height: 1.6; color: #D8D3C8; margin: 0; }
 .valufin-pta-row { display: flex; justify-content: space-between; align-items: baseline; }
 .valufin-pta-row-label { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #8F887A; }
@@ -2609,11 +2619,11 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pta-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 99px; border: none; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
 .valufin-pta-result { text-align: center; padding: 20px; border-radius: 10px; background: rgba(79,195,199,0.08); border: 1px solid rgba(79,195,199,0.25); }
 .valufin-pta-result-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 8px; }
-.valufin-pta-result-value { font-family: 'Archivo Black', sans-serif; font-size: 34px; color: #4FC3C7; }
+.valufin-pta-result-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 34px; color: #4FC3C7; }
 .valufin-pta-result-verdict { font-size: 12.5px; color: #8F887A; margin-top: 8px; }
 .valufin-pta-criteria-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .valufin-pta-criteria-card { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; min-width: 130px; text-align: center; padding: 18px 10px; border-radius: 12px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); }
-.valufin-pta-criteria-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; }
+.valufin-pta-criteria-label { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; }
 .valufin-pta-detail { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 26px; }
 .valufin-pta-detail-head { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; margin-bottom: 10px; }
 .valufin-pta-detail-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
@@ -2642,15 +2652,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 
 .valufin-pta-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-pta-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-pta-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-pta-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 .valufin-pta-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-pta-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-pta-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 .valufin-pta-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-pta-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-pta-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-pta-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 .valufin-pta-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-pta-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-pta-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-pta-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 .valufin-pta-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
 .valufin-pta-takeaway-rule.gold { border-top-color: #C4B79A; }
@@ -2673,7 +2683,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-lbo-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 99px; border: none; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
 .valufin-lbo-result { text-align: center; padding: 20px; border-radius: 10px; background: rgba(79,195,199,0.08); border: 1px solid rgba(79,195,199,0.25); margin-top: 8px; }
 .valufin-lbo-result-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 8px; }
-.valufin-lbo-result-value { font-family: 'Archivo Black', sans-serif; font-size: 34px; color: #4FC3C7; }
+.valufin-lbo-result-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 34px; color: #4FC3C7; }
 .valufin-lbo-result-verdict { font-size: 12.5px; color: #8F887A; margin-top: 8px; }
 .valufin-lbo-sources { margin-top: 8px; }
 .valufin-lbo-source-bar { display: flex; height: 40px; border-radius: 8px; overflow: hidden; }
@@ -2686,10 +2696,10 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-lbo-return-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .valufin-lbo-return-box { text-align: center; padding: 16px; border-radius: 10px; background: #0d1013; border: 1px solid rgba(237,235,228,0.1); }
 .valufin-lbo-return-label { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 6px; }
-.valufin-lbo-return-value { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #EDEBE4; }
+.valufin-lbo-return-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #EDEBE4; }
 .valufin-lbo-criteria-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .valufin-lbo-criteria-card { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; min-width: 130px; text-align: center; padding: 18px 10px; border-radius: 12px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); }
-.valufin-lbo-criteria-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; }
+.valufin-lbo-criteria-label { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; }
 .valufin-lbo-detail { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 26px; }
 .valufin-lbo-detail-head { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; margin-bottom: 10px; }
 .valufin-lbo-detail-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
@@ -2703,15 +2713,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 
 .valufin-lbo-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-lbo-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-lbo-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-lbo-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 .valufin-lbo-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-lbo-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-lbo-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 .valufin-lbo-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-lbo-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-lbo-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-lbo-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 .valufin-lbo-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-lbo-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-lbo-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-lbo-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 .valufin-lbo-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
 .valufin-lbo-takeaway-rule.gold { border-top-color: #C4B79A; }
@@ -2727,7 +2737,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pfc-eyebrow { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 16px; }
 .valufin-pfc-panel { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 22px 24px; }
 .valufin-pfc-panel-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 8px; }
-.valufin-pfc-panel-value { font-family: 'Archivo Black', sans-serif; font-size: 34px; margin-bottom: 12px; }
+.valufin-pfc-panel-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 34px; margin-bottom: 12px; }
 .valufin-pfc-panel-body { font-size: 13.5px; line-height: 1.6; color: #D8D3C8; margin: 0; }
 .valufin-pfc-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
 .valufin-pfc-row-label { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #8F887A; }
@@ -2737,12 +2747,12 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pfc-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 99px; border: none; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
 .valufin-pfc-result { text-align: center; padding: 20px; border-radius: 10px; background: rgba(79,195,199,0.08); border: 1px solid rgba(79,195,199,0.25); }
 .valufin-pfc-result-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 8px; }
-.valufin-pfc-result-value { font-family: 'Archivo Black', sans-serif; font-size: 34px; color: #4FC3C7; }
+.valufin-pfc-result-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 34px; color: #4FC3C7; }
 .valufin-pfc-result-verdict { font-size: 12.5px; color: #8F887A; margin-top: 8px; }
 .valufin-pfc-return-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
 .valufin-pfc-return-box { text-align: center; padding: 16px; border-radius: 10px; background: #0d1013; border: 1px solid rgba(237,235,228,0.1); }
 .valufin-pfc-return-label { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 6px; }
-.valufin-pfc-return-value { font-family: 'Archivo Black', sans-serif; font-size: 26px; }
+.valufin-pfc-return-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; }
 .valufin-pfc-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
 .valufin-pfc-tab { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; text-align: center; padding: 10px 8px; border-radius: 8px; font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11.5px; color: #EDEBE4; background: transparent; border: 1px solid rgba(237,235,228,0.16); }
 .valufin-pfc-tab.active { color: #0A0E14; background: #4FC3C7; border-color: #4FC3C7; }
@@ -2757,15 +2767,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-pfc-quiz-next { all: unset; cursor: pointer; font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11px; color: #4FC3C7; margin-top: 14px; display: inline-block; }
 .valufin-pfc-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-pfc-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-pfc-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-pfc-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 .valufin-pfc-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-pfc-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-pfc-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 .valufin-pfc-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-pfc-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-pfc-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-pfc-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 .valufin-pfc-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-pfc-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-pfc-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-pfc-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 .valufin-pfc-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
 .valufin-pfc-takeaway-rule.gold { border-top-color: #C4B79A; }
@@ -2803,7 +2813,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-ccm-response-row { all: unset; cursor: pointer; box-sizing: border-box; display: flex; gap: 12px; align-items: flex-start; width: 100%; text-align: left; padding: 16px 18px; margin-bottom: 10px; border-radius: 10px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); }
 .valufin-ccm-response-row.good { background: rgba(63,191,111,0.08); border-color: rgba(63,191,111,0.3); }
 .valufin-ccm-response-row.bad { background: rgba(217,105,79,0.08); border-color: rgba(217,105,79,0.3); }
-.valufin-ccm-response-badge { width: 26px; height: 26px; border-radius: 99px; display: flex; align-items: center; justify-content: center; flex: none; margin-top: 1px; font-family: 'Archivo Black', sans-serif; font-size: 12px; }
+.valufin-ccm-response-badge { width: 26px; height: 26px; border-radius: 99px; display: flex; align-items: center; justify-content: center; flex: none; margin-top: 1px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; }
 .valufin-ccm-response-label { font-size: 13.5px; font-weight: 600; color: #EDEBE4; }
 .valufin-ccm-response-feedback { font-size: 13px; line-height: 1.6; margin-top: 8px; }
 .valufin-ccm-quiz-q { font-size: 15px; font-weight: 600; color: #EDEBE4; margin-bottom: 18px; }
@@ -2815,15 +2825,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-ccm-quiz-next { all: unset; cursor: pointer; font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11px; color: #4FC3C7; margin-top: 14px; display: inline-block; }
 .valufin-ccm-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-ccm-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-ccm-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-ccm-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 .valufin-ccm-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-ccm-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-ccm-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 .valufin-ccm-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-ccm-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-ccm-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-ccm-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 .valufin-ccm-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-ccm-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-ccm-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-ccm-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 .valufin-ccm-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
 .valufin-ccm-takeaway-rule.red { border-top-color: #D9694F; }
@@ -2835,7 +2845,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-ivp-eyebrow { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 16px; }
 .valufin-ivp-criteria-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .valufin-ivp-criteria-card { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; min-width: 130px; text-align: center; padding: 18px 10px; border-radius: 12px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); }
-.valufin-ivp-criteria-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; }
+.valufin-ivp-criteria-label { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; }
 .valufin-ivp-detail { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 26px; }
 .valufin-ivp-detail-head { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; margin-bottom: 10px; }
 .valufin-ivp-detail-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
@@ -2849,7 +2859,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-ivp-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 99px; border: none; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
 .valufin-ivp-result { text-align: center; padding: 20px; border-radius: 10px; background: rgba(79,195,199,0.08); border: 1px solid rgba(79,195,199,0.25); margin-top: 10px; }
 .valufin-ivp-result-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 8px; }
-.valufin-ivp-result-value { font-family: 'Archivo Black', sans-serif; font-size: 30px; color: #D9694F; }
+.valufin-ivp-result-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 30px; color: #D9694F; }
 .valufin-ivp-result-verdict { font-size: 12.5px; color: #8F887A; margin-top: 8px; }
 .valufin-ivp-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
 .valufin-ivp-tab { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; text-align: center; padding: 10px 8px; border-radius: 8px; font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11px; color: #EDEBE4; background: transparent; border: 1px solid rgba(237,235,228,0.16); }
@@ -2866,15 +2876,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-ivp-quiz-next { all: unset; cursor: pointer; font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11px; color: #4FC3C7; margin-top: 14px; display: inline-block; }
 .valufin-ivp-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-ivp-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-ivp-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-ivp-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 .valufin-ivp-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-ivp-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-ivp-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 .valufin-ivp-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-ivp-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-ivp-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-ivp-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 .valufin-ivp-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-ivp-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-ivp-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-ivp-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 .valufin-ivp-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
 .valufin-ivp-takeaway-rule.red { border-top-color: #D9694F; }
@@ -2886,7 +2896,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 
 .valufin-rsk-criteria-row, .valufin-fpl-criteria-row, .valufin-alt-criteria-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .valufin-rsk-criteria-card, .valufin-alt-criteria-card { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; min-width: 130px; text-align: center; padding: 18px 10px; border-radius: 12px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); }
-.valufin-rsk-criteria-label, .valufin-alt-criteria-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; }
+.valufin-rsk-criteria-label, .valufin-alt-criteria-label { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; }
 .valufin-rsk-detail, .valufin-fpl-detail, .valufin-alt-detail { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 26px; }
 .valufin-rsk-detail-head, .valufin-alt-detail-head { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; margin-bottom: 10px; }
 .valufin-rsk-detail-body, .valufin-alt-detail-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
@@ -2901,7 +2911,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-rsk-range::-moz-range-thumb, .valufin-fpl-range::-moz-range-thumb, .valufin-alt-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 99px; border: none; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
 .valufin-rsk-result, .valufin-fpl-result, .valufin-alt-result { text-align: center; padding: 20px; border-radius: 10px; background: rgba(79,195,199,0.08); border: 1px solid rgba(79,195,199,0.25); margin-top: 8px; }
 .valufin-rsk-result-label, .valufin-fpl-result-label, .valufin-alt-result-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 8px; }
-.valufin-rsk-result-value, .valufin-fpl-result-value, .valufin-alt-result-value { font-family: 'Archivo Black', sans-serif; font-size: 34px; color: #4FC3C7; }
+.valufin-rsk-result-value, .valufin-fpl-result-value, .valufin-alt-result-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 34px; color: #4FC3C7; }
 .valufin-rsk-result-verdict, .valufin-alt-result-verdict { font-size: 12.5px; color: #8F887A; margin-top: 8px; }
 
 .valufin-rsk-tabs, .valufin-fpl-tabs, .valufin-alt-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
@@ -2911,7 +2921,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-fpl-return-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
 .valufin-fpl-return-box { text-align: center; padding: 16px; border-radius: 10px; background: #0d1013; border: 1px solid rgba(237,235,228,0.1); }
 .valufin-fpl-return-label { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 6px; }
-.valufin-fpl-return-value { font-family: 'Archivo Black', sans-serif; font-size: 22px; }
+.valufin-fpl-return-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 22px; }
 .valufin-fpl-goal-label { font-size: 13.5px; color: #EDEBE4; margin-bottom: 8px; }
 .valufin-fpl-pick-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .valufin-fpl-pick-choice { all: unset; cursor: pointer; box-sizing: border-box; padding: 9px 14px; border-radius: 7px; font-family: 'Roboto Mono', monospace; font-weight: 700; font-size: 11px; color: #EDEBE4; background: transparent; border: 1px solid rgba(237,235,228,0.16); }
@@ -2930,15 +2940,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 
 .valufin-rsk-takeaway-terminal, .valufin-fpl-takeaway-terminal, .valufin-alt-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-rsk-takeaway-terminal-label, .valufin-fpl-takeaway-terminal-label, .valufin-alt-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-rsk-takeaway-terminal-body, .valufin-fpl-takeaway-terminal-body, .valufin-alt-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-rsk-takeaway-terminal-body, .valufin-fpl-takeaway-terminal-body, .valufin-alt-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 .valufin-rsk-takeaway-clay, .valufin-fpl-takeaway-clay, .valufin-alt-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-rsk-takeaway-clay-badge, .valufin-fpl-takeaway-clay-badge, .valufin-alt-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-rsk-takeaway-clay-body, .valufin-fpl-takeaway-clay-body, .valufin-alt-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 .valufin-rsk-takeaway-dashed, .valufin-fpl-takeaway-dashed, .valufin-alt-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-rsk-takeaway-dashed-check, .valufin-fpl-takeaway-dashed-check, .valufin-alt-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-rsk-takeaway-dashed-check, .valufin-fpl-takeaway-dashed-check, .valufin-alt-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-rsk-takeaway-dashed-body, .valufin-fpl-takeaway-dashed-body, .valufin-alt-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 .valufin-rsk-takeaway-quote, .valufin-fpl-takeaway-quote, .valufin-alt-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-rsk-takeaway-quote-mark, .valufin-fpl-takeaway-quote-mark, .valufin-alt-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-rsk-takeaway-quote-mark, .valufin-fpl-takeaway-quote-mark, .valufin-alt-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-rsk-takeaway-quote-body, .valufin-fpl-takeaway-quote-body, .valufin-alt-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 .valufin-rsk-takeaway-rule, .valufin-fpl-takeaway-rule, .valufin-alt-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
 .valufin-rsk-takeaway-rule.red, .valufin-fpl-takeaway-rule.red, .valufin-alt-takeaway-rule.red { border-top-color: #D9694F; }
@@ -2951,8 +2961,8 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-cse-criteria-row, .valufin-ind-criteria-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .valufin-cse-criteria-card, .valufin-ind-criteria-card { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; min-width: 130px; text-align: center; padding: 18px 10px; border-radius: 12px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); }
 .valufin-cse-criteria-card.active, .valufin-ind-criteria-card.active { border-color: #4FC3C7; background: rgba(79,195,199,0.1); }
-.valufin-cse-criteria-num { font-family: 'Archivo Black', sans-serif; font-size: 18px; color: #4FC3C7; margin-bottom: 4px; }
-.valufin-cse-criteria-label, .valufin-ind-criteria-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; color: #EDEBE4; }
+.valufin-cse-criteria-num { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 18px; color: #4FC3C7; margin-bottom: 4px; }
+.valufin-cse-criteria-label, .valufin-ind-criteria-label { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; color: #EDEBE4; }
 .valufin-cse-detail, .valufin-ind-detail { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 26px; }
 .valufin-cse-detail-head, .valufin-ind-detail-head { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #4FC3C7; margin-bottom: 10px; }
 .valufin-cse-detail-body, .valufin-ind-detail-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
@@ -2967,7 +2977,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-cse-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 99px; border: none; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
 .valufin-cse-result { text-align: center; padding: 20px; border-radius: 10px; background: rgba(79,195,199,0.08); border: 1px solid rgba(79,195,199,0.25); margin-top: 8px; }
 .valufin-cse-result-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 8px; }
-.valufin-cse-result-value { font-family: 'Archivo Black', sans-serif; font-size: 34px; }
+.valufin-cse-result-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 34px; }
 .valufin-cse-result-verdict { font-size: 12.5px; color: #8F887A; margin-top: 8px; }
 .valufin-cse-tree-prompt { font-size: 13.5px; color: #D8D3C8; margin-bottom: 10px; }
 .valufin-cse-pick-row { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -2984,7 +2994,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-sst-mock-slide { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px; }
 .valufin-sst-mock-zone { all: unset; cursor: pointer; box-sizing: border-box; display: block; width: 100%; padding: 14px 16px; border-radius: 8px; border: 1px solid transparent; }
 .valufin-sst-mock-zone.active { border-color: #4FC3C7; background: rgba(79,195,199,0.08); }
-.valufin-sst-mock-zone.title { font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 14px; color: #EDEBE4; }
+.valufin-sst-mock-zone.title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; color: #EDEBE4; }
 .valufin-sst-mock-zone.body { display: flex; flex-direction: column; gap: 8px; }
 .valufin-sst-mock-line { height: 8px; border-radius: 3px; background: rgba(237,235,228,0.14); }
 .valufin-sst-mock-zone.source { font-family: 'Roboto Mono', monospace; font-size: 10.5px; color: #6f6a5f; }
@@ -3003,15 +3013,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 
 .valufin-cse-takeaway-terminal, .valufin-sst-takeaway-terminal, .valufin-ind-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-cse-takeaway-terminal-label, .valufin-sst-takeaway-terminal-label, .valufin-ind-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-cse-takeaway-terminal-body, .valufin-sst-takeaway-terminal-body, .valufin-ind-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-cse-takeaway-terminal-body, .valufin-sst-takeaway-terminal-body, .valufin-ind-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 .valufin-cse-takeaway-clay, .valufin-sst-takeaway-clay, .valufin-ind-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-cse-takeaway-clay-badge, .valufin-sst-takeaway-clay-badge, .valufin-ind-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-cse-takeaway-clay-body, .valufin-sst-takeaway-clay-body, .valufin-ind-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 .valufin-cse-takeaway-dashed, .valufin-sst-takeaway-dashed, .valufin-ind-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-cse-takeaway-dashed-check, .valufin-sst-takeaway-dashed-check, .valufin-ind-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-cse-takeaway-dashed-check, .valufin-sst-takeaway-dashed-check, .valufin-ind-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-cse-takeaway-dashed-body, .valufin-sst-takeaway-dashed-body, .valufin-ind-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 .valufin-cse-takeaway-quote, .valufin-sst-takeaway-quote, .valufin-ind-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-cse-takeaway-quote-mark, .valufin-sst-takeaway-quote-mark, .valufin-ind-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-cse-takeaway-quote-mark, .valufin-sst-takeaway-quote-mark, .valufin-ind-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-cse-takeaway-quote-body, .valufin-sst-takeaway-quote-body, .valufin-ind-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 .valufin-cse-takeaway-rule, .valufin-sst-takeaway-rule, .valufin-ind-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
 .valufin-cse-takeaway-rule.gold { border-top-color: #C4B79A; }
@@ -3032,12 +3042,12 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-kmt-range::-moz-range-thumb, .valufin-acb-range::-moz-range-thumb, .valufin-cap-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 99px; border: none; background: #4FC3C7; cursor: pointer; box-shadow: 0 0 0 4px rgba(79,195,199,0.22); }
 .valufin-kmt-result, .valufin-acb-result, .valufin-cap-result { text-align: center; padding: 20px; border-radius: 10px; background: rgba(79,195,199,0.08); border: 1px solid rgba(79,195,199,0.25); margin-top: 8px; }
 .valufin-kmt-result-label, .valufin-acb-result-label, .valufin-cap-result-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 8px; }
-.valufin-kmt-result-value, .valufin-acb-result-value, .valufin-cap-result-value { font-family: 'Archivo Black', sans-serif; font-size: 34px; color: #4FC3C7; }
+.valufin-kmt-result-value, .valufin-acb-result-value, .valufin-cap-result-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 34px; color: #4FC3C7; }
 .valufin-kmt-result-verdict, .valufin-acb-result-verdict, .valufin-cap-result-verdict { font-size: 12.5px; color: #8F887A; margin-top: 8px; }
 .valufin-kmt-return-grid, .valufin-acb-return-grid, .valufin-cap-return-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
 .valufin-kmt-return-box, .valufin-acb-return-box, .valufin-cap-return-box { text-align: center; padding: 16px; border-radius: 10px; background: #0d1013; border: 1px solid rgba(237,235,228,0.1); }
 .valufin-kmt-return-label, .valufin-acb-return-label, .valufin-cap-return-label { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #8F887A; margin-bottom: 6px; }
-.valufin-kmt-return-value, .valufin-acb-return-value, .valufin-cap-return-value { font-family: 'Archivo Black', sans-serif; font-size: 22px; color: #EDEBE4; }
+.valufin-kmt-return-value, .valufin-acb-return-value, .valufin-cap-return-value { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 22px; color: #EDEBE4; }
 
 .valufin-kmt-cheat-table { border: 1px solid rgba(237,235,228,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
 .valufin-kmt-cheat-head, .valufin-kmt-cheat-row { all: unset; box-sizing: border-box; display: grid; grid-template-columns: 1.2fr 1.6fr 1fr; gap: 10px; padding: 10px 16px; width: 100%; }
@@ -3060,12 +3070,12 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-xlm-criteria-row, .valufin-kmt-criteria-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .valufin-xlm-criteria-card { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; min-width: 130px; text-align: center; padding: 18px 10px; border-radius: 12px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); }
 .valufin-xlm-criteria-card.active { border-color: #4FC3C7; background: rgba(79,195,199,0.1); }
-.valufin-xlm-criteria-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; color: #EDEBE4; }
+.valufin-xlm-criteria-label { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; color: #EDEBE4; }
 
 .valufin-acb-criteria-row, .valufin-cap-criteria-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .valufin-acb-criteria-card, .valufin-cap-criteria-card { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; min-width: 130px; text-align: center; padding: 18px 10px; border-radius: 12px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); }
 .valufin-acb-criteria-card.active, .valufin-cap-criteria-card.active { border-color: #4FC3C7; background: rgba(79,195,199,0.1); }
-.valufin-acb-criteria-label, .valufin-cap-criteria-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; color: #EDEBE4; }
+.valufin-acb-criteria-label, .valufin-cap-criteria-label { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; color: #EDEBE4; }
 .valufin-acb-criteria-sub { font-family: 'Roboto Mono', monospace; font-size: 10px; color: #4FC3C7; margin-top: 4px; }
 .valufin-acb-detail, .valufin-cap-detail { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 26px; }
 .valufin-acb-detail-head, .valufin-cap-detail-head { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #4FC3C7; margin-bottom: 10px; }
@@ -3089,15 +3099,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 
 .valufin-kmt-takeaway-terminal, .valufin-xlm-takeaway-terminal, .valufin-acb-takeaway-terminal, .valufin-cap-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-kmt-takeaway-terminal-label, .valufin-xlm-takeaway-terminal-label, .valufin-acb-takeaway-terminal-label, .valufin-cap-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-kmt-takeaway-terminal-body, .valufin-xlm-takeaway-terminal-body, .valufin-acb-takeaway-terminal-body, .valufin-cap-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-kmt-takeaway-terminal-body, .valufin-xlm-takeaway-terminal-body, .valufin-acb-takeaway-terminal-body, .valufin-cap-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 .valufin-kmt-takeaway-clay, .valufin-xlm-takeaway-clay, .valufin-acb-takeaway-clay, .valufin-cap-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-kmt-takeaway-clay-badge, .valufin-xlm-takeaway-clay-badge, .valufin-acb-takeaway-clay-badge, .valufin-cap-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-kmt-takeaway-clay-body, .valufin-xlm-takeaway-clay-body, .valufin-acb-takeaway-clay-body, .valufin-cap-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 .valufin-kmt-takeaway-dashed, .valufin-xlm-takeaway-dashed, .valufin-acb-takeaway-dashed, .valufin-cap-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-kmt-takeaway-dashed-check, .valufin-xlm-takeaway-dashed-check, .valufin-acb-takeaway-dashed-check, .valufin-cap-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-kmt-takeaway-dashed-check, .valufin-xlm-takeaway-dashed-check, .valufin-acb-takeaway-dashed-check, .valufin-cap-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-kmt-takeaway-dashed-body, .valufin-xlm-takeaway-dashed-body, .valufin-acb-takeaway-dashed-body, .valufin-cap-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 .valufin-kmt-takeaway-quote, .valufin-xlm-takeaway-quote, .valufin-acb-takeaway-quote, .valufin-cap-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-kmt-takeaway-quote-mark, .valufin-xlm-takeaway-quote-mark, .valufin-acb-takeaway-quote-mark, .valufin-cap-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-kmt-takeaway-quote-mark, .valufin-xlm-takeaway-quote-mark, .valufin-acb-takeaway-quote-mark, .valufin-cap-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-kmt-takeaway-quote-body, .valufin-xlm-takeaway-quote-body, .valufin-acb-takeaway-quote-body, .valufin-cap-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 .valufin-kmt-takeaway-rule, .valufin-xlm-takeaway-rule, .valufin-acb-takeaway-rule, .valufin-cap-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
 .valufin-kmt-takeaway-rule.gold, .valufin-acb-takeaway-rule.gold { border-top-color: #C4B79A; }
@@ -3112,7 +3122,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-bhv-criteria-row, .valufin-wtf-criteria-row, .valufin-cur-criteria-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .valufin-bhv-criteria-card, .valufin-wtf-criteria-card, .valufin-cur-criteria-card { all: unset; cursor: pointer; box-sizing: border-box; flex: 1; min-width: 130px; text-align: center; padding: 18px 10px; border-radius: 12px; background: #12161C; border: 1px solid rgba(237,235,228,0.1); }
 .valufin-bhv-criteria-card.active, .valufin-wtf-criteria-card.active, .valufin-cur-criteria-card.active { border-color: #4FC3C7; background: rgba(79,195,199,0.1); }
-.valufin-bhv-criteria-label, .valufin-wtf-criteria-label, .valufin-cur-criteria-label { font-family: 'Archivo Black', sans-serif; font-size: 12px; color: #EDEBE4; }
+.valufin-bhv-criteria-label, .valufin-wtf-criteria-label, .valufin-cur-criteria-label { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; color: #EDEBE4; }
 .valufin-bhv-detail, .valufin-wtf-detail, .valufin-cur-detail { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 26px; }
 .valufin-bhv-detail-head, .valufin-wtf-detail-head, .valufin-cur-detail-head { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #4FC3C7; margin-bottom: 10px; }
 .valufin-bhv-detail-body, .valufin-wtf-detail-body, .valufin-cur-detail-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
@@ -3120,7 +3130,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-bhv-star-wrap { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1 / 0.95; margin: 0 auto 30px; }
 .valufin-bhv-star-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .valufin-bhv-star-point { all: unset; cursor: pointer; box-sizing: border-box; position: absolute; transform: translate(-50%, -50%); width: 112px; height: 112px; border-radius: 999px; display: flex; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgba(237,235,228,0.14); transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
-.valufin-bhv-star-point-letter { font-family: 'Archivo Black', sans-serif; font-size: 26px; line-height: 1; }
+.valufin-bhv-star-point-letter { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; line-height: 1; }
 .valufin-bhv-star-point-label { font-family: 'Roboto Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; margin-top: 4px; }
 .valufin-bhv-star-hub { position: absolute; top: 47%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 999px; background: #12161C; border: 1px solid rgba(237,235,228,0.15); display: flex; align-items: center; justify-content: center; }
 .valufin-bhv-star-hub span { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #8F887A; }
@@ -3131,7 +3141,7 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-bhv-star-modal-box { width: 100%; max-width: 460px; background: #12161C; border: 1px solid rgba(79,195,199,0.3); border-radius: 14px; padding: 30px 32px; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
 .valufin-bhv-star-modal-box.practice { border-color: rgba(196,183,154,0.35); }
 .valufin-bhv-star-modal-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.valufin-bhv-star-modal-badge { flex: none; width: 40px; height: 40px; border-radius: 999px; background: rgba(79,195,199,0.12); border: 1.5px solid #4FC3C7; display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 18px; color: #4FC3C7; }
+.valufin-bhv-star-modal-badge { flex: none; width: 40px; height: 40px; border-radius: 999px; background: rgba(79,195,199,0.12); border: 1.5px solid #4FC3C7; display: flex; align-items: center; justify-content: center; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 18px; color: #4FC3C7; }
 .valufin-bhv-star-modal-badge-label { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #4FC3C7; }
 .valufin-bhv-star-modal-detail { font-size: 15.5px; line-height: 1.65; color: #D8D3C8; margin-bottom: 18px; }
 .valufin-bhv-star-modal-example { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 14px 16px; border-radius: 0 8px 8px 0; margin-bottom: 20px; }
@@ -3175,15 +3185,15 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 
 .valufin-bhv-takeaway-terminal, .valufin-wtf-takeaway-terminal, .valufin-cur-takeaway-terminal, .valufin-net-takeaway-terminal { background: #0A0E14; border-left: 3px solid #4FC3C7; padding: 20px 22px; margin: 30px 0; font-family: 'Roboto Mono', monospace; }
 .valufin-bhv-takeaway-terminal-label, .valufin-wtf-takeaway-terminal-label, .valufin-cur-takeaway-terminal-label, .valufin-net-takeaway-terminal-label { font-size: 10.5px; letter-spacing: 0.1em; color: #4FC3C7; margin-bottom: 8px; }
-.valufin-bhv-takeaway-terminal-body, .valufin-wtf-takeaway-terminal-body, .valufin-cur-takeaway-terminal-body, .valufin-net-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Libre Franklin', sans-serif; }
+.valufin-bhv-takeaway-terminal-body, .valufin-wtf-takeaway-terminal-body, .valufin-cur-takeaway-terminal-body, .valufin-net-takeaway-terminal-body { font-size: 14.5px; line-height: 1.6; color: #EDEBE4; font-family: 'Outfit', sans-serif; }
 .valufin-bhv-takeaway-clay, .valufin-wtf-takeaway-clay, .valufin-cur-takeaway-clay, .valufin-net-takeaway-clay { display: flex; align-items: flex-start; gap: 16px; margin: 30px 0; padding: 22px 24px; border-radius: 12px; background: linear-gradient(135deg, rgba(217,105,79,0.1), rgba(217,105,79,0.02)); }
 .valufin-bhv-takeaway-clay-badge, .valufin-wtf-takeaway-clay-badge, .valufin-cur-takeaway-clay-badge, .valufin-net-takeaway-clay-badge { width: 36px; height: 36px; border-radius: 99px; border: 2px solid #D9694F; flex: none; display: flex; align-items: center; justify-content: center; }
 .valufin-bhv-takeaway-clay-body, .valufin-wtf-takeaway-clay-body, .valufin-cur-takeaway-clay-body, .valufin-net-takeaway-clay-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; padding-top: 5px; }
 .valufin-bhv-takeaway-dashed, .valufin-wtf-takeaway-dashed, .valufin-cur-takeaway-dashed, .valufin-net-takeaway-dashed { display: flex; align-items: center; gap: 16px; margin: 30px 0; padding: 20px 22px; border-radius: 12px; background: #12161C; border: 1px dashed rgba(79,195,199,0.4); }
-.valufin-bhv-takeaway-dashed-check, .valufin-wtf-takeaway-dashed-check, .valufin-cur-takeaway-dashed-check, .valufin-net-takeaway-dashed-check { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #4FC3C7; }
+.valufin-bhv-takeaway-dashed-check, .valufin-wtf-takeaway-dashed-check, .valufin-cur-takeaway-dashed-check, .valufin-net-takeaway-dashed-check { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 26px; color: #4FC3C7; }
 .valufin-bhv-takeaway-dashed-body, .valufin-wtf-takeaway-dashed-body, .valufin-cur-takeaway-dashed-body, .valufin-net-takeaway-dashed-body { font-size: 15px; line-height: 1.6; color: #EDEBE4; }
 .valufin-bhv-takeaway-quote, .valufin-wtf-takeaway-quote, .valufin-cur-takeaway-quote, .valufin-net-takeaway-quote { margin: 34px 0; padding: 8px 8px 8px 34px; position: relative; }
-.valufin-bhv-takeaway-quote-mark, .valufin-wtf-takeaway-quote-mark, .valufin-cur-takeaway-quote-mark, .valufin-net-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'Archivo Black', sans-serif; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
+.valufin-bhv-takeaway-quote-mark, .valufin-wtf-takeaway-quote-mark, .valufin-cur-takeaway-quote-mark, .valufin-net-takeaway-quote-mark { position: absolute; top: -18px; left: -4px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 64px; color: rgba(196,183,154,0.22); line-height: 1; }
 .valufin-bhv-takeaway-quote-body, .valufin-wtf-takeaway-quote-body, .valufin-cur-takeaway-quote-body, .valufin-net-takeaway-quote-body { font-size: 17px; line-height: 1.55; color: #EDEBE4; font-style: italic; }
 .valufin-bhv-takeaway-rule, .valufin-wtf-takeaway-rule, .valufin-cur-takeaway-rule, .valufin-net-takeaway-rule { margin: 30px 0; border-top: 2px solid; padding-top: 16px; }
 .valufin-bhv-takeaway-rule.red, .valufin-wtf-takeaway-rule.red, .valufin-cur-takeaway-rule.red, .valufin-net-takeaway-rule.red { border-top-color: #D9694F; }

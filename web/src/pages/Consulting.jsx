@@ -72,7 +72,6 @@ export default function Consulting() {
       pillLabel="Consulting"
       caption="Structured problem solving is the whole game in consulting recruiting. Tap any topic to start learning."
       topics={TOPICS}
-      backLabel="←  Back to home"
       backPath="/"
       heroImage={cat.image}
       heroTint={cat.tint}

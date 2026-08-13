@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
 import TickerBoard from '../components/TickerBoard';
 import SceneMotif from '../components/SceneMotifs';
 import { useScrollReveal } from '../lib/useScrollReveal';
@@ -66,7 +65,6 @@ export default function Home() {
 
   return (
     <div className="valufin-container">
-      <Topbar />
 
       <div className="valufin-terminal-hero">
         <HeroBackdrop />

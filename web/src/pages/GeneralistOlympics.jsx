@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BADGE_COLORS = ['#4FC3C7', '#C4B79A', '#D9694F', '#4FC3C7', '#C4B79A', '#D9694F'];
 
@@ -417,7 +417,6 @@ function Lesson6Pitch({ pitchOpen, setPitchOpen }) {
 }
 
 export default function GeneralistOlympics() {
-  const navigate = useNavigate();
   const [view, setView] = useState('list');
   const [activeIndex, setActiveIndex] = useState(0);
   const [completed, setCompleted] = useState([false, false, false, false, false, false]);
@@ -491,10 +490,9 @@ export default function GeneralistOlympics() {
       }}
     >
       <div className="valufin-lesson-topbar">
-        <button className="valufin-lesson-topbar-back" onClick={() => (view === 'list' ? navigate('/wam') : backToTopics())}>
-          ← {view === 'list' ? 'Wealth & Asset Management' : 'The Generalist Olympics'}
-        </button>
-        <span className="valufin-lesson-topbar-tag">WAM · WEALTH &amp; ASSET MANAGEMENT</span>
+        <Breadcrumb items={view === 'list'
+          ? [{ label: 'Wealth & Asset Management', path: '/wam' }, { label: 'The Generalist Olympics' }]
+          : [{ label: 'Wealth & Asset Management', path: '/wam' }, { label: 'The Generalist Olympics', onClick: backToTopics }, { label: activeLesson.title }]} />
       </div>
 
       {view === 'list' ? (

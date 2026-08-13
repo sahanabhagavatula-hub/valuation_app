@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
 import SubHero from '../components/SubHero';
 import PageBg from '../components/PageBg';
 import FlashcardGrid from '../components/FlashcardGrid';
+import Breadcrumb from '../components/Breadcrumb';
 import { Button } from '../components/Widgets';
 
 const CARDS = [
@@ -103,7 +103,8 @@ export default function Basics() {
 
   return (
     <div className="valufin-container">
-      <Topbar />
+      <Breadcrumb items={[{ label: 'AI valuation tool', path: '/tool' }, { label: 'Valuation basics' }]} />
+
       <SubHero
         title="Valuation basics."
         subtitle="Tap any card to flip it and see the definition and a real example. No prior finance knowledge assumed."

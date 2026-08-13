@@ -91,7 +91,6 @@ export default function InvestmentBanking() {
       pillLabel="IB"
       caption="These are the skills IB interviews actually test — from technical modeling to understanding the deal process. Tap any topic to start learning."
       topics={TOPICS}
-      backLabel="←  Back to home"
       backPath="/"
       comingSoonMentionsTool
       heroImage={cat.image}

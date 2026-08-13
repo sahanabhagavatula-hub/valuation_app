@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
 import { Button, PasswordField, Expander } from '../components/Widgets';
 import { ChatBubble, FeedbackBox, ProgressRow, SummaryCard, ExampleBox } from '../components/Curriculum';
+import Breadcrumb from '../components/Breadcrumb';
 import { fetchCompanySnapshot } from '../lib/fmp';
 import { callClaude } from '../lib/anthropic';
 
@@ -238,8 +238,7 @@ Be specific and direct, referencing the actual content of their answers.`;
 
       <div className="valufin-main">
         <div className="valufin-container">
-          <Topbar />
-          <Button variant="secondary" onClick={() => navigate('/pe-hf')}>←  Back to PE / HF</Button>
+          <Breadcrumb items={[{ label: 'PE / HF', path: '/pe-hf' }, { label: 'Stock pitch' }]} />
 
           <span className="valufin-eyebrow">PE / Hedge Fund · Must know</span>
           <h1>Stock pitch.</h1>

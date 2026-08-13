@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Topbar from '../components/Topbar';
 import { Button, PasswordField } from '../components/Widgets';
 import { FeedbackBox } from '../components/Curriculum';
+import Breadcrumb from '../components/Breadcrumb';
 import { callClaude } from '../lib/anthropic';
 
 const REFERENCE_NUMBERS = [
@@ -31,7 +30,6 @@ function randomProblem() {
 }
 
 export default function MarketSizing() {
-  const navigate = useNavigate();
   const [anthropicKey, setAnthropicKey] = useState('');
   const [problem, setProblem] = useState(randomProblem);
   const [response, setResponse] = useState('');
@@ -94,8 +92,7 @@ generic encouragement.`;
 
       <div className="valufin-main">
         <div className="valufin-container">
-          <Topbar />
-          <Button variant="secondary" onClick={() => navigate('/consulting')}>←  Back to Consulting</Button>
+          <Breadcrumb items={[{ label: 'Consulting', path: '/consulting' }, { label: 'Market sizing' }]} />
 
           <span className="valufin-eyebrow">Consulting · Must know</span>
           <h1>Market sizing.</h1>

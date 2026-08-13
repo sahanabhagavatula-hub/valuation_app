@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Component Catalog — ValuED</title>
+<link rel="stylesheet" href="./src/theme.css">
+<style>
+  body { padding: 0 0 120px; }
+
+  .cc-shell { max-width: 1240px; margin: 0 auto; padding: 48px 40px 0; }
+
+  .cc-header { margin-bottom: 8px; }
+  .cc-header h1 { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; font-size: 34px; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .cc-header p { font-size: 15px; line-height: 1.6; color: #9C978C; max-width: 720px; }
+
+  .cc-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 8px; padding: 16px 0; border-top: 1px solid rgba(237,235,228,0.08); border-bottom: 1px solid rgba(237,235,228,0.08); position: sticky; top: 0; background: #0A0E14; z-index: 20; }
+  .cc-nav a { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #8F887A; text-decoration: none; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(237,235,228,0.1); }
+  .cc-nav a:hover { color: #EDEBE4; border-color: rgba(237,235,228,0.25); }
+
+  .cc-section { margin: 56px 0; }
+  .cc-section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+  .cc-section-head h2 { font-family: 'Libre Franklin', sans-serif; font-weight: 800; font-size: 22px; }
+  .cc-status { font-family: 'Roboto Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; }
+  .cc-status.ok { color: #3FBF6F; background: rgba(63,191,111,0.1); border: 1px solid rgba(63,191,111,0.3); }
+  .cc-status.warn { color: #D9694F; background: rgba(217,105,79,0.1); border: 1px solid rgba(217,105,79,0.3); }
+  .cc-status.note { color: #C4B79A; background: rgba(196,183,154,0.1); border: 1px solid rgba(196,183,154,0.3); }
+  .cc-section-sub { font-size: 14px; line-height: 1.65; color: #9C978C; max-width: 760px; margin: 10px 0 26px; }
+  .cc-section-sub code { font-family: 'Roboto Mono', monospace; font-size: 12.5px; color: #C4B79A; background: rgba(196,183,154,0.08); padding: 1px 5px; border-radius: 4px; }
+
+  .cc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .cc-card { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 20px; }
+  .cc-card-label { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6f6a5f; margin-bottom: 14px; text-transform: uppercase; }
+  .cc-card.flag { border-color: rgba(217,105,79,0.5); box-shadow: 0 0 0 1px rgba(217,105,79,0.15) inset; }
+  .cc-card-flag-tag { display: inline-block; font-family: 'Roboto Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; color: #D9694F; background: rgba(217,105,79,0.12); padding: 3px 8px; border-radius: 99px; margin-bottom: 10px; }
+
+  /* --- Color swatches --- */
+  .cc-swatch-row { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid rgba(237,235,228,0.06); }
+  .cc-swatch-row:last-child { border-bottom: none; }
+  .cc-swatch { width: 40px; height: 40px; border-radius: 8px; flex: none; border: 1px solid rgba(255,255,255,0.1); }
+  .cc-swatch-meta { flex: 1; }
+  .cc-swatch-name { font-size: 14px; font-weight: 600; }
+  .cc-swatch-hex { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #8F887A; }
+  .cc-swatch-count { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #6f6a5f; text-align: right; }
+  .cc-swatch-count b { color: #EDEBE4; }
+
+  /* --- Tabs demo --- */
+  .cc-tabs-row { display: flex; gap: 8px; margin-bottom: 10px; }
+  .cc-tab-src { font-family: 'Roboto Mono', monospace; font-size: 10px; color: #6f6a5f; }
+
+  /* --- misc reused bits --- */
+  .cc-mini-topbar { display: flex; align-items: center; justify-content: space-between; background: rgba(10,14,20,0.75); border: 1px solid rgba(237,235,228,0.1); border-radius: 10px; padding: 12px 18px; }
+  .cc-inline-note { font-size: 13px; color: #6f6a5f; margin-top: 10px; }
+
+  table.cc-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.cc-table th { text-align: left; font-family: 'Roboto Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; color: #6f6a5f; text-transform: uppercase; padding: 10px 14px; border-bottom: 1px solid rgba(237,235,228,0.12); }
+  table.cc-table td { padding: 12px 14px; border-bottom: 1px solid rgba(237,235,228,0.06); color: #D8D3C8; vertical-align: top; }
+  table.cc-table td.mono { font-family: 'Roboto Mono', monospace; font-size: 12px; color: #C4B79A; }
+
+  .cc-scratch { background: #12161C; border: 1px dashed rgba(237,235,228,0.2); border-radius: 12px; padding: 22px 24px; }
+  .cc-scratch h3 { font-size: 15px; margin-bottom: 10px; }
+  .cc-scratch ul { margin: 0; padding-left: 18px; color: #D8D3C8; font-size: 14px; line-height: 1.8; }
+</style>
+</head>
+<body>
+
+<div class="cc-shell">
+
+  <div class="cc-header">
+    <h1>Component Catalog</h1>
+    <p>
+      A working audit of the real components/classes already in the app — pulled straight from
+      <code style="font-family:'Roboto Mono',monospace;color:#C4B79A;">src/theme.css</code> and the 39 lesson pages,
+      not redrawn from memory. Everything below renders with the live stylesheet, so what you see here is
+      exactly what's in production. Purpose: give us one place to look at the whole visual language at once
+      and decide what to keep, merge, or kill.
+    </p>
+  </div>
+
+  <div class="cc-nav">
+    <a href="#colors">Color audit</a>
+    <a href="#shell">Shell (consistent)</a>
+    <a href="#tabs">Tabs</a>
+    <a href="#takeaways">Takeaway boxes</a>
+    <a href="#choices">Choice / quiz buttons</a>
+    <a href="#panels">Panels</a>
+    <a href="#duplication">CSS duplication</a>
+    <a href="#illustrations">Bespoke illustrations</a>
+    <a href="#notes">Working notes</a>
+  </div>
+
+  <!-- ================= COLOR AUDIT ================= -->
+  <section class="cc-section" id="colors">
+    <div class="cc-section-head">
+      <h2>Color audit</h2>
+      <span class="cc-status warn">Untokenized accent</span>
+    </div>
+    <p class="cc-section-sub">
+      <code>src/tokens.css</code> declares one accent (<code>--accent: #3FBF6F</code>, green) plus a gold and a danger
+      red. But a second accent — teal <code>#4FC3C7</code> — is used <b>167 times</b> across theme.css (almost as
+      often as the official green, at 169) for every lesson page's tabs, active states, star points and badges,
+      and it has no token entry at all. Two competing "primary" accents, one of them invisible to anyone reading tokens.css.
+    </p>
+    <div class="cc-card">
+      <div class="cc-card-label">Tokenized (tokens.css)</div>
+      <div class="cc-swatch-row">
+        <div class="cc-swatch" style="background:#3FBF6F"></div>
+        <div class="cc-swatch-meta"><div class="cc-swatch-name">--accent (color-up)</div><div class="cc-swatch-hex">#3FBF6F</div></div>
+        <div class="cc-swatch-count">used <b>169×</b></div>
+      </div>
+      <div class="cc-swatch-row">
+        <div class="cc-swatch" style="background:#C4B79A"></div>
+        <div class="cc-swatch-meta"><div class="cc-swatch-name">--accent-2 / --color-gold</div><div class="cc-swatch-hex">#C4B79A</div></div>
+        <div class="cc-swatch-count">used <b>32×</b></div>
+      </div>
+      <div class="cc-swatch-row">
+        <div class="cc-swatch" style="background:#D9694F"></div>
+        <div class="cc-swatch-meta"><div class="cc-swatch-name">--danger / color-down</div><div class="cc-swatch-hex">#D9694F</div></div>
+        <div class="cc-swatch-count">used <b>86×</b></div>
+      </div>
+      <div class="cc-swatch-row">
+        <div class="cc-swatch" style="background:#4FC3C7"></div>
+        <div class="cc-swatch-meta"><div class="cc-swatch-name">— no token —  (de facto "lesson accent")</div><div class="cc-swatch-hex">#4FC3C7</div></div>
+        <div class="cc-swatch-count">used <b>167×</b></div>
+      </div>
+    </div>
+    <p class="cc-inline-note">Fix candidates: either add <code>--accent-lesson: #4FC3C7</code> to tokens.css and document the split, or pick one accent and migrate the other out.</p>
+  </section>
+
+  <!-- ================= SHELL ================= -->
+  <section class="cc-section" id="shell">
+    <div class="cc-section-head">
+      <h2>Shell chrome</h2>
+      <span class="cc-status ok">Consistent</span>
+    </div>
+    <p class="cc-section-sub">
+      The outer lesson frame — topbar, headline, progress bar, tier pill, exit/next buttons — uses genuinely
+      shared classes (<code>.valufin-lesson-topbar</code>, <code>.valufin-archivo-h1</code>, <code>.valufin-tier-pill</code>...)
+      across all 39 pages. This layer is not the source of the "disparate" feeling — leave it alone.
+    </p>
+    <div class="cc-mini-topbar" style="margin-bottom:16px;">
+      <span class="valufin-lesson-topbar-back" style="cursor:default;">← Universal</span>
+      <span class="valufin-lesson-topbar-tag">BHV · BEHAVIORALS</span>
+    </div>
+    <div class="cc-grid">
+      <div class="cc-card">
+        <div class="cc-card-label">Tier pills</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="valufin-tier-pill must-know">Must-know</span>
+          <span class="valufin-tier-pill must-know-clay">Must-know</span>
+          <span class="valufin-tier-pill high-value">High-value</span>
+          <span class="valufin-tier-pill good-to-have">Good-to-have</span>
+        </div>
+      </div>
+      <div class="cc-card">
+        <div class="cc-card-label">Progress bar</div>
+        <div class="valufin-lesson-progress-track"><div class="valufin-lesson-progress-fill" style="width:60%;"></div></div>
+        <div class="cc-inline-note">3 / 5 complete</div>
+      </div>
+      <div class="cc-card">
+        <div class="cc-card-label">Footer buttons</div>
+        <div style="display:flex; gap:10px;">
+          <button class="valufin-lesson-exit">Exit to topic</button>
+          <button class="valufin-lesson-next">Complete &amp; next lesson →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TABS ================= -->
+  <section class="cc-section" id="tabs">
+    <div class="cc-section-head">
+      <h2>Tabs / toggle buttons</h2>
+      <span class="cc-status warn">2 color outliers</span>
+    </div>
+    <p class="cc-section-sub">
+      Every lesson's toggle/tab component (<code>.valufin-{prefix}-tab</code>) is redeclared per page with an
+      identical shape — but the "active" color isn't always the shared teal. <b>Three-Statement Model</b> uses
+      off-white and <b>LBO Modeling</b> uses taupe instead of <code>#4FC3C7</code>. Looks like an accidental
+      copy-paste drift rather than an intentional choice.
+    </p>
+    <div class="cc-grid">
+      <div class="cc-card">
+        <div class="cc-card-label">Behaviorals · Comps · Pitch Books · +14 others</div>
+        <div class="cc-tabs-row">
+          <button class="valufin-bhv-tab active">CONCRETE</button>
+          <button class="valufin-bhv-tab">VAGUE</button>
+        </div>
+        <div class="cc-tab-src">active → #4FC3C7</div>
+      </div>
+      <div class="cc-card flag">
+        <div class="cc-card-flag-tag">outlier</div>
+        <div class="cc-card-label">Three-Statement Model</div>
+        <div class="cc-tabs-row">
+          <button class="valufin-3st-tab active">CONCRETE</button>
+          <button class="valufin-3st-tab">VAGUE</button>
+        </div>
+        <div class="cc-tab-src">active → #EDEBE4 (off-white, not teal)</div>
+      </div>
+      <div class="cc-card flag">
+        <div class="cc-card-flag-tag">outlier</div>
+        <div class="cc-card-label">LBO Modeling</div>
+        <div class="cc-tabs-row">
+          <button class="valufin-lbo-tab active">CONCRETE</button>
+          <button class="valufin-lbo-tab">VAGUE</button>
+        </div>
+        <div class="cc-tab-src">active → #8F887A (taupe, not teal)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TAKEAWAYS ================= -->
+  <section class="cc-section" id="takeaways">
+    <div class="cc-section-head">
+      <h2>Takeaway / callout boxes</h2>
+      <span class="cc-status note">5 intentional variants</span>
+    </div>
+    <p class="cc-section-sub">
+      Every lesson topic rotates through the same five callout treatments (clay, dashed, quote, rule, and a
+      one-off "star" variant for interactive-diagram lessons) — that variety looks deliberate, so it's not a bug.
+      The bug is that all five are copy-pasted per page prefix instead of defined once and shared — see
+      <a href="#duplication" style="color:#4FC3C7;">CSS duplication</a> below.
+    </p>
+    <div class="cc-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+      <div class="valufin-bhv-takeaway-clay">
+        <span class="valufin-bhv-takeaway-clay-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9694F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </span>
+        <div class="valufin-bhv-takeaway-clay-body">"clay" variant — gradient wash + circular check badge.</div>
+      </div>
+      <div class="valufin-bhv-takeaway-dashed">
+        <span class="valufin-bhv-takeaway-dashed-check">✓</span>
+        <div class="valufin-bhv-takeaway-dashed-body">"dashed" variant — dashed teal border, big checkmark.</div>
+      </div>
+      <div class="valufin-bhv-takeaway-quote">
+        <span class="valufin-bhv-takeaway-quote-mark">"</span>
+        <div class="valufin-bhv-takeaway-quote-body">"quote" variant — oversized quotation mark, italic body.</div>
+      </div>
+      <div class="valufin-bhv-takeaway-rule red">
+        <div class="valufin-bhv-takeaway-rule-label" style="color:#D9694F;">KEY TAKEAWAY</div>
+        <div class="valufin-bhv-takeaway-rule-body">"rule" variant — top border rule, label + body stack.</div>
+      </div>
+      <div class="valufin-bhv-star-takeaway">
+        <div class="valufin-bhv-star-takeaway-label">// TAKEAWAY</div>
+        <div class="valufin-bhv-star-takeaway-body">"star" variant — gold-bordered box, used only by diagram-style lesson 1s.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHOICES ================= -->
+  <section class="cc-section" id="choices">
+    <div class="cc-section-head">
+      <h2>Choice / quiz buttons</h2>
+      <span class="cc-status ok">Consistent</span>
+    </div>
+    <p class="cc-section-sub">Correct/wrong states agree across every page that has them: green <code>#3FBF6F</code> for correct, red-orange <code>#D9694F</code> for wrong.</p>
+    <div class="cc-card">
+      <div class="valufin-bhv-quiz-q">What's the most common weakness in student behavioral answers?</div>
+      <div class="valufin-bhv-quiz-choices">
+        <button class="valufin-bhv-quiz-choice">Too much detail in the Situation</button>
+        <button class="valufin-bhv-quiz-choice correct">A vague result with no concrete outcome</button>
+        <button class="valufin-bhv-quiz-choice wrong">Using the word "I" too often</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PANELS ================= -->
+  <section class="cc-section" id="panels">
+    <div class="cc-section-head">
+      <h2>Panels</h2>
+      <span class="cc-status ok">Consistent</span>
+    </div>
+    <p class="cc-section-sub">Same recipe everywhere: <code>#12161C</code> fill, 1px hairline border, 12px radius, 22/24px padding — just re-declared per prefix instead of shared.</p>
+    <div class="valufin-bhv-panel" style="max-width:480px;">
+      <p class="valufin-bhv-panel-body">"...after we rolled out the new process, our team's turnaround time dropped from 5 days to 3.5 days."</p>
+    </div>
+  </section>
+
+  <!-- ================= DUPLICATION ================= -->
+  <section class="cc-section" id="duplication">
+    <div class="cc-section-head">
+      <h2>CSS duplication</h2>
+      <span class="cc-status warn">~3,000 lines, mostly copies</span>
+    </div>
+    <p class="cc-section-sub">
+      <code>theme.css</code> is 3,191 lines. Each lesson topic gets its own class prefix (<code>bhv</code>,
+      <code>lbo</code>, <code>pta</code>, <code>ccm</code>, ...) and most of those prefixes redeclare the
+      identical tab / panel / takeaway / quiz-choice rule sets verbatim. The count below is unique classnames
+      per prefix — high counts are mostly duplicate boilerplate, not unique design.
+    </p>
+    <table class="cc-table">
+      <thead><tr><th>Prefix</th><th>Page</th><th>Unique classes</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">mlab</td><td>Comps Analysis (Multiples Lab)</td><td>90</td></tr>
+        <tr><td class="mono">pb</td><td>Pitch Books</td><td>73</td></tr>
+        <tr><td class="mono">gol</td><td>Generalist Olympics (WAM)</td><td>70</td></tr>
+        <tr><td class="mono">bhv</td><td>Behaviorals</td><td>56</td></tr>
+        <tr><td class="mono">pta</td><td>Precedent Transactions</td><td>48</td></tr>
+        <tr><td class="mono">lbo</td><td>LBO Modeling</td><td>48</td></tr>
+        <tr><td class="mono">cap</td><td>Capital Structure</td><td>45</td></tr>
+      </tbody>
+    </table>
+    <p class="cc-inline-note">Consolidating the shared 20–30 classes per prefix into one <code>.valufin-lesson-*</code> set (parameterized by a data attribute or CSS variable for the rare per-lesson color swap) would cut theme.css by roughly half.</p>
+  </section>
+
+  <!-- ================= ILLUSTRATIONS ================= -->
+  <section class="cc-section" id="illustrations">
+    <div class="cc-section-head">
+      <h2>Bespoke illustrations</h2>
+      <span class="cc-status note">Expected to differ — inventory only</span>
+    </div>
+    <p class="cc-section-sub">
+      These are one-off teaching visuals (not reusable components), so variation here is fine — but they're
+      the biggest driver of the "every page looks different" feeling, so worth having a list in one place.
+      Not reproduced live below (each is bespoke JSX/SVG); see the source file.
+    </p>
+    <table class="cc-table">
+      <thead><tr><th>Page</th><th>Widget</th><th>Class root</th></tr></thead>
+      <tbody>
+        <tr><td>Behaviorals</td><td>5-point SVG star with modal points</td><td class="mono">valufin-bhv-star-*</td></tr>
+        <tr><td>Case Interviews / Framework Detail</td><td>Big decision-tree diagram</td><td class="mono">valufin-big-tree-*</td></tr>
+        <tr><td>Pitch Books</td><td>Deck-card scenario picker</td><td class="mono">valufin-pb-deck-*</td></tr>
+        <tr><td>LBO Modeling</td><td>Assumption slider grid</td><td class="mono">valufin-lbo-slider-*</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ================= NOTES ================= -->
+  <section class="cc-section" id="notes">
+    <div class="cc-scratch">
+      <h3>Working notes</h3>
+      <ul>
+        <li>Decide: keep teal as a real second accent (tokenize it) or fold lesson interactives into the green accent.</li>
+        <li>Fix the two tab-color outliers (3st, lbo) to match teal, unless there's a reason they're different.</li>
+        <li>Candidate refactor: merge per-prefix tab/panel/quiz-choice/takeaway CSS into shared classes.</li>
+        <li>Add more sections here as we find them — this file is meant to be edited directly.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

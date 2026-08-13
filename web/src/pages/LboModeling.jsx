@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BADGE_COLORS = ['#4FC3C7', '#C4B79A', '#D9694F', '#4FC3C7', '#C4B79A', '#D9694F'];
 
@@ -292,7 +292,6 @@ function Lesson6({ quizIndex, setQuizIndex, picked, setPicked }) {
 }
 
 export default function LboModeling() {
-  const navigate = useNavigate();
   const [view, setView] = useState('list');
   const [activeIndex, setActiveIndex] = useState(0);
   const [completed, setCompleted] = useState([false, false, false, false, false, false]);
@@ -327,10 +326,9 @@ export default function LboModeling() {
   return (
     <div style={{ minHeight: '100vh', backgroundImage: 'radial-gradient(rgba(237,235,228,0.06) 1px, transparent 1px)', backgroundSize: '22px 22px' }}>
       <div className="valufin-lesson-topbar">
-        <button className="valufin-lesson-topbar-back" onClick={() => (view === 'list' ? navigate('/pe-hf') : backToTopics())}>
-          ← {view === 'list' ? 'PE / Hedge Funds' : 'LBO Modeling'}
-        </button>
-        <span className="valufin-lesson-topbar-tag">LBO · LBO MODELING</span>
+        <Breadcrumb items={view === 'list'
+          ? [{ label: 'PE / Hedge Funds', path: '/pe-hf' }, { label: 'LBO Modeling' }]
+          : [{ label: 'PE / Hedge Funds', path: '/pe-hf' }, { label: 'LBO Modeling', onClick: backToTopics }, { label: activeLesson.title }]} />
       </div>
 
       {view === 'list' ? (

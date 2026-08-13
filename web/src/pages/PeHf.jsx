@@ -78,7 +78,6 @@ export default function PeHf() {
       pillLabel="PE / HF"
       caption="Buy-side recruiting tests how you think about investments, not just how you model them. Tap any topic to start learning."
       topics={TOPICS}
-      backLabel="←  Back to home"
       backPath="/"
       comingSoonMentionsTool
       heroImage={cat.image}
