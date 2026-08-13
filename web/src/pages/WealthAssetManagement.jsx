@@ -7,12 +7,12 @@ const cat = getCategoryByPath('/wam');
 
 const TOPICS = [
   { tag: 'must know', title: 'The Generalist Olympics', description: "Fit, portfolio construction, valuation, markets, and stock pitches — the full AM interview loop. Fully built — try it now.", path: '/generalist-olympics', icon: 'target-arrow', lessons: 6, minutes: 40 },
-  { tag: 'must know', title: 'Portfolio construction', description: 'Asset allocation, diversification, and risk-return tradeoffs.', icon: 'chart-pie', lessons: 4, minutes: 30 },
-  { tag: 'must know', title: 'Client communication', description: 'Explaining markets and performance to non-expert clients.', icon: 'message-circle', lessons: 3, minutes: 20 },
-  { tag: 'high value', title: 'Investment philosophy', description: 'Active vs. passive, value vs. growth, and how to articulate your view.', icon: 'bulb', lessons: 4, minutes: 30 },
-  { tag: 'high value', title: 'Risk management', description: 'Volatility, drawdowns, and how advisors manage downside risk.', icon: 'shield', lessons: 4, minutes: 30 },
-  { tag: 'good to have', title: 'Financial planning basics', description: 'Retirement planning, tax considerations, and estate basics.', icon: 'calendar-time', lessons: 3, minutes: 25 },
-  { tag: 'good to have', title: 'Alternative investments', description: 'Private equity, real estate, and hedge fund strategies as portfolio pieces.', icon: 'building-skyscraper', lessons: 3, minutes: 25 },
+  { tag: 'must know', title: 'Portfolio construction', description: 'Asset allocation, diversification, and risk-return tradeoffs. Fully built — try it now.', path: '/portfolio-construction', icon: 'chart-pie', lessons: 6, minutes: 34 },
+  { tag: 'must know', title: 'Client communication', description: 'Explaining markets and performance to non-expert clients. Fully built — try it now.', path: '/client-communication', icon: 'message-circle', lessons: 5, minutes: 28 },
+  { tag: 'high value', title: 'Investment philosophy', description: 'Active vs. passive, value vs. growth, and how to articulate your view. Fully built — try it now.', path: '/investment-philosophy', icon: 'bulb', lessons: 5, minutes: 29 },
+  { tag: 'high value', title: 'Risk management', description: 'Volatility, drawdowns, and how advisors manage downside risk. Fully built — try it now.', path: '/risk-management', icon: 'shield', lessons: 5, minutes: 28 },
+  { tag: 'good to have', title: 'Financial planning basics', description: 'Retirement planning, tax considerations, and estate basics. Fully built — try it now.', path: '/financial-planning', icon: 'calendar-time', lessons: 5, minutes: 28 },
+  { tag: 'good to have', title: 'Alternative investments', description: 'Private equity, real estate, and hedge fund strategies as portfolio pieces. Fully built — try it now.', path: '/alternative-investments', icon: 'building-skyscraper', lessons: 5, minutes: 28 },
 ];
 
 const CARDS = [

@@ -6,12 +6,12 @@ import { getCategoryByPath } from '../data/categories';
 const cat = getCategoryByPath('/corp-finance');
 
 const TOPICS = [
-  { tag: 'must know', title: 'Financial statements', description: 'Read and interpret the income statement, balance sheet, and cash flow statement.', icon: 'file-text', lessons: 5, minutes: 40 },
-  { tag: 'must know', title: 'Key metrics', description: 'Revenue, EBITDA, margins, ROE, EPS — what they mean and why they matter.', icon: 'chart-bar', lessons: 4, minutes: 30 },
+  { tag: 'must know', title: 'Financial statements', description: 'Read and interpret the income statement, balance sheet, and cash flow statement. Fully built — try it now.', path: '/three-statement-model', icon: 'file-text', lessons: 6, minutes: 42 },
+  { tag: 'must know', title: 'Key metrics', description: 'Revenue, EBITDA, margins, ROE, EPS — what they mean and why they matter. Fully built — try it now.', path: '/key-metrics', icon: 'chart-bar', lessons: 6, minutes: 34 },
   { tag: 'high value', title: 'DCF valuation', description: 'Discount future cash flows to find intrinsic value. Fully built — try it now.', path: '/tool', icon: 'trending-up', lessons: 5, minutes: 40 },
-  { tag: 'high value', title: 'Excel modeling', description: 'Shortcuts, VLOOKUP, pivot tables, and basic financial models.', icon: 'table', lessons: 5, minutes: 35 },
-  { tag: 'high value', title: 'Accounting basics', description: 'Debits/credits, accruals, depreciation, working capital.', icon: 'calculator', lessons: 5, minutes: 35 },
-  { tag: 'good to have', title: 'Capital structure', description: 'Debt vs. equity, WACC, and cost of capital decisions.', icon: 'scale', lessons: 3, minutes: 25 },
+  { tag: 'high value', title: 'Excel modeling', description: 'Shortcuts, VLOOKUP, pivot tables, and basic financial models. Fully built — try it now.', path: '/excel-modeling', icon: 'table', lessons: 5, minutes: 26 },
+  { tag: 'high value', title: 'Accounting basics', description: 'Debits/credits, accruals, depreciation, working capital. Fully built — try it now.', path: '/accounting-basics', icon: 'calculator', lessons: 6, minutes: 31 },
+  { tag: 'good to have', title: 'Capital structure', description: 'Debt vs. equity, WACC, and cost of capital decisions. Fully built — try it now.', path: '/capital-structure', icon: 'scale', lessons: 5, minutes: 28 },
 ];
 
 const CARDS = [

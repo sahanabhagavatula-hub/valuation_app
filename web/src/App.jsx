@@ -19,6 +19,25 @@ import CompsAnalysis from './pages/CompsAnalysis';
 import PitchBooks from './pages/PitchBooks';
 import ThreeStatementModel from './pages/ThreeStatementModel';
 import GeneralistOlympics from './pages/GeneralistOlympics';
+import PrecedentTransactions from './pages/PrecedentTransactions';
+import LboModeling from './pages/LboModeling';
+import PortfolioConstruction from './pages/PortfolioConstruction';
+import ClientCommunication from './pages/ClientCommunication';
+import InvestmentPhilosophy from './pages/InvestmentPhilosophy';
+import RiskManagement from './pages/RiskManagement';
+import FinancialPlanning from './pages/FinancialPlanning';
+import AlternativeInvestments from './pages/AlternativeInvestments';
+import CaseInterviews from './pages/CaseInterviews';
+import SlideStorytelling from './pages/SlideStorytelling';
+import IndustryKnowledge from './pages/IndustryKnowledge';
+import KeyMetrics from './pages/KeyMetrics';
+import ExcelModeling from './pages/ExcelModeling';
+import AccountingBasics from './pages/AccountingBasics';
+import CapitalStructure from './pages/CapitalStructure';
+import Behaviorals from './pages/Behaviorals';
+import WhyThisFirm from './pages/WhyThisFirm';
+import CurrentEvents from './pages/CurrentEvents';
+import Networking from './pages/Networking';
 import TickerTape from './components/TickerTape';
 import './theme.css';
 
@@ -61,6 +80,25 @@ export default function App() {
         <Route path="/pitch-books" element={<PitchBooks />} />
         <Route path="/three-statement-model" element={<ThreeStatementModel />} />
         <Route path="/generalist-olympics" element={<GeneralistOlympics />} />
+        <Route path="/precedent-transactions" element={<PrecedentTransactions />} />
+        <Route path="/lbo-modeling" element={<LboModeling />} />
+        <Route path="/portfolio-construction" element={<PortfolioConstruction />} />
+        <Route path="/client-communication" element={<ClientCommunication />} />
+        <Route path="/investment-philosophy" element={<InvestmentPhilosophy />} />
+        <Route path="/risk-management" element={<RiskManagement />} />
+        <Route path="/financial-planning" element={<FinancialPlanning />} />
+        <Route path="/alternative-investments" element={<AlternativeInvestments />} />
+        <Route path="/case-interviews" element={<CaseInterviews />} />
+        <Route path="/slide-storytelling" element={<SlideStorytelling />} />
+        <Route path="/industry-knowledge" element={<IndustryKnowledge />} />
+        <Route path="/key-metrics" element={<KeyMetrics />} />
+        <Route path="/excel-modeling" element={<ExcelModeling />} />
+        <Route path="/accounting-basics" element={<AccountingBasics />} />
+        <Route path="/capital-structure" element={<CapitalStructure />} />
+        <Route path="/behaviorals" element={<Behaviorals />} />
+        <Route path="/why-this-firm" element={<WhyThisFirm />} />
+        <Route path="/current-events" element={<CurrentEvents />} />
+        <Route path="/networking" element={<Networking />} />
       </Routes>
     </HashRouter>
   );

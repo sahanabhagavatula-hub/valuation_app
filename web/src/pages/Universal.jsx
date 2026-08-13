@@ -6,10 +6,10 @@ import { getCategoryByPath } from '../data/categories';
 const cat = getCategoryByPath('/universal');
 
 const TOPICS = [
-  { tag: 'must know', title: 'Behaviorals (STAR)', description: 'Situation, Task, Action, Result — tell compelling stories about your experience.', icon: 'message-2', lessons: 4, minutes: 30 },
-  { tag: 'must know', title: '"Why this firm"', description: 'Research the firm, know their deals/clients, give a specific answer.', icon: 'building-bank', lessons: 3, minutes: 20 },
-  { tag: 'high value', title: 'Current events', description: 'Read WSJ or FT daily — know 2-3 macro themes and recent deals.', icon: 'news', lessons: 3, minutes: 20 },
-  { tag: 'high value', title: 'Networking', description: 'Cold outreach, informational interviews, following up correctly.', icon: 'users-group', lessons: 4, minutes: 25 },
+  { tag: 'must know', title: 'Behaviorals (STAR)', description: 'Situation, Task, Action, Result — tell compelling stories about your experience. Fully built — try it now.', path: '/behaviorals', icon: 'message-2', lessons: 5, minutes: 27 },
+  { tag: 'must know', title: '"Why this firm"', description: 'Research the firm, know their deals/clients, give a specific answer. Fully built — try it now.', path: '/why-this-firm', icon: 'building-bank', lessons: 5, minutes: 26 },
+  { tag: 'high value', title: 'Current events', description: 'Read WSJ or FT daily — know 2-3 macro themes and recent deals. Fully built — try it now.', path: '/current-events', icon: 'news', lessons: 5, minutes: 26 },
+  { tag: 'high value', title: 'Networking', description: 'Cold outreach, informational interviews, following up correctly. Fully built — try it now.', path: '/networking', icon: 'users-group', lessons: 5, minutes: 27 },
 ];
 
 const CARDS = [

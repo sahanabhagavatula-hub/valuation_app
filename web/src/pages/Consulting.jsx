@@ -6,12 +6,12 @@ import { getCategoryByPath } from '../data/categories';
 const cat = getCategoryByPath('/consulting');
 
 const TOPICS = [
-  { tag: 'must know', title: 'Case interviews', description: 'Structured problem solving — profitability, market entry, M&A cases.', icon: 'message-2', lessons: 5, minutes: 45 },
+  { tag: 'must know', title: 'Case interviews', description: 'Structured problem solving — profitability, market entry, M&A cases. Fully built — try it now.', path: '/case-interviews', icon: 'message-2', lessons: 6, minutes: 36 },
   { tag: 'must know', title: 'Frameworks', description: "MECE thinking, issue trees, profitability framework, Porter's 5 Forces.", path: '/frameworks', icon: 'sitemap', lessons: 10, minutes: 60 },
   { tag: 'must know', title: 'Market sizing', description: 'Fermi estimation — "how many ping pong balls fit in a school bus?"', path: '/market-sizing', icon: 'ruler-2', lessons: 3, minutes: 25 },
-  { tag: 'high value', title: 'Slide storytelling', description: 'Pyramid principle — leading with the answer, supporting with data.', icon: 'presentation', lessons: 3, minutes: 20 },
+  { tag: 'high value', title: 'Slide storytelling', description: 'Pyramid principle — leading with the answer, supporting with data. Fully built — try it now.', path: '/slide-storytelling', icon: 'presentation', lessons: 5, minutes: 26 },
   { tag: 'high value', title: 'Mental math', description: 'Fast arithmetic, percentages, and estimation under pressure.', path: '/mental-math', icon: 'calculator', lessons: 4, minutes: 20 },
-  { tag: 'good to have', title: 'Industry knowledge', description: 'Healthcare, tech, retail, financial services sector basics.', icon: 'building-factory-2', lessons: 4, minutes: 30 },
+  { tag: 'good to have', title: 'Industry knowledge', description: 'Healthcare, tech, retail, financial services sector basics. Fully built — try it now.', path: '/industry-knowledge', icon: 'building-factory-2', lessons: 4, minutes: 21 },
 ];
 
 const CARDS = [

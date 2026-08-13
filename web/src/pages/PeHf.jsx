@@ -7,11 +7,11 @@ const cat = getCategoryByPath('/pe-hf');
 
 const TOPICS = [
   { tag: 'must know', title: 'Stock pitch', description: 'A buy/sell recommendation with thesis, valuation, catalysts, and risks.', path: '/stock-pitch', icon: 'presentation', lessons: 5, minutes: 45 },
-  { tag: 'must know', title: 'LBO modeling', description: 'Leveraged buyout mechanics — how PE firms buy companies using debt.', icon: 'stack-3', lessons: 5, minutes: 40 },
+  { tag: 'must know', title: 'LBO modeling', description: 'Leveraged buyout mechanics — how PE firms buy companies using debt. Fully built — try it now.', path: '/lbo-modeling', icon: 'stack-3', lessons: 6, minutes: 39 },
   { tag: 'must know', title: 'DCF valuation', description: 'Discount future cash flows to find intrinsic value. Fully built — try it now.', path: '/tool', icon: 'trending-up', lessons: 5, minutes: 40 },
-  { tag: 'high value', title: 'Comps analysis', description: 'Compare EV/EBITDA and P/E multiples across peer companies.', icon: 'chart-bar', lessons: 4, minutes: 30 },
-  { tag: 'high value', title: '3-statement model', description: 'Income statement, balance sheet, and cash flow linked together.', icon: 'list', lessons: 6, minutes: 55 },
-  { tag: 'good to have', title: 'Market sizing', description: 'Estimate TAM bottom-up or top-down for a given market.', icon: 'ruler-2', lessons: 3, minutes: 20 },
+  { tag: 'high value', title: 'Comps analysis', description: 'Compare EV/EBITDA and P/E multiples across peer companies. Fully built — try it now.', path: '/comps', icon: 'chart-bar', lessons: 5, minutes: 30 },
+  { tag: 'high value', title: '3-statement model', description: 'Income statement, balance sheet, and cash flow linked together. Fully built — try it now.', path: '/three-statement-model', icon: 'list', lessons: 6, minutes: 42 },
+  { tag: 'good to have', title: 'Market sizing', description: 'Estimate TAM bottom-up or top-down for a given market. Fully built — try it now.', path: '/market-sizing', icon: 'ruler-2', lessons: 3, minutes: 20 },
 ];
 
 const CARDS = [
