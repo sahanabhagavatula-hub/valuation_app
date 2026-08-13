@@ -80,14 +80,30 @@ function CheckIcon() {
   );
 }
 
+const STAR_LETTERS = ['S', 'T', 'A', 'R'];
+const STAR_POSITIONS = ['top', 'right', 'bottom', 'left'];
+
 function Lesson1({ activePart, setActivePart }) {
   return (
     <>
-      <div className="valufin-bhv-eyebrow">CLICK EACH PART →</div>
-      <div className="valufin-bhv-criteria-row">
+      <div className="valufin-bhv-eyebrow">CLICK EACH POINT →</div>
+      <div className="valufin-bhv-star-wrap">
+        <svg className="valufin-bhv-star-svg" viewBox="0 0 320 320">
+          <polygon
+            points="160,10 193.9,126.1 310,160 193.9,193.9 160,310 126.1,193.9 10,160 126.1,126.1"
+            fill="rgba(79,195,199,0.05)"
+            stroke="rgba(79,195,199,0.3)"
+            strokeWidth="1.5"
+          />
+        </svg>
+        <div className="valufin-bhv-star-hub">{STAR_LETTERS[activePart]}</div>
         {STAR_PARTS.map((p, i) => (
-          <button key={p.label} className={`valufin-bhv-criteria-card${activePart === i ? ' active' : ''}`} onClick={() => setActivePart(i)}>
-            <div className="valufin-bhv-criteria-label">{p.label}</div>
+          <button
+            key={p.label}
+            className={`valufin-bhv-star-point valufin-bhv-star-point-${STAR_POSITIONS[i]}${activePart === i ? ' active' : ''}`}
+            onClick={() => setActivePart(i)}
+          >
+            {STAR_LETTERS[i]}
           </button>
         ))}
       </div>

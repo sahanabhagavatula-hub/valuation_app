@@ -3117,6 +3117,17 @@ hr, .valufin-hr { border: none; border-top: 1px solid rgba(237,235,228,0.08); ma
 .valufin-bhv-detail-head, .valufin-wtf-detail-head, .valufin-cur-detail-head { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #4FC3C7; margin-bottom: 10px; }
 .valufin-bhv-detail-body, .valufin-wtf-detail-body, .valufin-cur-detail-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
 
+.valufin-bhv-star-wrap { position: relative; width: 300px; height: 300px; max-width: 100%; margin: 4px auto 26px; }
+.valufin-bhv-star-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.valufin-bhv-star-hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 92px; height: 92px; border-radius: 50%; background: #12161C; border: 1px solid rgba(237,235,228,0.14); display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 22px; color: #4FC3C7; }
+.valufin-bhv-star-point { all: unset; cursor: pointer; box-sizing: border-box; position: absolute; width: 68px; height: 68px; border-radius: 50%; background: #12161C; border: 1px solid rgba(237,235,228,0.14); display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 18px; color: #EDEBE4; transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease; }
+.valufin-bhv-star-point.active { border-color: #4FC3C7; background: rgba(79,195,199,0.12); color: #4FC3C7; box-shadow: 0 0 0 4px rgba(79,195,199,0.08); }
+.valufin-bhv-star-point:hover { border-color: rgba(79,195,199,0.5); }
+.valufin-bhv-star-point-top { top: 0; left: 50%; transform: translate(-50%, 0); }
+.valufin-bhv-star-point-right { top: 50%; right: 0; transform: translate(0, -50%); }
+.valufin-bhv-star-point-bottom { bottom: 0; left: 50%; transform: translate(-50%, 0); }
+.valufin-bhv-star-point-left { top: 50%; left: 0; transform: translate(0, -50%); }
+
 .valufin-bhv-panel, .valufin-wtf-panel, .valufin-cur-panel, .valufin-net-panel { background: #12161C; border: 1px solid rgba(237,235,228,0.1); border-radius: 12px; padding: 22px 24px; }
 .valufin-bhv-panel-body, .valufin-wtf-panel-body, .valufin-cur-panel-body, .valufin-net-panel-body { font-size: 14px; line-height: 1.65; color: #D8D3C8; margin: 0; }
 .valufin-bhv-pick-row { display: flex; gap: 8px; flex-wrap: wrap; }
