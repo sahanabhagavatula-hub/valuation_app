@@ -21,9 +21,9 @@ export default function PriceHistoryChart({ history }) {
           domain={['auto', 'auto']}
         />
         <Tooltip
-          contentStyle={{ background: '#1f1b15', border: '1px solid #322c23', borderRadius: 8 }}
-          labelStyle={{ color: '#8e8675' }}
-          itemStyle={{ color: '#ffffff' }}
+          contentStyle={{ background: '#252525', border: '1px solid rgba(237,235,228,0.14)', borderRadius: 8 }}
+          labelStyle={{ color: '#9C978C' }}
+          itemStyle={{ color: '#EDEBE4' }}
           formatter={(v) => [`$${Number(v).toFixed(2)}`, 'Price']}
         />
         <Area type="monotone" dataKey="price" stroke="#6b9b94" strokeWidth={2} fill="url(#priceFill)" />

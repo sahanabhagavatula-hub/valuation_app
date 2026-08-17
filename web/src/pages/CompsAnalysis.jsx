@@ -592,8 +592,6 @@ export default function CompsAnalysis() {
     <div
       style={{
         minHeight: '100vh',
-        backgroundImage: 'radial-gradient(rgba(237,235,228,0.06) 1px, transparent 1px)',
-        backgroundSize: '22px 22px',
       }}
     >
       <div className="valufin-lesson-topbar">

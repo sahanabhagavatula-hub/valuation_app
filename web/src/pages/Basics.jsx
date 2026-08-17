@@ -66,12 +66,12 @@ function DcfDiagram() {
       <text x="480" y="20" fill="#8F887A" fontSize="11" fontFamily="Roboto Mono, monospace">Year 5</text>
       <text x="610" y="20" fill="#C4B79A" fontSize="11" fontFamily="Roboto Mono, monospace">Terminal value</text>
 
-      <rect x="0" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
-      <rect x="120" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
-      <rect x="240" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
-      <rect x="360" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
-      <rect x="480" y="35" width="90" height="40" rx="6" fill="#10151d" stroke="#1c2129" />
-      <rect x="600" y="35" width="190" height="40" rx="6" fill="#0d1a15" stroke="#3FBF6F" />
+      <rect x="0" y="35" width="90" height="40" rx="6" fill="#252525" stroke="rgba(237,235,228,0.14)" />
+      <rect x="120" y="35" width="90" height="40" rx="6" fill="#252525" stroke="rgba(237,235,228,0.14)" />
+      <rect x="240" y="35" width="90" height="40" rx="6" fill="#252525" stroke="rgba(237,235,228,0.14)" />
+      <rect x="360" y="35" width="90" height="40" rx="6" fill="#252525" stroke="rgba(237,235,228,0.14)" />
+      <rect x="480" y="35" width="90" height="40" rx="6" fill="#252525" stroke="rgba(237,235,228,0.14)" />
+      <rect x="600" y="35" width="190" height="40" rx="6" fill="rgba(63,191,111,0.08)" stroke="#3FBF6F" />
 
       <text x="45" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Roboto Mono, monospace">FCF</text>
       <text x="165" y="59" fill="#EDEBE4" fontSize="13" textAnchor="middle" fontFamily="Roboto Mono, monospace">FCF</text>

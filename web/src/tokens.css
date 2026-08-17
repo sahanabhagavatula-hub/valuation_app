@@ -1,29 +1,32 @@
 /* ============================================================
-   ValuED — "Terminal Editorial" theme tokens
-   Trading-terminal dark UI + modern sans, market-data motifs.
-   Import once at the app root.
+   ValuED — cream on near-black, market green/red for data only.
+   Atmosphere: grain + dots. Surfaces: solid black cards.
    ============================================================ */
 
 :root {
   /* --- Base --- */
-  --color-bg:        #0A0E14; /* page background, near-black navy */
-  --color-surface:   rgba(255,255,255,0.02);  /* raised rows / ticker bg */
-  --color-surface-hover: rgba(255,255,255,0.035);
-  --color-border:    rgba(237,235,228,0.08);  /* hairlines */
-  --color-border-strong: rgba(237,235,228,0.1);
+  --color-bg:        #000000;
+  --color-surface:   #0A0A0A;
+  --color-surface-hover: #111111;
+  --color-border:    rgba(237,235,228,0.12);
+  --color-border-strong: rgba(237,235,228,0.18);
+
+  --glass-bg:        #0A0A0A;
+  --glass-bg-strong: #111111;
+  --glass-border:    rgba(237,235,228,0.14);
+  --glass-blur:      0px;
 
   /* --- Text --- */
-  --color-text:        #EDEBE4; /* primary */
-  --color-text-muted:  #9C978C; /* secondary */
-  --color-text-subtle: #8F887A; /* captions / meta */
-  --color-text-dim:    #6f6a5f; /* least emphasis (table headers) */
+  --color-text:        #EDEBE4;
+  --color-text-muted:  #9C978C;
+  --color-text-subtle: #8F887A;
+  --color-text-dim:    #6F6A5F;
 
-  /* --- Market signal colors (core to this theme) --- */
-  --color-up:    #3FBF6F; /* gains / accent / primary CTA */
-  --color-down:  #D9694F; /* losses / must-know tag */
-  --color-gold:  #C4B79A; /* high-value tier / secondary accent */
+  /* --- Market signal (data only — not brand chrome) --- */
+  --color-up:    #3FBF6F;
+  --color-down:  #D9694F;
+  --color-gold:  #C4B79A;
 
-  /* --- Semantic (dark-first) --- */
   --bg:            var(--color-bg);
   --surface:       var(--color-surface);
   --surface-hover: var(--color-surface-hover);
@@ -32,16 +35,14 @@
   --text-muted:    var(--color-text-muted);
   --text-subtle:   var(--color-text-subtle);
   --text-dim:      var(--color-text-dim);
-  --accent:        var(--color-up);
+  --accent:        var(--color-text);
   --accent-2:      var(--color-gold);
   --danger:        var(--color-down);
 
-  /* --- Typography --- */
-  --font-display: 'Libre Franklin', system-ui, sans-serif; /* headings, wordmark, UI */
-  --font-body:    'Libre Franklin', system-ui, sans-serif; /* body — same family, lighter weights */
-  --font-mono:    'Roboto Mono', 'SF Mono', monospace;      /* tickers, deltas, data only */
+  --font-display: 'Libre Franklin', system-ui, sans-serif;
+  --font-body:    'Libre Franklin', system-ui, sans-serif;
+  --font-mono:    'Roboto Mono', 'SF Mono', monospace;
 
-  /* Type scale (px) */
   --text-hero:  92px;
   --text-h1:    38px;
   --text-h2:    28px;
@@ -53,8 +54,7 @@
   --text-mono:  13px;
   --text-mono-sm: 11px;
 
-  /* Radius */
-  --radius-sm: 6px;
-  --radius:    8px;
-  --radius-lg: 10px;
+  --radius-sm: 4px;
+  --radius:    6px;
+  --radius-lg: 8px;
 }

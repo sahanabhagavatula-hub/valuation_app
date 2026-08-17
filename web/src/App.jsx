@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import SiteHeader from './components/SiteHeader';
+import SiteFooter from './components/SiteFooter';
 import Home from './pages/Home';
 import Basics from './pages/Basics';
 import Tool from './pages/Tool';
@@ -41,6 +42,18 @@ import CurrentEvents from './pages/CurrentEvents';
 import Networking from './pages/Networking';
 import TickerTape from './components/TickerTape';
 import './theme.css';
+
+function GrainOverlay() {
+  return (
+    <svg className="valufin-grain" aria-hidden="true">
+      <filter id="valued-grain" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#valued-grain)" />
+    </svg>
+  );
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -102,6 +115,8 @@ export default function App() {
         <Route path="/current-events" element={<CurrentEvents />} />
         <Route path="/networking" element={<Networking />} />
       </Routes>
+      <SiteFooter />
+      <GrainOverlay />
     </HashRouter>
   );
 }

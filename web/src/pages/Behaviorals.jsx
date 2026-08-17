@@ -138,9 +138,9 @@ function Lesson1() {
               className="valufin-bhv-star-point"
               style={{
                 top: p.top, left: p.left,
-                background: active ? 'rgba(79,195,199,0.12)' : '#12161C',
+                background: active ? 'rgba(79,195,199,0.12)' : '#252525',
                 borderColor: active ? '#4FC3C7' : 'rgba(237,235,228,0.14)',
-                boxShadow: active ? '0 0 24px rgba(79,195,199,0.25)' : 'none',
+                boxShadow: active ? '0 0 24px rgba(79,195,199,0.18)' : 'none',
               }}
             >
               <div>
@@ -339,7 +339,7 @@ export default function Behaviorals() {
   const isLast = activeIndex === LESSONS.length - 1;
 
   return (
-    <div style={{ minHeight: '100vh', backgroundImage: 'radial-gradient(rgba(237,235,228,0.06) 1px, transparent 1px)', backgroundSize: '22px 22px' }}>
+    <div style={{ minHeight: '100vh' }}>
       <div className="valufin-lesson-topbar">
         <Breadcrumb items={view === 'list'
           ? [{ label: 'Universal', path: '/universal' }, { label: 'Behaviorals (STAR)' }]

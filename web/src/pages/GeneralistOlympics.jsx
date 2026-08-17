@@ -148,10 +148,10 @@ function Lesson1Define({ activeFieldId, setActiveFieldId, clueIndex, clueFeedbac
             <button
               key={f.id}
               className={`valufin-gol-field-card${active ? ' active' : ''}`}
-              style={active ? { background: `linear-gradient(160deg, ${f.color}22, #12161C)`, borderColor: f.color, boxShadow: `0 10px 26px ${f.color}33` } : undefined}
+              style={active ? { background: `linear-gradient(160deg, ${f.color}22, #252525)`, borderColor: f.color, boxShadow: `0 10px 26px ${f.color}22` } : undefined}
               onClick={() => setActiveFieldId(f.id)}
             >
-              <span className="valufin-gol-field-icon" style={{ background: active ? f.color : 'rgba(255,255,255,0.06)', boxShadow: active ? `0 0 18px ${f.color}66` : 'none' }}>
+              <span className="valufin-gol-field-icon" style={{ background: active ? f.color : 'rgba(255,255,255,0.06)', boxShadow: active ? `0 0 18px ${f.color}44` : 'none' }}>
                 <FieldIcon d={f.svg} color={active ? '#0A0E14' : f.color} />
               </span>
               <div className="valufin-gol-field-label" style={{ color: f.color }}>{f.label}</div>
@@ -485,8 +485,6 @@ export default function GeneralistOlympics() {
     <div
       style={{
         minHeight: '100vh',
-        backgroundImage: 'radial-gradient(rgba(237,235,228,0.06) 1px, transparent 1px)',
-        backgroundSize: '22px 22px',
       }}
     >
       <div className="valufin-lesson-topbar">

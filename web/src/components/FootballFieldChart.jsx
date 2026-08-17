@@ -16,16 +16,16 @@ export default function FootballFieldChart({ comps, dcf, price }) {
         <XAxis
           type="number"
           domain={[0, maxX]}
-          tick={{ fontSize: 11, fill: '#ffffff' }}
+          tick={{ fontSize: 11, fill: '#9C978C' }}
           tickFormatter={(v) => `$${v.toFixed(0)}`}
-          axisLine={{ stroke: '#322c23' }}
+          axisLine={{ stroke: 'rgba(237,235,228,0.16)' }}
           tickLine={false}
           label={{ value: 'Implied share price ($)', position: 'insideBottom', offset: -5, fill: '#8e8675', fontSize: 12 }}
         />
-        <YAxis type="category" dataKey="name" tick={{ fontSize: 12, fill: '#ffffff' }} axisLine={false} tickLine={false} width={60} />
+        <YAxis type="category" dataKey="name" tick={{ fontSize: 12, fill: '#EDEBE4' }} axisLine={false} tickLine={false} width={60} />
         <Tooltip
-          contentStyle={{ background: '#1f1b15', border: '1px solid #322c23', borderRadius: 8 }}
-          labelStyle={{ color: '#8e8675' }}
+          contentStyle={{ background: '#252525', border: '1px solid rgba(237,235,228,0.14)', borderRadius: 8 }}
+          labelStyle={{ color: '#9C978C' }}
           formatter={(_value, _name, item) => [`$${item.payload.low.toFixed(2)} - $${item.payload.high.toFixed(2)}`, 'Range']}
         />
         <Bar dataKey="base" stackId="a" fill="transparent" isAnimationActive={false} />
@@ -38,7 +38,7 @@ export default function FootballFieldChart({ comps, dcf, price }) {
           x={price}
           stroke="#c79b5f"
           strokeDasharray="4 4"
-          label={{ value: 'Current price', position: 'top', fill: '#ffffff', fontSize: 11 }}
+          label={{ value: 'Current price', position: 'top', fill: '#9C978C', fontSize: 11 }}
         />
       </BarChart>
     </ResponsiveContainer>

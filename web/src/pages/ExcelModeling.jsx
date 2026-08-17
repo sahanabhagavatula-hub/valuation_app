@@ -263,7 +263,7 @@ export default function ExcelModeling() {
   const isLast = activeIndex === LESSONS.length - 1;
 
   return (
-    <div style={{ minHeight: '100vh', backgroundImage: 'radial-gradient(rgba(237,235,228,0.06) 1px, transparent 1px)', backgroundSize: '22px 22px' }}>
+    <div style={{ minHeight: '100vh' }}>
       <div className="valufin-lesson-topbar">
         <Breadcrumb items={view === 'list'
           ? [{ label: 'Corporate Finance', path: '/corp-finance' }, { label: 'Excel Modeling' }]

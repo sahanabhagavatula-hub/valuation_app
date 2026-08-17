@@ -3,7 +3,7 @@ import tradingScreen from '../assets/trading_screen.png';
 import tickerBoard from '../assets/ticker_board.png';
 import arrowChart from '../assets/arrow_chart.png';
 import barChart from '../assets/bar_chart.svg';
-import conversation from '../assets/conversation.svg';
+import candlestickChart from '../assets/candlestick_chart.png';
 
 export const CATEGORIES = [
   {
@@ -12,7 +12,7 @@ export const CATEGORIES = [
     description: 'M&A process, pitch books, live deal modeling, DCF, and comps.',
     path: '/ib',
     image: heroSkyscrapers,
-    tint: 'rgba(22,48,42,0.6)',
+    tint: 'rgba(63,191,111,0.14)',
     accent: '#7FA896',
     bgMotif: 'candlesticks',
   },
@@ -22,7 +22,7 @@ export const CATEGORIES = [
     description: 'Stock pitches, LBO modeling, comps analysis, and buy-side thinking.',
     path: '/pe-hf',
     image: tradingScreen,
-    tint: 'rgba(18,32,50,0.6)',
+    tint: 'rgba(126,200,227,0.14)',
     accent: '#7ec8e3',
     bgMotif: 'depth-chart',
   },
@@ -32,7 +32,7 @@ export const CATEGORIES = [
     description: 'Portfolio construction, client communication, and investment philosophy.',
     path: '/wam',
     image: tickerBoard,
-    tint: 'rgba(30,38,44,0.6)',
+    tint: 'rgba(159,180,189,0.16)',
     accent: '#9fb4bd',
     bgMotif: 'constellation',
   },
@@ -42,7 +42,7 @@ export const CATEGORIES = [
     description: 'Case interviews, frameworks, market sizing, and slide storytelling.',
     path: '/consulting',
     image: arrowChart,
-    tint: 'rgba(18,42,38,0.6)',
+    tint: 'rgba(143,196,191,0.14)',
     accent: '#8fc4bf',
     bgMotif: 'hypothesis-tree',
   },
@@ -52,7 +52,7 @@ export const CATEGORIES = [
     description: 'Financial statements, key metrics, Excel modeling, and capital structure.',
     path: '/corp-finance',
     image: barChart,
-    tint: 'rgba(34,37,39,0.6)',
+    tint: 'rgba(168,176,180,0.16)',
     accent: '#a8b0b4',
     bgMotif: 'balance-grid',
   },
@@ -61,8 +61,8 @@ export const CATEGORIES = [
     title: 'Universal — every interview',
     description: 'Behavioral stories, "why this firm," current events, and networking.',
     path: '/universal',
-    image: conversation,
-    tint: 'rgba(16,38,44,0.6)',
+    image: candlestickChart,
+    tint: 'rgba(63,191,111,0.14)',
     accent: '#6bc2b0',
     bgMotif: 'signal-grid',
   },

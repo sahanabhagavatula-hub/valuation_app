@@ -40,7 +40,6 @@ export default function CategoryPage({
         <div className="valufin-category-hero-wrap" style={heroStyle}>
           <div className="valufin-scene-bg" />
           <div className="valufin-scene-overlay valufin-scene-overlay-extended" />
-          <div className="valufin-scene-scanlines" />
 
           <div className="valufin-category-hero-inner">
             <div className="valufin-hero-topbar">
@@ -49,9 +48,10 @@ export default function CategoryPage({
               </div>
             </div>
             <div className="valufin-category-hero-content scroll-element-once">
-              <p className="valufin-category-hero-pill" style={{ color: heroAccent }}>[ {pillLabel.toUpperCase()} ]</p>
-              <h1 className="valufin-category-hero-title">{title}</h1>
-              <p className="valufin-hero-sub">{caption}</p>
+              <div className="valufin-scene-panel">
+                <h1 className="valufin-category-hero-title">{title}</h1>
+                <p className="valufin-hero-sub">{caption}</p>
+              </div>
             </div>
             <div className="valufin-hero-scroll-hint">
               <span>Scroll for topics</span>
@@ -67,16 +67,16 @@ export default function CategoryPage({
         <div className="valufin-category-hero" style={heroStyle}>
           <div className="valufin-scene-bg" />
           <div className="valufin-scene-overlay" />
-          <div className="valufin-scene-scanlines" />
           <div className="valufin-hero-topbar">
             <div className="valufin-hero-topbar-inner">
               <Breadcrumb items={[{ label: 'Home', path: backPath }, { label: title }]} />
             </div>
           </div>
           <div className="valufin-category-hero-content scroll-element-once">
-            <p className="valufin-category-hero-pill" style={{ color: heroAccent }}>[ {pillLabel.toUpperCase()} ]</p>
-            <h1 className="valufin-category-hero-title">{title}</h1>
-            <p className="valufin-hero-sub">{caption}</p>
+            <div className="valufin-scene-panel">
+              <h1 className="valufin-category-hero-title">{title}</h1>
+              <p className="valufin-hero-sub">{caption}</p>
+            </div>
           </div>
           <div className="valufin-hero-scroll-hint">
             <span>Scroll for topics</span>

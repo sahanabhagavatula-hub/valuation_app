@@ -7,21 +7,39 @@ const TICKER_SYMBOLS = [
   { sym: 'NVDA', chg: '+3.05%', up: true },
   { sym: 'META', chg: '-0.62%', up: false },
   { sym: 'JPM', chg: '+0.29%', up: true },
+  { sym: 'GS', chg: '+1.14%', up: true },
+  { sym: 'MS', chg: '-0.38%', up: false },
+  { sym: 'BAC', chg: '+0.71%', up: true },
+  { sym: 'V', chg: '+0.55%', up: true },
 ];
+
+function TickerSet({ copyKey }) {
+  return (
+    <span className="valufin-ticker-tape-content" aria-hidden={copyKey > 0}>
+      {TICKER_SYMBOLS.map((t) => (
+        <span key={`${copyKey}-${t.sym}`} className={t.up ? 'up' : 'down'}>
+          {t.sym} {t.chg} {t.up ? '▲' : '▼'}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export default function TickerTape({ className = '' }) {
   return (
     <div className={`valufin-ticker-tape ${className}`}>
       <div className="valufin-ticker-tape-track">
-        {Array.from({ length: 2 }).map((_, i) => (
-          <span className="valufin-ticker-tape-content" key={i}>
-            {TICKER_SYMBOLS.map((t) => (
-              <span key={t.sym} className={t.up ? 'up' : 'down'}>
-                {t.sym} {t.chg} {t.up ? '▲' : '▼'}
-              </span>
-            ))}
-          </span>
-        ))}
+        {/* Two identical halves so translateX(-50%) loops with no gap */}
+        <span className="valufin-ticker-tape-half">
+          <TickerSet copyKey={0} />
+          <TickerSet copyKey={1} />
+          <TickerSet copyKey={2} />
+        </span>
+        <span className="valufin-ticker-tape-half" aria-hidden="true">
+          <TickerSet copyKey={3} />
+          <TickerSet copyKey={4} />
+          <TickerSet copyKey={5} />
+        </span>
       </div>
     </div>
   );

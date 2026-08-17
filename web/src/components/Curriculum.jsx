@@ -1,4 +1,4 @@
-import { Button } from './Widgets';
+import Sparkline from './Sparkline';
 
 const TAG_CLASS = {
   'must know': 'valufin-tag-must-know',
@@ -10,12 +10,12 @@ export function TopicCard({ tag, title, description, onClick }) {
   const tagClass = TAG_CLASS[tag.toLowerCase()] || 'valufin-tag-good-to-have';
   return (
     <div style={{ marginBottom: 12 }}>
-      <div className="valufin-topic-card">
+      <button type="button" className="valufin-topic-card" onClick={onClick}>
         <span className={`valufin-tag-pill ${tagClass}`}>{tag}</span>
         <p className="valufin-topic-title">{title}</p>
         <p className="valufin-topic-desc">{description}</p>
-        <Button variant="secondary" onClick={onClick}>Learn this</Button>
-      </div>
+        <Sparkline seed={title} />
+      </button>
     </div>
   );
 }
