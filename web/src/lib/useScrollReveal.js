@@ -78,12 +78,7 @@ export function useScrollReveal(deps = []) {
 
       const pinTarget = document.querySelector('.valufin-pin-freeze');
       if (pinTarget) {
-        const coverTarget = document.querySelector('.valufin-pin-cover');
         const freezeHeight = Math.round(pinTarget.getBoundingClientRect().height);
-        // The frozen frame needs its own full height of scroll room to clear
-        // the viewport again after unpinning — reserve that as runway so its
-        // tail never peeks back into view at the bottom of the page.
-        if (coverTarget) coverTarget.style.paddingBottom = `${freezeHeight}px`;
 
         ScrollTrigger.create({
           trigger: pinTarget,
@@ -91,6 +86,8 @@ export function useScrollReveal(deps = []) {
           end: () => '+=' + freezeHeight,
           pin: true,
           pinSpacing: false,
+          onLeave: () => gsap.set(pinTarget, { autoAlpha: 0 }),
+          onEnterBack: () => gsap.set(pinTarget, { autoAlpha: 1 }),
         });
       }
 

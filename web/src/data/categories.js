@@ -15,6 +15,7 @@ export const CATEGORIES = [
     tint: 'rgba(63,191,111,0.14)',
     accent: '#7FA896',
     bgMotif: 'candlesticks',
+    cardMark: 'candles',
   },
   {
     code: 'Private Equity / Hedge Funds',
@@ -25,6 +26,7 @@ export const CATEGORIES = [
     tint: 'rgba(126,200,227,0.14)',
     accent: '#7ec8e3',
     bgMotif: 'depth-chart',
+    cardMark: 'line',
   },
   {
     code: 'Wealth & Asset Management',
@@ -35,6 +37,7 @@ export const CATEGORIES = [
     tint: 'rgba(159,180,189,0.16)',
     accent: '#9fb4bd',
     bgMotif: 'constellation',
+    cardMark: 'alloc',
   },
   {
     code: 'Consulting',
@@ -45,6 +48,7 @@ export const CATEGORIES = [
     tint: 'rgba(143,196,191,0.14)',
     accent: '#8fc4bf',
     bgMotif: 'hypothesis-tree',
+    cardMark: 'waterfall',
   },
   {
     code: 'General Business / Corporate Finance',
@@ -55,6 +59,7 @@ export const CATEGORIES = [
     tint: 'rgba(168,176,180,0.16)',
     accent: '#a8b0b4',
     bgMotif: 'balance-grid',
+    cardMark: 'balance',
   },
   {
     code: 'Universal — every interview',
@@ -65,6 +70,7 @@ export const CATEGORIES = [
     tint: 'rgba(63,191,111,0.14)',
     accent: '#6bc2b0',
     bgMotif: 'signal-grid',
+    cardMark: 'tape',
   },
 ];
 

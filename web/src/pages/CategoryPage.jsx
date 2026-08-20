@@ -48,10 +48,8 @@ export default function CategoryPage({
               </div>
             </div>
             <div className="valufin-category-hero-content scroll-element-once">
-              <div className="valufin-scene-panel">
-                <h1 className="valufin-category-hero-title">{title}</h1>
-                <p className="valufin-hero-sub">{caption}</p>
-              </div>
+              <h1 className="valufin-category-hero-title">{title}</h1>
+              <p className="valufin-hero-sub">{caption}</p>
             </div>
             <div className="valufin-hero-scroll-hint">
               <span>Scroll for topics</span>
@@ -73,10 +71,8 @@ export default function CategoryPage({
             </div>
           </div>
           <div className="valufin-category-hero-content scroll-element-once">
-            <div className="valufin-scene-panel">
-              <h1 className="valufin-category-hero-title">{title}</h1>
-              <p className="valufin-hero-sub">{caption}</p>
-            </div>
+            <h1 className="valufin-category-hero-title">{title}</h1>
+            <p className="valufin-hero-sub">{caption}</p>
           </div>
           <div className="valufin-hero-scroll-hint">
             <span>Scroll for topics</span>

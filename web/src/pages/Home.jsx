@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TickerTape from '../components/TickerTape';
 import SceneMotif from '../components/SceneMotifs';
-import Sparkline from '../components/Sparkline';
+import ScenePanelMark from '../components/ScenePanelMark';
 import { useScrollReveal } from '../lib/useScrollReveal';
 import { CATEGORIES } from '../data/categories';
 
@@ -56,7 +56,7 @@ function CategoryScene({ cat, navigate }) {
           <h2 className="valufin-scene-title">{cat.title}</h2>
           <p className="valufin-scene-desc">{cat.description}</p>
           <p className="valufin-scene-enter">Begin →</p>
-          <Sparkline seed={cat.title} />
+          <ScenePanelMark type={cat.cardMark} seed={cat.title} />
         </div>
       </div>
     </div>
